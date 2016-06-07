@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 50px;
+			height: 50px;
+			/*background: red;*/
+			margin-left: 20px;
+			float: left;
+		}
+		input{
+			width: 100px;
+			height: 50px;
+			margin-left: 20px;
+			float: left;
+		}
+		.text{
+			font-size: 45px;
+			text-align: center;
+			line-height: 50px;
+		}
+		span{
+			float: left;
+			font-size: 30px;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id="start">
+	<input type="button" value="暂停" id="stop">
+	<input type="button" value="重置" id="reset">
+	<div id="min"></div>
+	<span>:</span>
+	<div id="s"></div>
+	<span>:</span>
+
+	<div id="ms"></div>
+	<script>
+		var div=document.getElementsByTagName('div')
+		var ipt=document.getElementsByTagName('input')
+		// var start=document.getElementById('start');
+		// var stop=document.getElementById('stop');
+		// var reset=document.getElementById('reset');
+		// var min=document.getElementById('min');
+		// var s=document.getElementById('s');
+		// var ms=document.getElementById('ms');
+		var i=0;
+		var k=0;
+		var j=0;
+		var time="null";
+		div[0].innerHTML=i;
+		div[1].innerHTML=j;
+		div[2].innerHTML=k;
+		ipt[0].onclick=function (){
+			clearInterval(time);
+			time=setInterval(aa,10);
+			function aa(){
+				i++;
+			if (i>99) {
+				i=0;
+			}
+			div[2].innerHTML=i;
+
+			if(i==99){
+				j++;
+			}
+			div[1].innerHTML=j;
+
+			if(j==60){
+				j=0;
+				k++;
+			}
+			div[0].innerHTML=k;
+			}
+		}
+		ipt[2].onclick=function(){
+			i=0;j=0;k=0;
+			div[0].innerHTML=i;
+			div[1].innerHTML=j;
+			div[2].innerHTML=k;
+		}
+		ipt[1].onclick=function(){
+			clearInterval(time);
+		}
+		// ipt[2].onclick=function(){
+		// 	i=0;j=0;k=0;
+		// 	div[0].innerHTML=i;
+		// 	div[1].innerHTML=j;
+		// 	div[2].innerHTML=k;
+		// }
+		div[0].className="text";
+		div[1].className="text";
+		div[2].className="text";
+		// s.className="text";
+		// min.className="text";
+		// ms.className="text";
+
+
+	</script>
+</body>
+</html>

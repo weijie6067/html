@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS变形</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	// cvs.strokeRect(5,5,200,100);
+	cvs.translate(100,100);//先改变坐标轴再变形
+	cvs.strokeRect(5,5,200,100);
+	cvs.fillRect(-100,-100,200,100)
+	cvs.rotate(45);
+	cvs.fillStyle="#879876"
+	cvs.fillRect(0,0,200,100)
+	cvs.scale(2,2)
+	cvs.fillStyle="#810076"
+	cvs.fillRect(100,0,200,100)
+	</script>
+</body>
+</html>

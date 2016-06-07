@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS图形叠加</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	
+	cvs.beginPath();
+	cvs.fillStyle="red";
+	cvs.arc(150,150,100,0,2*Math.PI);
+	
+	cvs.fill();
+	cvs.closePath();
+	// cvs.globalCompositeOperation="source-in"
+	// cvs.globalCompositeOperation="source-out"
+	// cvs.globalCompositeOperation="source-atop"
+	// cvs.globalCompositeOperation="source-over"
+	// cvs.globalCompositeOperation="destination-over"
+	// cvs.globalCompositeOperation="destination-in"
+	// cvs.globalCompositeOperation="destination-out"
+	// cvs.globalCompositeOperation="destination-atop"
+	// cvs.globalCompositeOperation="lighter"
+	// cvs.globalCompositeOperation="xor"
+		
+
+
+	cvs.beginPath();
+	cvs.fillStyle="green"
+	cvs.fillRect(150,150,100,100)
+	
+	cvs.closePath();
+	// cvs.beginPath();
+
+	// cvs.closePath();
+	// cvs.beginPath();
+
+	// cvs.closePath();
+	// cvs.beginPath();
+
+	// cvs.closePath();
+	</script>
+</body>
+</html>

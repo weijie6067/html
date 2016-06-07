@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS位图填充</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	var imgs=new Image();
+	imgs.src="zaoke/img/11.jpg";
+	imgs.onload=function(){
+		var pic=cvs.createPattern(imgs,"no-repeat");
+		cvs.fillStyle=pic
+		cvs.fillRect(50,50,1000,800)
+	}
+	cvs.save();
+	cvs.beginPath();
+
+	cvs.closePath();
+	cvs.restore();
+	</script>
+</body>
+</html>

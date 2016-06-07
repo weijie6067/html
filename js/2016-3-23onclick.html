@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.a{
+			width: 200px;
+			height: 100px;
+			border-radius:10px;
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#f06449), to(#db1201));
+			position: fixed;
+			z-index: 100;
+		}
+		.b{
+			width: 198px;
+			height: 300px;
+			border-radius: 0 0 10px 10px ;
+			border:1px solid gray;
+			border-top: none;
+			position: absolute;
+			top: 101px;
+			display: none;
+			background: yellow;
+			z-index: 99;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="a"></div>
+	<div class="b"></div>
+	
+
+	<script>
+		var x=document.getElementsByTagName('div');
+			x[0].onclick=function(){
+			
+				if(x[1].style.display=="block"){ 
+					x[1].style.display="none";
+				}
+				else{
+					x[1].style.display="block";
+				}
+			}
+		
+		
+		
+
+		// var oDiv = document.getElementsByTagName('div');
+		// var show = document.getElementById('abc');
+			
+	</script>
+</body>
+</html>

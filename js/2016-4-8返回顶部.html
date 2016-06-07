@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			/*width: 200px;*/
+			height: 1000px;
+			/*background: red;*/
+		}
+		p{
+			position: fixed;
+			width: 50px;
+			height: 50px;
+			background: #777;
+			right: 0px;
+			bottom: 0px;
+			display: none;
+		}
+		.a{
+			background: yellow;
+		}
+		.b{
+			background: red;
+
+		}
+		.c{
+			background: blue;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="a"></div>
+	<div class="b"></div>
+	<div class="c"></div>
+	<div class="a"></div>
+	<div class="b"></div>
+
+	<p></p>
+	<script>
+	var i=0;
+	var p=document.getElementsByTagName('p');
+
+	window.onmousewheel=function(){
+		a=document.body.scrollTop||window.pageYOffset||document.documentElement.scrollTop;
+		if(a>800){
+			p[0].style.display="block";
+		}
+		if(a<800){
+			p[0].style.display="none";
+		}
+	}
+	p[0].onclick=function(){
+		var time=null;
+		clearInterval(time);
+		time=setInterval(move,10)
+		
+		function move(){
+			a-=50;
+			document.documentElement.scrollTop=a;
+			window.pageYOffset=a;
+			document.body.scrollTop=a;
+			if(a<=0){
+				clearInterval(time);
+			}
+			console.log(a);
+		}
+	}	
+		
+	
+		
+		
+	
+	</script>
+</body>
+</html>

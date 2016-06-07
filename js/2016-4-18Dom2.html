@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom2</title>
+	<style>	
+	.a{
+		width: 200px;
+		height: 200px;
+		background: #444;
+	}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	var div=document.getElementsByTagName('div');
+	var newdiv=document.createElement('div');
+	newdiv.setAttribute('class','a');
+	div[0].appendChild(newdiv);
+	</script>
+</body>
+</html>

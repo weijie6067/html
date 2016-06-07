@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2016-5-5jq核心</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div id="aa"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		console.log($("div").size())
+		$("div").each(function(i){
+			console.log(i)
+		})
+		console.log($("#aa").index())
+	</script>
+</html>

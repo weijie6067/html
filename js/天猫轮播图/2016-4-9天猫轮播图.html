@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天猫轮播图</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		#lunbo{
+			position: relative;
+			width: 1250px;
+			height: 500px;
+			margin: auto;
+			margin-top: 50px;
+			cursor: pointer;
+		}
+		#outer{
+			position: relative;
+			margin:  auto;
+			overflow: hidden;
+			/*height: 300px;*/
+		}
+		#inner{
+			position: absolute;
+		}
+		img{
+			width: 1250px;
+			height: 500px;	
+			float: right;
+		}
+		#point{
+			position: absolute;
+			top: 465px;
+			left: 480px;
+		}
+		ul{
+			list-style: none;
+			
+		}
+		li{
+			float: right;
+			width: 20px;
+			height: 20px;
+			background: url(img/point.png);
+			margin-left: 15px;
+		}
+		#l,#r{
+			width: 42px;
+			height: 42px;
+			background: url(img/btn.png) 0 -84px ; 
+			position: absolute;
+			left: 20px;
+			top:230px;
+		}
+		#r{
+			background: url(img/btn.png) 0 -126px ;
+			left: 1190px;
+		}
+		#l:hover{
+			background: url(img/btn.png) -168px -84px ; 
+		}
+		#r:hover{
+			background: url(img/btn.png) -168px -126px ; 
+		}
+		.white{
+			background: url(img/point2.png);
+		}
+	</style>
+	
+</head>
+<body>
+<div id="lunbo">
+	<div id="outer">
+		<div id="inner">
+			<img src="img/1.jpg" alt="">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+			<img src="img/5.jpg" alt="">
+			<img src="img/6.jpg" alt="">
+			<img src="img/1.jpg" alt="">
+		</div>
+	</div>
+	<div id="l"></div>
+	<div id="r"></div>
+
+	<div id="point">
+			<ul>
+				<li style="display:none"></li>
+				<li ></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li ></li>
+				<li class="white"></li>
+			</ul>
+	</div>
+</div>	
+	<script>
+	var outer=document.getElementById('outer');
+	var inner=document.getElementById('inner');
+	var img=document.getElementsByTagName('img');
+	var li=document.getElementsByTagName('li');
+	var l=document.getElementById('l');
+	var r=document.getElementById('r');
+	var time1,time2,time3,time4;
+	var scrollleft=0;
+	inner.style.width=img[0].offsetWidth*img.length+"px";
+	outer.style.width=img[0].offsetWidth+"px";
+	outer.style.height=img[0].offsetHeight+"px";
+	var x=img[0].clientWidth*(img.length-1);
+	function a(){
+		clearInterval(time2);
+		function b(){
+			x-=10;
+			if(x%img[0].offsetWidth==0){
+				clearInterval(time2);
+			}
+			if(x<=0){
+				x=img[0].offsetWidth*(img.length-1);
+			}
+		outer.scrollLeft=x;
+		}
+		time2=setInterval(b,1)
+		for (var j = 0; j < li.length; j++) {
+			li[j].style.background="url(img/point.png)";
+		};
+		li[Math.ceil(x/img[0].offsetWidth)-1].style.background="url(img/point2.png)";
+
+		console.log(Math.ceil(x/img[0].offsetWidth))
+		
+
+	}
+	time1=setInterval(a,1000);
+	//轮播
+	for (var i = 0; i < li.length; i++) {
+		li[i].index=i;
+		li[i].onmouseover=function(){
+			for (var i = 0; i < li.length; i++) {
+				li[i].style.background="url(img/point.png)";
+			}
+			li[this.index].style.background="url(img/point2.png)";
+			//点点默认样式
+			this.onclick=function(){
+				clearInterval(time1);
+				clearInterval(time2);
+				clearInterval(time4);
+				var m=this.index*img[0].offsetWidth;
+				function d(){
+					if(x<m){
+						x+=60;
+						if(x>=m){
+							clearInterval(time4);
+							time1=setInterval(a,1000);
+						}
+					}
+					else{
+						x-=60;
+						if(x<m){
+							clearInterval(time4);
+							time1=setInterval(a,1000);
+						}
+					}
+					outer.scrollLeft=x;
+				}
+				time4=setInterval(d,1)
+			}
+			// 点点点击
+		}
+		
+	}
+
+	//点点
+	l.onclick=function(){
+		clearInterval(time1);
+		clearInterval(time2);
+		clearInterval(time3);
+		function c(){
+			clearInterval(time1);
+			x+=10;
+			if(x%img[0].offsetWidth==0){
+				clearInterval(time3);
+				time1=setInterval(a,1000);
+			}
+			if(x>=img[0].offsetWidth*(img.length-1)){
+				x=0;
+			}
+			outer.scrollLeft=x;
+		}
+		time3=setInterval(c,1);
+	}
+	r.onclick=function(){
+		clearInterval(time1);
+		a();
+		time1=setInterval(a,1000);
+	}
+	//按钮
+	</script>
+</body>
+</html>

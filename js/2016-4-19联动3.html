@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动</title>
+	<style>
+	*{
+		font-size: 20px;
+		font-family: "微软雅黑";
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+		float: left;
+		/*height: 100%;*/
+		border: 1px solid rgb(165,199,254);
+		/*padding:1px 12px 4px 6px;*/
+
+		display: none;
+
+	}
+	p{	
+		width: 
+		cursor: pointer;
+		border: 1px solid rgb(165,199,254);
+		padding:1px 17px 2px 6px;
+		position: relative;
+	}
+	li{
+		height: 25px;
+		cursor: pointer;
+		padding:1px 27px 2px 6px;
+
+	}
+	li:hover{
+		background: rgb(30,144,255);
+	}
+	
+	img{
+		
+		width: 10px;
+		height: 5px;
+		left: 7px;
+		top: -3px;
+		position:relative;
+	}
+	.select{
+		margin-top: 100px;
+		margin-left: 500px;
+	}
+	#outer1,#outer2{
+		height: 75px;
+
+	}
+	.l,.r{
+		float: left;
+		margin-left: 10px;
+	}
+	</style>
+</head>
+<body>
+<div class="select">
+	<div class="l">
+		<p><span>国家</span><img src="images/jiantou.png" alt=""></p>
+		<div id="outer1">
+			<ul id="country"></ul>
+		</div>
+		
+	</div>
+	<div class="r">
+		<p><span>城市</span><img src="images/jiantou.png" alt=""></p>
+		<div id="outer2">
+			<ul id="city"></ul>
+		</div>
+		
+	</div>
+</div>
+	
+	<script>
+	var arr=["中国","日本","韩国","美国","英国",'重庆','广州']
+	var arrCity=[['北京','上海','重庆','广州','天津'],['东京','北海道','福冈','千叶','大阪'],['首尔','仁川','釜山','春川','庆州'],['纽约','华盛顿','洛杉矶','芝加哥','休士顿'],['伦敦','牛津','剑桥','曼彻斯特','利物浦']]
+	var con=document.getElementById('country').getElementsByTagName('li');
+	var city=document.getElementById('city').getElementsByTagName('li');
+	var p=document.getElementsByTagName('span');
+	var ul=document.getElementsByTagName('ul');
+	var outer1=document.getElementById('outer1');
+	var outer2=document.getElementById('outer2');
+	var time=null;
+	var a=0;
+
+	p[0].onclick=function country(){
+		ul[0].style.display="block";
+		
+		
+		var newliA=""
+		for (var i = 0; i < arr.length; i++) {
+			newliA+="<li>"+arr[i]+"</li>";
+		}; 
+		ul[0].innerHTML=newliA;
+		// if(>6){
+		// 	outer1.style.overflow="scroll"
+		// }
+		
+	}
+	time=setInterval(aa,200)
+	function aa(){
+		if(con.length!=0){
+			for (var i = 0; i < arr.length; i++) {
+				con[i].index=i;
+				con[i].onclick=function(){
+					ul[0].style.display="none";
+
+					p[0].innerHTML=arr[this.index]
+					var newliB=""
+					a=this.index
+					for (var i = 0; i < arrCity[this.index].length; i++) {
+						newliB+="<li>"+arrCity[this.index][i]+"</li>"
+					}	
+					ul[1].innerHTML=newliB;
+					ul[1].style.display="none";
+					p[1].innerHTML=arrCity[this.index][0];
+				}		
+			}
+		}		
+	}	
+	p[1].onclick=function(){
+		for (var i = 0; i < city.length; i++) {
+			ul[1].style.display="block";
+			city[i].indexa=i
+			city[i].onclick=function(){
+				p[1].innerHTML=arrCity[a][this.indexa];
+				ul[1].style.display="none";
+			}
+		}
+	}
+			
+		
+	
+		
+	
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>starMove</title>
+	<style type="text/css">
+	body{
+		background: #000;
+	}
+	.out{
+		width: 1920px;
+		height: 960px;
+		/* -webkit-transform-style: preserve-3d; */
+		/* transform: rotateX(60deg); */
+		perspective: 1500px;
+		
+	}
+	#can{
+		transform: rotateX(40deg);
+		perspective:1500px;
+		/* transform: rotateX(60deg); */
+	}
+	</style>
+</head>
+<body>
+<div class="out">
+	<canvas id="can" width="1920" height="960" ></canvas>
+</div>
+
+<script  type="text/javascript">
+var can =document.getElementById("can")
+var ctx=can.getContext("2d");
+var arrx=[];
+var timedraw;
+var W=window.innerWidth;
+var H=window.innerHeight;
+can.width= W;
+can.height = H;
+
+var mp=200;
+
+
+function sky(){	
+	var grd=ctx.createRadialGradient(860,6000,4500,860,6000,6000);
+	grd.addColorStop(0.0 ,"black");
+	grd.addColorStop(0.55 ,"#08166c");
+	grd.addColorStop(0.75 ,"black");
+	ctx.fillStyle=grd;
+	ctx.fillRect(0,0,W,H);
+}
+// sky();
+var arr=[];
+for (var i = 0; i < mp; i++) {
+	arr.push({
+		x: Math.random()*W,
+		y: Math.random()*400,
+		r: Math.random()*4
+		
+	})
+	// var obj = {}
+	// obj.x = Math.random()*W,
+	// obj.y = Math.random()*900,
+	// obj.r = Math.random()*3
+	// arr.push(obj)
+}
+console.log(arr)
+function draw(){
+	ctx.clearRect(0,0,W,H);
+	sky()
+	ctx.strokeStyle="white";
+	ctx.beginPath();
+	for (var i = 0; i < mp; i++) {
+		var p=arr[i];
+		ctx.moveTo(p.x,p.y+500);
+		ctx.lineTo(p.x,p.y+500-p.r)
+		ctx.lineWidth=2
+	}
+	ctx.stroke()
+	update()
+	
+}
+// draw()
+
+function update(){
+	for (var i = 0; i < mp; i++) {
+		p=arr[i];
+		p.y-=10;
+		if(p.y<0){
+			arr[i]={x: Math.random()*W, y:500, r: p.r}
+		}
+	}	
+}
+setInterval(draw,15)
+
+</script>
+	
+
+</body>
+</html>

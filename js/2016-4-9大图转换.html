@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图转换</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		#outer{
+			position: relative;
+			margin: 50px auto;
+			overflow: hidden;
+			/*height: 300px;*/
+		}
+		#inner{
+			position: absolute;
+		}
+		img{
+			width: 400px;
+			height: 300px;	
+			float: left;
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="outer">
+		<div id="inner">
+			<img src="img/4.jpg" alt="">
+			<img src="img/1.jpg" alt="">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+		</div>
+	</div>
+	<script>
+	var outer=document.getElementById('outer');
+	var inner=document.getElementById('inner');
+	var img=document.getElementsByTagName('img');
+	var time1,time2;
+	var scrollleft=0;
+	inner.style.width=img[0].offsetWidth*img.length+"px";
+	outer.style.width=img[0].offsetWidth+"px";
+	outer.style.height=img[0].offsetHeight+"px";
+	var x=img[0].clientWidth*(img.length-1);
+	var i=img.length;
+	function a(){
+		clearInterval(time2)
+		function b(){
+			x-=10;
+			if(x%400==0){
+				clearInterval(time2)
+			}
+			if(x<=0){
+				x=img[0].offsetWidth*(img.length-1);
+			}
+		outer.scrollLeft=x;
+		}
+		time2=setInterval(b,10)
+	}
+	time1=setInterval(a,1000);
+	</script>
+</body>
+</html>

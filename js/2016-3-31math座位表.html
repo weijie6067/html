@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>座位表</title>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		.l{
+			float: left;
+		}
+		.r{
+			float: right;
+		}
+		div{
+			height: 960px;
+			width: 1920px;
+			position: absolute;
+		}
+		.div1{
+			z-index: 97;
+		}
+		ul{
+			list-style:none;
+			width: 835px;
+		}
+		li{
+			width: 265px;
+			height: 125px;
+			background: #555;
+			float: left;
+			margin-top: 10px;
+			margin-left: 10px;
+			color: white;
+			font-size: 55px;
+			line-height: 125px;
+			text-align: center;
+			position: relative;
+		}
+		.show{
+			z-index: 98;
+		}
+		.hidden{
+			z-index: 96;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="l">
+		
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			
+		</ul>
+		<ul class="r">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="div1"></div>
+	<script>
+		var arr = ["周立涛","王薇","方宇宏","孙赫","刘春光","兰勇","冯世强","张琪","王希然","牛春强","林园园","赵弯弯","马青青","江晓咏","文武","王龙飞","黎家伟","刘鹏林","谢柳生","梁聪","郭凤娟","包晗","郝琪","刘婷婷","卜旱秋","李沛虹","李航","张晓晶","程慧萍","郭静","朱小迪","孙宏宇","齐凯","李文超","曾维安","黄斌","高飞翔","徐毅飞","彭宝保","孔东杰","蒋从明","刘玉骋",];
+		var div=document.getElementsByTagName('div');
+		var li=document.getElementsByTagName('li');
+		var time=null;
+		var i=0;
+		var b=0;
+		li[b].index=b;
+		for (var i = 0; i < li.length; i++) {
+			var x=Math.floor(Math.random()*255) ;
+			var y=Math.floor(Math.random()*255) ;
+			var z=Math.floor(Math.random()*255) ;
+			li[i].innerHTML=arr[i];
+			li[i].style.background="rgb("+x+","+y+","+z+")"
+			
+		};
+		div[1].onclick=function(){
+			clearInterval(time);
+				div[1].style.background="rgba(56,56,56,0.9)"
+				time=setInterval(a,50);
+				function a(){
+					for (var j = 0; j < 42; j++) {
+						
+						li[j].className="hidden";
+					};
+						var b=Math.floor(Math.random()*42);
+						li[b].className="show";
+					}
+					function c(){
+						clearInterval(time);
+					}
+					setTimeout(c,3000)
+				}
+
+			
+		
+				
+			
+		// div[0].onclick=function (){
+		// 	time=setInterval(a,10)
+		// 	function a(){
+		// 		li[i].innerHTML=arr[i];
+		// 		i++;
+		// 		console.log(i);
+		// 		if(i==42){
+		// 			clearInterval(time);
+		// 		}
+		// 	}
+		// }
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>borderimage</title>
+		<style type="text/css">
+			.b{
+				border-image-source: url(images/bg.png);
+				border-image-width: 40px;
+				border-image-slice: 26 26 26 26;
+				border-image-repeat: round;
+				height: 500px;
+				width: 750px;
+				padding: 40px;
+				background: url(images/3.jpg);
+				background-size: 100% 100%;
+				background-clip:content-box;
+				background-origin: padding-box;
+			}
+			.a{
+				box-shadow: 10px 10px 10px 10px #FF0000;
+				height: 200px;
+				width: 200px;
+				
+			}
+			span{
+				text-shadow: 10px 10px 10px  #555555;
+				font-size: 30px;
+			}
+			.c{
+				height: 500px;
+				width: 750px;
+				background: url(images/3.jpg);
+				background-clip: padding-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="b"></div>
+		<div class="a">
+			<span>基于JS的动态效果开发</span>
+		</div>
+		<div class="c">
+			
+		</div>
+	</body>
+</html>

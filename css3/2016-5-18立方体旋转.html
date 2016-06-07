@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立方体旋转</title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0;
+				
+			}
+			ul{
+				list-style: none;
+			}
+			li{
+				position: absolute;
+				
+			}
+			body{
+				background: url(images/bg.jpg) no-repeat;
+				background-size: 100%;
+			}
+			.box .max{
+				height: 200px;
+				width: 200px;
+				transform-style: preserve-3d;
+				font-size: 30px;
+				color: white;
+				text-align: center;
+			}
+			.min{
+				line-height:100px ;
+				
+			}
+			.max{
+				line-height: 200px;
+								transform-style: preserve-3d;
+			}
+			.min li{
+				height: 100px;
+				width: 100px;
+				background: #FF0000;
+			
+			}
+			.max li{
+				height: 200px;
+				width: 200px;
+				background: #827378;
+				opacity: 0.1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="min">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<ul class="max">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</body>
+</html>

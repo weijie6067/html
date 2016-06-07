@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片滚动</title>
+	<style>
+		img{
+			width: 400px;
+			height: 300px;
+			float: left;
+			border: none;
+		}
+		#outer{
+			position: relative;
+			overflow: hidden;
+			margin: auto;
+			box-shadow: 2px 3px 4px black;
+		}
+		.inner{
+			cursor: pointer;
+		}
+		.left, .right {
+			position: absolute;
+			display: block;
+			background: red;
+			top:140px;
+			width: 20px;
+			height: 20px;
+		}
+		.left{
+			left: 10px;
+		}
+		.right{
+			left: 370px;
+		}
+		ul{
+			list-style: none;
+			width: 160px;
+			margin:20px auto;
+		}
+		li{
+			width: 20px;
+			height: 20px;
+			background: blue;
+			float: left;
+			margin: 0px 10px;
+			color:white;
+		}
+		.pic{
+			width: 400px;
+			margin: 20px auto;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+<div class="pic">
+	<div class="outer" id="outer">
+		<div class="inner" id="inner">
+			<img src="img/1.jpg" alt="">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+			<img src="img/1.jpg" alt="">
+		</div>
+	</div>	
+		<span class="left"></span>
+		<span class="right"></span>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	
+</div>	
+	<script>
+		var img=document.getElementsByTagName('img');
+		var outer=document.getElementById('outer');
+		var inner=document.getElementById('inner');
+		var span=document.getElementsByTagName('span');
+		var li=document.getElementsByTagName('li');
+		var time=null;
+		var spead=1;
+		var flag=true;
+		// inner.innerHTML+=inner.innerHTML;
+		inner.style.width=img[0].offsetWidth*img.length+"px";
+		outer.style.width=img[0].offsetWidth+"px";
+		outer.style.height=img[0].offsetHeight+"px";
+		span[0].onclick=function(){
+			flag=true;
+			spead=1;
+		}
+		span[1].onclick=function(){
+			flag=false;
+			spead=-1;
+		}
+		function a(){
+			var x=outer.scrollLeft;
+			x+=spead;
+			if(flag){
+				if(x>=inner.offsetWidth-outer.offsetWidth){
+				x=0;
+				}
+
+			}
+			else{
+				if(x<0){
+					x=inner.offsetWidth-outer.offsetWidth;
+				}
+			}
+			
+			outer.scrollLeft=x;	
+		}
+		time=setInterval(a,1);
+		
+		outer.onmouseout=function(){
+			time=setInterval(a,1);
+		}	
+		outer.onmouseover=function(){
+			clearInterval(time);
+		}
+		for (var i = 0; i < li.length; i++) {
+			li[i].index=i;
+			li[i].onclick=function(){
+				for (var i = 0; i < li.length; i++) {
+					li[i].style.background="blue";
+				};
+				this.style.background="red";
+				outer.scrollLeft=this.index*img[0].offsetWidth;
+			}
+		};
+			
+			
+		
+		
+		
+	</script>
+</body>
+</html>

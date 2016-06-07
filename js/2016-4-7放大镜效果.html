@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+		#outer{
+			width: 320px;
+			height: 200px;
+			background: url(images/01.jpg);
+			background-size: 100%;
+			box-shadow: 3px 4px 5px #555;
+			margin: auto;
+			position: relative;
+		}
+		#inner{
+			width: 100px;
+			height: 50px;
+			background:rgba(255,255,255,0.5);
+			position: absolute;
+			/*display: none;*/
+		}
+		#bigouter{
+			width: 1000px;
+			height: 500px;
+			overflow: hidden;
+			margin: 50px auto;
+			box-shadow: 3px 4px 5px #555;
+			display: none;
+		}
+		#biginner{
+			width: 1920px;
+			height: 1200px;
+			background: url(images/01.jpg);
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<div id="inner">
+		</div>
+	</div>
+	<div id="bigouter">
+		<div id="biginner"></div>
+	</div>
+	<script>
+		var time=null;
+		var outer=document.getElementById('outer');
+		var inner=document.getElementById('inner');
+		var bigouter=document.getElementById('bigouter')
+		var biginner=document.getElementById('biginner')
+		//s-鼠标拖动图片
+		outer.onmouseover=function(){
+			inner.style.display="block";
+			bigouter.style.display="block";
+		}
+		outer.onmouseout=function(){
+			inner.style.display="none";
+			// bigouter.style.display="none";
+		}
+		outer.onmousemove=function(event){
+
+			var e=event||window.event;
+			var x=e.clientX-outer.offsetLeft-inner.offsetWidth/2;
+			var y=e.clientY-outer.offsetTop-inner.offsetHeight/2;
+			e.preventDefault();
+			if(x<0){
+				x=0
+			}
+			if(y<0){
+				y=0
+			}
+			if(x>outer.offsetWidth-inner.offsetWidth){
+				x=outer.offsetWidth-inner.offsetWidth
+			}
+			if(y>outer.offsetHeight-inner.offsetHeight){
+				y=outer.offsetHeight-inner.offsetHeight
+			}
+			inner.style.left=x+"px";
+			inner.style.top=y+"px";
+		
+		//e-鼠标拖动图片
+			bigouter.scrollLeft=x*6;
+			bigouter.scrollTop=y*6;
+		}
+		
+	</script>
+</body>
+</html>

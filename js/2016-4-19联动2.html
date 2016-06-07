@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动</title>
+	<style>
+	*{
+		font-size: 20px;
+		font-family: "微软雅黑";
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+		float: left;
+		display: none;
+
+	}
+	p{
+		cursor: pointer;
+		float: left;
+	}
+	li{
+		width: 110px;
+		cursor: pointer;
+	}
+	li:hover{
+		background: rgb(30,144,255);
+	}
+	div{
+		width: 121px;
+		float: left;
+		/*text-align: center;*/
+		margin-left: 10px;
+	}
+	img{
+		margin-left: 5px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<p>CONUTRY</p><img src="images/jiantou.png" alt="">
+		<ul id="country">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div>
+	<p>CITY</p><img src="images/jiantou.png" alt="">
+	<ul id="city">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	</div>
+	<script>
+	var arr=["中国","日本","韩国","美国","英国",]
+	var arrCity=[['北京','上海','重庆','广州','天津'],['东京','北海道','福冈','千叶','大阪'],['首尔','仁川','釜山','春川','庆州'],['纽约','华盛顿','洛杉矶','芝加哥','休士顿'],['伦敦','牛津','剑桥','曼彻斯特','利物浦']]
+	var con=document.getElementById('country').getElementsByTagName('li');
+	var city=document.getElementById('city').getElementsByTagName('li');
+	var p=document.getElementsByTagName('p');
+	var ul=document.getElementsByTagName('ul');
+	var time=null;
+	var a=0;
+	p[0].onclick=function(){
+		ul[0].style.display="block";
+	}
+	for (var i = 0; i < con.length; i++) {
+		con[i].innerHTML=arr[i];
+		con[i].index=i;
+		con[i].onclick=function(){
+			p[0].innerHTML=arr[this.index];
+			ul[0].style.display="none";
+			p[1].innerHTML=arrCity[this.index][0];
+			a=this.index
+			p[1].onclick=function(){
+				for (var i = 0; i < city.length; i++) {
+					ul[1].style.display="block";
+					city[i].innerHTML=arrCity[a][i];
+					city[i].indexa=i
+					city[i].onclick=function(){
+						p[1].innerHTML=arrCity[a][this.indexa];
+						ul[1].style.display="none";
+					}
+				}
+			}
+		}
+		
+	}
+
+	</script>
+</body>
+</html>

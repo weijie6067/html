@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 500px;
+			height: 100px;
+			margin: 20px;
+			background: red;
+			color: white;
+			font-size: 50px;
+			line-height: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	
+	<script>
+		var divs=document.getElementsByTagName('div')
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].onclick=function(){
+				this.style.background="yellow";
+			}
+		};
+	</script>
+</body>
+</html>

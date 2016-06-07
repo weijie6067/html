@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>kdj</title>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background: #0e3610;
+	}
+	ul{
+		list-style: none;
+		color: #2ccb70;
+		font-family: "微软雅黑";
+		font-size: 22px;
+
+	}
+	.content{
+		width: 1100px;
+		height:500px ;
+		margin: 200px auto;
+	}
+	.txt{
+		height: 65px;
+		width: 300px;
+		border:1px solid #cfd7cf;
+		line-height: 65px;
+		text-indent: 25px;
+		bottom: 0px;
+		position: absolute;
+	}
+	.img{
+		width: 300px;
+		text-align: center;
+		display: block;	
+		transition: 0.7s;	
+		position: relative;
+		z-index: 50;
+	}
+	.allow{
+		position: absolute;
+		left: 230px;
+		top: 21px;
+		transition: 0.5s;			
+	}
+	ul{
+		float: left;
+		position: relative;
+		height: 290px;
+	}
+	.center{
+		margin: 0px 40px;
+	}	
+	.img:hover{
+		transform:rotate(360deg);
+	}
+	.txt:hover .allow{
+		left: 260px;
+	}
+	.hidden{
+		width: 320px;
+		height: 60px;
+		border-radius: 5px;
+		background-color: #20af6c;
+		color: #fff;
+		line-height: 60px;
+		text-align: center;
+		font-style: italic;
+		position: absolute;
+		left: -10px;
+		top: 50px;
+		opacity: 0;
+		z-index: 40;
+	}
+	.sanjiao{
+		display: block;
+		width: 0px;
+		border: 15px solid transparent;
+		border-top-color:#20af6c ;
+		position: absolute;
+		left: 145px;
+	}
+	.txt div{
+		position: absolute;
+		border: 1px solid #ba2e13;
+		opacity: 0;
+	}
+	.t{
+		top: -1px;
+		left: -200px;
+	}
+	.b{
+		top: 65px;
+		left: 400px;
+	}
+	.l{
+		top: 100px;
+		left: -1px;
+	}
+	.r{
+		top: -100px;
+		right:-1px;
+	}
+	</style>
+
+</head>
+<body>
+	<div class="content">
+		<ul>
+			<li class="img"><img src="img/mission.png" ></li>
+			<li class="hidden">My mission is clear<div class="sanjiao"></div></li>
+			<li class="txt">
+				MISSION <img class="allow" src="img/allow.png">
+				<div class="t"></div>
+				<div class="l"></div>
+				<div class="b"></div>
+				<div class="r"></div>
+			</li>
+		</ul>
+		<ul class="center">
+			<li class="img"><img src="img/play.png" ></li>
+			<li class="hidden">This is my play ground<div class="sanjiao"></div></li>
+			<li class="txt">
+				PLAY <img class="allow" src="img/allow.png">
+				<div class="t"></div>
+				<div class="l"></div>
+				<div class="b"></div>
+				<div class="r"></div>
+			</li>
+		</ul>
+		<ul>
+			<li class="img"><img src="img/touch.png" ></li>
+			<li class="hidden">Let's do something together<div class="sanjiao"></div></li>
+			<li class="txt">
+				ALLOW <img class="allow" src="img/allow.png">
+				<div class="t"></div>
+				<div class="l"></div>
+				<div class="b"></div>
+				<div class="r"></div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var num;
+	$(".txt").hover(function aa() {
+		num=$(this).parent().index();
+		$(".hidden").eq(num).css({display:"block"}).stop(false,true).css({zIndex:60}).animate({opacity:1,top:"140px"},500);
+		$(".t").eq(num).css({opacity:1}).stop(false,true).animate({left:"-1px",width:"300px"});
+		$(".b").eq(num).css({opacity:1}).stop(false,true).animate({left:"-1px",width:"300px"});
+		$(".l").eq(num).css({opacity:1}).stop(false,true).animate({top:"1px",height:"62px"});
+		$(".r").eq(num).css({opacity:1}).stop(false,true).animate({top:"1px",height:"62px"});
+	}, function() {
+		$(".hidden").eq(num).stop(false,true).css({zIndex:40}).animate({opacity:0,top:"50px"},300)
+		$(".t").eq(num).stop(false,true).animate({left:"-200px",width:"0px"}).delay(1).animate({opacity:0},1);
+		$(".b").eq(num).stop(false,true).animate({left:"400px",width:"0px"}).delay(1).animate({opacity:0},1);
+		$(".l").eq(num).stop(false,true).animate({top:"100px",height:"0px"}).delay(1).animate({opacity:0},1);
+		$(".r").eq(num).stop(false,true).animate({top:"-100px",height:"0px"}).delay(1).animate({opacity:0},1);
+	})
+	</script>
+</body>
+</html>

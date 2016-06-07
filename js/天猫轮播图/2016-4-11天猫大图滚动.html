@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2016-4-11天猫大图滚动</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		body{
+			background: #eeeeee;
+		}
+		#lunbo{
+			position: relative;
+			width: 1250px;
+			height: 500px;
+			margin: auto;
+			margin-top: 50px;
+			cursor: pointer;
+		}
+		#outer{
+			position: relative;
+			margin:  auto;
+			overflow: hidden;
+			/*height: 300px;*/
+		}
+		#inner{
+			position: absolute;
+		}
+		img{
+			width: 1250px;
+			height: 500px;	
+			float: left;
+		}
+		#point{
+			position: absolute;
+			top: 465px;
+			left: 480px;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: url(img/point.png);
+			margin-left: 15px;
+		}
+		#l,#r{
+			width: 42px;
+			height: 42px;
+			background: url(img/btn.png) 0 -84px ; 
+			position: absolute;
+			left: 20px;
+			top:230px;
+		}
+		#r{
+			background: url(img/btn.png) 0 -126px ;
+			left: 1190px;
+		}
+		#l:hover{
+			background: url(img/btn.png) -168px -84px ; 
+		}
+		#r:hover{
+			background: url(img/btn.png) -168px -126px ; 
+		}
+		.white{
+			background: url(img/point2.png);
+		}
+	</style>
+</head>
+<body>
+<div id="lunbo">
+	<div id="outer">
+		<div id="inner">
+			<img src="img/1.jpg" alt="">
+			<img src="img/6.jpg" alt="">
+			<img src="img/5.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/2.jpg" alt="">
+			<img src="img/1.jpg" alt="">
+		</div>
+	</div>
+	<div id="l"></div>
+	<div id="r"></div>
+	<div id="point">
+		<ul>
+			<li class="white"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script>
+	var outer=document.getElementById('outer');
+	var inner=document.getElementById('inner');
+	var img=document.getElementsByTagName('img');
+	var li=document.getElementsByTagName('li');
+	var l=document.getElementById('l');
+	var r=document.getElementById('r');
+	var time1,time2,timeleft,timepoint=null;
+	var speed=-10;
+	var x=outer.scrollLeft;
+	var flag=true;
+	outer.style.width=img[0].offsetWidth+"px";
+	outer.style.height=img[0].offsetHeight+"px";
+	inner.style.width=img[0].offsetWidth*img.length+"px";
+	inner.style.height=img[0].offsetHeight+"px";
+	var scrollmax=inner.offsetWidth-outer.offsetWidth;
+	console.log("scrollmax "+scrollmax);
+	time1=setInterval(time,2000);
+	function move(){
+		x+=speed;
+		if(x%img[0].offsetWidth==0){
+			clearInterval(time2);
+		}
+		if(x<=0){
+			x=scrollmax;
+		}
+		outer.scrollLeft=x;
+		for (var i = 0; i < li.length; i++) {
+			li[i].style.background="url(img/point.png)";
+		}
+
+		var liLength=li.length-Math.floor(x/img[0].offsetWidth)
+		if(liLength>=li.length){
+			liLength=0
+		}
+		li[liLength].style.background="url(img/point2.png)"
+	}
+	function time(){
+		clearInterval(time2);
+		time2=setInterval(move,1);
+	}
+	// time2=setInterval(move,1);
+	l.onclick=function(){
+		clearInterval(time1)
+		clearInterval(time2)
+		clearInterval(timeleft);
+		function left(){
+			clearInterval(time2);
+			x+=10;
+			if(x%img[0].offsetWidth==0){
+				clearInterval(timeleft);
+				time1=setInterval(time,2000);
+			}
+			if(x>=img[0].offsetWidth*(img.length-1)){
+				x=0;
+			}
+			outer.scrollLeft=x;
+			for (var i = 0; i < li.length; i++) {
+			li[i].style.background="url(img/point.png)";
+			}
+			if(x>img[0].offsetWidth){
+				li[li.length-Math.ceil(x/img[0].offsetWidth)].style.background="url(img/point2.png)"
+			}
+		}
+		timeleft=setInterval(left,1);
+	}
+	r.onclick=function(){
+		flag=true;
+		clearInterval(time1);
+		time();
+		time1=setInterval(time,2000);
+	}
+	for (var i = 0; i < li.length; i++) {
+		li[i].index=i;
+		li[i].onmouseover=function (){
+			clearInterval(time1)
+			clearInterval(time2)
+			for (var i = 0; i < li.length; i++) {
+				li[i].style.background="url(img/point.png)";
+			};
+			this.style.background="url(img/point2.png)";
+			var m=this.index*img[0].offsetWidth
+			function point(){
+				
+				var liLength=li.length-Math.floor(x/img[0].offsetWidth);
+				if(this.index>liLength){
+					x-=20;
+					if(x<0){
+						x=scrollmax;
+					}
+					if(x<(li.length-this.index)*img[0].offsetWidth){
+						clearInterval(timepoint);
+					}
+					console.log((li.length-this.index)*img[0].offsetWidth)
+					console.log(this.index)
+				}else{
+					x+=20;{
+						if(x>scrollmax){
+							x=0;
+						}
+					}
+				}
+				
+				
+
+				outer.scrollLeft=x;
+			}
+			timepoint=setInterval(point,1)
+		}
+	}
+	
+</script>
+</body>
+</html>

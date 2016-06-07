@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2016-4-13大图渐变</title>
+	<script src="2016-4-25tmall.js"></script>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		body{
+			background: #555;
+		}
+		#lunbo{
+			position: relative;
+			width: 1250px;
+			height: 500px;
+			margin: auto;
+			margin-top: 50px;
+			cursor: pointer;
+		}`
+		#outer{
+			position: relative;
+			margin:  auto;
+			overflow: hidden;
+		}
+		#inner{
+			position: absolute;
+		}
+		img{
+			width: 1250px;
+			height: 500px;
+			position: absolute;
+			opacity: 0;
+		}
+		#point{
+			position: absolute;
+			top: 465px;
+			left: 480px;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: url(images/point.png);
+			margin-left: 15px;
+		}
+		#l,#r{
+			width: 42px;
+			height: 42px;
+			background: url(images/btn.png) 0 -84px ; 
+			position: absolute;
+			left: 20px;
+			top:230px;
+		}
+		#r{
+			background: url(images/btn.png) 0 -126px ;
+			left: 1190px;
+		}
+		#l:hover{
+			background: url(images/btn.png) -168px -84px ; 
+		}
+		#r:hover{
+			background: url(images/btn.png) -168px -126px ; 
+		}
+		.white{
+			background: url(images/point2.png);
+		}
+	</style>
+</head>
+<body>
+<div id="lunbo">
+	<div id="inner">
+		<img src="images/1.jpg" alt="" style="opacity:1">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+	</div>
+	<div id="l"></div>
+	<div id="r"></div>
+	<div id="point">
+		<ul>
+			<li class="white"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script>
+	var inner=document.getElementById('inner');
+	var img=document.getElementsByTagName('img');
+	var li=document.getElementsByTagName('li');
+	var l=document.getElementById('l');
+	var r=document.getElementById('r');
+	var time1,time2,timeleft,timepoint=null;
+	var speed=-0.01;
+	var m=1;
+	var n=0;
+	var s=0;
+	var a=0;
+	var num=0
+	inner.style.width=img[0].offsetWidth+"px";
+	inner.style.height=img[0].offsetHeight+"px";
+	// change()
+	// time1=setInterval(change,2000)
+	mn(m,n)
+	time2=setInterval(mn,1);
+
+ </script>
+</body>
+</html>

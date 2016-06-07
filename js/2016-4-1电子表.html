@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子表</title>
+	<style>
+		span{
+			font-size: 100px;
+			font-family: "微软雅黑";
+		}
+	</style>
+</head>
+<body>
+	<span></span>
+	<span>&nbsp;时&nbsp;</span>
+	<span></span>
+	<span>&nbsp;分&nbsp;</span>
+	<span></span>
+	<span>&nbsp;秒&nbsp;</span>
+	<span></span>
+	<span>&nbsp;毫秒&nbsp;</span>
+	<script>
+	time=setInterval(a,1)
+	function  a() {
+		var s=document.getElementsByTagName('span');
+		var t=new Date();
+		var h=t.getHours();
+		var min=t.getMinutes();
+		var sec=t.getSeconds();
+		var msec=t.getMilliseconds();
+		s[0].innerHTML=h;
+		s[2].innerHTML=min;
+		s[4].innerHTML=sec;
+		s[6].innerHTML=msec;
+	}
+		
+	
+	</script>
+</body>
+</html>

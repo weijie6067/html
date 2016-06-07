@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件详解</title>
+</head>
+<body>
+	<script>
+	// window.onclick=function(){
+	// 	alert(1)
+	// }
+	// window.onclick=function(){
+	// 	alert(2)
+	// }
+	// window.addEventListener("click",function(){
+	// 	alert(1);
+	// },false)
+	// window.addEventListener("click",function(){
+	// 	alert(2);
+	// },false)
+	// window.addEventListener("mousemove",test,false);//参数一表示事件类型，参数二表示触发的函数，可直接用函数名函数名，参数三表示事件的触发方式，一定为true或false
+	// function test(){
+	// 	console.log("地震了")
+	// }
+	//移除事件监听
+	// window.addEventListener("click",aa,false);
+	// function aa(){
+	// 	alert(1);
+	// 	window.removeEventListener("click",aa,false)
+	// }
+	//阻止鼠标右键
+	// window.oncontextmenu=function(e){
+	// 	e.preventDefault();
+	// }
+	window.addEventListener("click",aa,false);
+	window.addEventListener("keypress",aa,false);
+	function aa(){
+		alert(1)
+				console.log(this.index)
+	}
+	function bb(){
+		alert(2)
+	}
+	</script>
+</body>
+</html>

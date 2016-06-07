@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="reset.css">
+	<style>
+		#btn{font-size: 30px;}
+		form{position: absolute; top: 80px; left: 480px; width: 350px; border: 1px solid #000; display: none;}
+	</style>
+</head>
+<body>
+	<button id="btn">登录</button>
+	<form id="fm" method="post" action="login2练习.html">
+		账号：<input id="user" type="text" name="" value=""><br>
+		密码：<input id="pass" type="password" name="" value=""><br>
+		记住密码：<input id="jizhu" type="checkbox" name="" value=""><br>
+		<input id="sub" type="submit" name="" value="提交">
+	</form>
+</body>
+<script type="text/javascript">
+	function setCookie(Key,Value,Days){//设置Cookie
+		var dates=new Date();
+		dates.setDate(dates.getDate()+Days);
+		document.cookie=Key+"="+escape(Value)+"; expires="+dates;
+	}
+	function getCookie(Key){//获取cookie
+		var arr=document.cookie.split('; ');
+		// ['user1=laowang','user2=laozhang']
+		for (var i = 0; i < arr.length; i++) {
+			var arr2=arr[i].split('=');
+			//['user1','laowang']
+			if (arr2[0]==Key) {
+				return unescape(arr2[1]);
+			};
+		};
+		return false;
+	}
+	function rmCookie(Key){//删除cookie
+		setCookie(Key,'0',-1);
+	}
+	var btn=document.getElementById('btn');
+	var fm=document.getElementById('fm');
+	var user=document.getElementById('user');
+	var pass=document.getElementById('pass');
+	var jizhu=document.getElementById('jizhu');
+	var sub=document.getElementById('sub');
+	btn.onclick=function  () {
+		fm.style.display='block';
+	}
+
+	if (getCookie('pass')) {
+		user.value=getCookie('user');
+		pass.value=getCookie('pass');
+		jizhu.checked=true;
+	};
+	sub.onclick=function  () {
+		setCookie('user',user.value,30);
+		if (jizhu.checked) {
+			setCookie('pass',pass.value,30);
+		} else{
+			rmCookie('pass');
+		};
+		var dates=new Date();
+		var rq=dates.getFullYear()+'年'+(dates.getMonth()+1)+'月'+dates.getDate()+'日'+dates.getHours()+'时'+dates.getMinutes()+'分'+dates.getSeconds()+'秒';
+		setCookie('time',rq,30);
+		if (getCookie('time2'==false)) {
+			setCookie('time2',rq,30);
+		};
+		if (user.value==''||pass.value=='') {
+			alert('不能为空！！');
+		} else{
+			alert('登录成功！！')
+		};
+	}
+</script>
+</html>

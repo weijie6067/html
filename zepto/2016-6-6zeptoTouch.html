@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zeptoTouch</title>
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<style type="text/css">
+	.red,.yel,.green,.blue{
+		height: 200px;
+		width: 200px;
+		background: #f83001;
+	}
+	.yel{
+		background: yellow;
+	}
+	.green{
+		background: green;
+	}
+	.blue{
+		background: blue;
+	}
+	.long{
+		height: 400px;
+		width: 800px;
+		background: skyblue;
+	}
+	</style>
+</head>
+<body>
+	<div class="red"></div>
+	<div class="yel"></div>
+	<div class="green"></div>
+	<div class="blue"></div>
+	<div class="long"></div>
+	<script>
+	$(".red").click(function(){
+		alert("red")
+	})
+	// $(".yel").tap(function(){
+	// 	alert("yel")
+	// })
+	$(".yel").doubleTap(function(){
+		alert("双击")
+	})
+	$(".green").singleTap(function(){
+		alert("单击")
+	})
+	$(".blue").longTap(function(){
+		$(this).css({background:"black"})
+	})
+	$(".long").swipeLeft(function(e){
+		alert("左滑")
+		// e.preventDefault()
+	})
+	$(document).swipeLeft(function(){
+		e.preventDefault()
+		alert(11)
+	})
+	$(document).addEventListener("touchmove", function(e){
+		e.preventDefault()
+	})
+	</script>
+</body>
+</html>

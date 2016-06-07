@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-21联动</title>
+</head>
+<body>
+	<select name="" id="country">
+		<option value="">请选择</option>
+		<option value="0"></option>
+		<option value="1"></option>
+		<option value="2"></option> 
+		<option value="3"></option>
+		<option value="4"></option>
+	</select>
+	<select name="" id="city">
+		<option value="">请选择</option>
+		
+	</select>
+	<script>
+	var arr=["请选择","中国","日本","韩国","美国","英国",]
+	var arrCity=[['北京','上海','重庆','广州'],['东京','北海道','福冈','千叶','大阪'],['首尔','仁川','釜山','春川','庆州'],['纽约','华盛顿','洛杉矶','芝加哥','休士顿'],['伦敦','牛津','剑桥','曼彻斯特','利物浦']]
+	var selA=document.getElementById('country');
+	var selB=document.getElementById('city');
+	var country=selA.getElementsByTagName('option');
+	var city=selB.getElementsByTagName('option');
+	// selA.onclick=function(){
+	// 	var addA=""
+	// 	for (var i = 0; i < arr.length; i++) {
+	// 		addA+="<option value=''>"+arr[i]+"</option>";
+	// 		country.value=i;
+	// 	};
+	// 	selA.innerHTML=addA
+	// }
+	for (var i = 0; i < country.length; i++) {
+		country[i].innerHTML=arr[i];
+	}
+	selA.onchange=function(){
+		selB.innerHTML = "<option value=''>请选择</option>";
+			var n=selA.value
+			if(n){
+				var add=""
+				for (var i = 0; i < arrCity[selA.value].length; i++) {
+					add+="<option>"+arrCity[selA.value][i]+"</option>"
+				};
+				selB.innerHTML=add
+			}
+				
+					
+				
+
+				
+			
+	}
+	
+	</script>	
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.outer{
+			width: 800px;
+			height: 600px;
+			background: gray;
+			margin: auto;
+			position: relative;
+		}
+		.ball{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 50px;
+			height: 50px;
+			background: #f80;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div class="ball" id="ball"></div>
+	</div>
+	<script>
+	var outer = document.getElementById('outer');
+	var ball = document.getElementById('ball');
+	var pos=0;
+	var dow=0;
+	var time=null;
+	var time2=null;
+	var time3=null;
+	var time4=null;
+	var x=outer.offsetWidth-ball.offsetWidth;
+	var y=outer.offsetHeight-ball.offsetHeight;
+	time=setInterval(right,1);
+	
+	function right(){
+		pos++;
+		ball.style.left=pos+"px"
+		if(pos>x){
+			clearInterval(time)
+			time2=setInterval(left,1);
+		}
+	}
+	function left(){
+		pos--;
+		ball.style.left=pos+"px"
+		if(pos<=0){
+		clearInterval(time2)
+		time=setInterval(right,1);
+		}
+	}
+	time3=setInterval(down,1);
+
+	function down(){
+		dow++;
+		ball.style.top=dow+"px"
+		if(dow>y){
+			clearInterval(time3);
+			time4=setInterval(up,1)
+		}
+	}
+	function up(){
+		dow--;
+		ball.style.top=dow+"px"
+		if(dow<=0){
+		clearInterval(time4)
+		time3=setInterval(down,1);
+		}
+	}
+	</script>
+
+</body>
+</html>

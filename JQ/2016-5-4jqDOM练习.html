@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jqDOM练习</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.del{
+				text-decoration: underline;
+			}
+			ul{
+				height: 30px;
+				width: 310px;
+				list-style: none;
+				border-left: 1px solid #555;
+				border-right: 1px solid #555;
+				/*border-top: 1px solid #555;*/
+				text-align: center;
+				line-height: 30px;
+				overflow: hidden;
+				border-bottom: 1px solid #555;
+			}
+			#a{
+				border-top: 1px solid #555;
+				margin-top: 50px;
+			}
+			li{
+				float: left;
+				width: 100px;
+				height: 30px;
+				border-bottom: 1px solid #555;
+				cursor: pointer;
+			}
+			input{
+				/*float: left;*/
+				overflow: hidden;
+			}
+			.border{
+				border-left: 1px solid #555;
+				border-right: 1px solid #555;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="txt" value="" />
+		<input type="button" name="" id="but" value="提交" />
+		<ul id="a">
+			<li>序号</li>
+			<li class="border">姓名</li>
+			<li >删除</li>
+		</ul>
+		
+		<script type="text/javascript">
+			
+			$("#but").click(function (){
+				var x=$("#txt").val()
+				var y=$("ul").length
+				$("ul:last").after("<ul><li>"+y+"</li><li class='border'>"+x+"</li><li class='del'>删除</li></ul>")
+				$("#txt").val("")
+				$(".del").each(function(){
+					$(this).click(function(){
+						$(this).parent().remove()
+					})
+				})
+			})
+			
+		</script>
+	</body>
+	
+</html>

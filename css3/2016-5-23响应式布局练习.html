@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式布局</title>
+	<style type="text/css">
+	div{
+		font-size:40px;
+		color:white;
+	}
+		.top{
+			background: #123448;
+
+		}
+		.bot{
+			background: #546778;
+			clear:both;
+		}
+		.r{
+			background: #235874;
+		}
+		.l{
+			background: #874964;
+		}
+		.center{
+			background: #780901;
+		}
+		.r,.l,.center{
+			position:relative;
+
+		}
+		.r{
+			float:right ;
+		}
+		.l{
+			float:left;
+		}
+		.center{
+			float: left;
+		}
+		@media (min-width: 320px) {
+			.r,.center,.l{
+				height:150px;
+				width:100%;
+			}
+			.top,.bot{
+				height:100px;
+			}
+		}
+		@media (min-width: 720px) {
+			.top,.bot{
+				height:100px;
+			}
+			.r,.center,.l{
+				height:200px;
+			}
+			.r,.l{
+				width:50%;
+
+			}
+			.center{
+				width:100%;
+			}
+		}
+		@media (min-width:  1024px ) {
+			.top,.bot{
+				height:300px;
+			}
+			.r,.center,.l{
+				height:400px;
+				
+			}
+			.r,.l{
+				width:30%;
+
+			}
+			.center{
+				width:40%;
+			}
+		}
+	
+		
+	</style>
+
+</head>
+<body>
+	<div class="out">
+		<div class="top"></div>
+			<div class="l">l</div>
+			<div class="r">r</div>
+			
+			<div class="center">c</div>
+			
+		
+		
+		<div class="bot"></div>
+	</div>
+</body>
+</html>

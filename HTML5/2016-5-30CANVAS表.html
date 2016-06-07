@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS表</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	function arc(){
+		cvs.beginPath();
+		cvs.arc(200,200,100,0,Math.PI*2)	
+		cvs.stroke()
+		cvs.closePath();
+
+		cvs.beginPath();
+		cvs.arc(200,200,3,0,Math.PI*2)
+		cvs.fill()
+		cvs.closePath();
+	}
+	function drawHour(){
+		for(i=0;i<12;i++){
+			cvs.save();
+			cvs.beginPath();
+			cvs.translate(200,200);
+			cvs.lineTo(80*Math.cos(i*30/180*Math.PI),-80*Math.sin(i*30/180*Math.PI));
+			cvs.lineTo(100*Math.cos(i*30/180*Math.PI),-100*Math.sin(i*30/180*Math.PI));
+			cvs.lineWidth=3;
+			cvs.stroke();
+			cvs.closePath();
+			cvs.restore()
+		}
+	}
+	function drawMin(){
+		for(i=0;i<60;i++){
+			cvs.save();
+			cvs.beginPath();
+			cvs.translate(200,200);
+			cvs.lineTo(90*Math.cos(i*6/180*Math.PI),-90*Math.sin(i*6/180*Math.PI));
+			cvs.lineTo(100*Math.cos(i*6/180*Math.PI),-100*Math.sin(i*6/180*Math.PI));
+			cvs.lineWidth=1;
+			cvs.stroke();
+			cvs.closePath();
+			cvs.restore()
+		}
+	}
+	function drawSecLine(s){
+		cvs.save();
+		cvs.beginPath();
+		cvs.translate(200,200);
+		cvs.lineTo(0,0);
+		cvs.lineTo(-70*Math.cos((s*6+90)/180*Math.PI),-70*Math.sin((s*6+90)/180*Math.PI));
+		cvs.lineWidth=2;
+		cvs.stroke();
+		cvs.closePath();
+		cvs.restore();
+	}
+	function drawHourLine(h,m){
+		cvs.save();
+		cvs.beginPath();
+		cvs.translate(200,200);
+		cvs.lineTo(0,0);
+		cvs.lineTo(-60*Math.cos((h*30+m*30/60+90)/180*Math.PI),-60*Math.sin((h*30+m*30/60+90)/180*Math.PI));
+		cvs.lineWidth=5;
+		cvs.stroke();
+		cvs.closePath();
+		cvs.restore()
+	}
+	function drawMinLine(m,s){
+		cvs.save();
+		cvs.beginPath();
+		cvs.translate(200,200);
+		cvs.lineTo(0,0);
+		cvs.lineTo(-65*Math.cos((m*6+s*6/60+90)/180*Math.PI),-65*Math.sin((m*6+s*6/60+90)/180*Math.PI));
+		cvs.lineWidth=3;
+		cvs.stroke();
+		cvs.closePath();
+		cvs.restore()
+	}
+	function getTimes(){
+		var newT=new Date();
+		var h=newT.getHours();
+		var s=newT.getSeconds();
+		var m=newT.getMinutes();
+		return {h,s,m}
+	}
+	var time=null
+	
+	function aa(){
+		var TT=getTimes();
+		cvs.clearRect(0,0,400,400);
+		arc();
+		drawHour();
+		drawMin();
+		drawSecLine(TT.s);
+		drawHourLine(TT.h,TT.m);
+		drawMinLine(TT.m,TT.s)
+	}
+	time=setInterval(aa,1000)
+
+	cvs.beginPath();
+
+	cvs.closePath();
+	</script>
+</body>
+</html>

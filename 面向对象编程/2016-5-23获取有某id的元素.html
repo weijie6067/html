@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取有某id的元素</title>
+	<script type="text/javascript">
+	// function id (idName) {
+	// 	return document.getElementById(idName);
+	// 		// return document.getElementsByName( tagName );
+
+	// }
+	// function aa(){
+	// 	var idname=id("a");
+	// 	console.log(idname)
+	// }
+	// aa()
+		var itcast={
+			tag: function  (tagName) {
+				return document.getElementsByTagName( tagName );
+				alert()
+			},
+			id: function (idName){
+				return document.getElementById( idName );
+			}
+		}
+		
+
+	</script>
+</head>
+<body>
+	<div id="a"></div>
+	<div id="b"></div>
+	<div id="c"></div>
+	<p>adfg </p>
+	<p>adfg </p>
+	<p>adfg </p>
+	
+	<script type="text/javascript">
+		console.log(itcast.id('b'))
+		itcast.tag('p')[0].style.color="red"
+	
+
+	</script>
+</body>
+</html>

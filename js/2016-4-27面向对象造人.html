@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象造人</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//		var person ={};
+//		person.sex ="girl";
+//		person.age =18;
+
+//		var hb={};
+//		hb.sex="boy";
+//		hb.age=33;			
+//		console.log(person,hb);
+//		function createPerson(name,sex,age){
+////			var person ={};
+//			this.name =name;
+//			this.sex =sex;
+//			this.age =age;
+//			this.skill =function(){
+//				alert(this.name);
+//			}
+//			return person;
+//		}
+//		var ren= new createPerson("lcg","man","18")
+//		console.log(ren.name())
+//		new skill()
+		//原形
+		function addSkill(){
+			this.sk1 = function(){
+				console.log("睡觉");
+			}
+			this.sk2 = function(){
+				console.log("吃饭");
+			}
+		}
+		var ren1 = new addSkill();
+		ren1.sk2();
+		</script>
+	</body>
+</html>

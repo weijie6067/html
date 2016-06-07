@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zaoke</title>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+
+	}
+	html,body{
+		height: 100%;
+		overflow: hidden;
+	}
+	.center img{
+		height: 232px;
+		width: 310px;
+		padding: 5px;
+		display: block;
+		float: left;
+	}
+	.center{
+		width: 960px;
+		margin:  auto;
+		margin-top: 300px;
+		overflow: hidden;
+	}
+	.mask{
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0, 0.8);
+		position: absolute;
+		overflow: hidden;
+		z-index: 99;
+	}
+	.popup{
+		position: fixed;
+		/* width: 0px;
+		height: 0px; */
+		width: 800px;
+		height: 600px;
+		left: 50%;
+		top: 50%;
+		background: #555;
+		border: 5px solid #fff;
+		overflow: hidden;
+		/* opacity: 0; */
+		transform: translate(-50%, -50%);
+		z-index: 100;
+	}
+	.popup img{
+		width: 800px;
+		height: 600px;
+	}
+	.del{
+		width: 40px;
+		height: 40px;
+		background: url('img/close.png');
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 2000;
+	}
+	.del:hover{
+		background: url('img/close_hover.png');
+	}
+	.prev,.next{
+		height: 100%;
+		width: 30%;
+		position: absolute;
+		
+		top: 0%;
+	}
+	.prev{
+		left: 0px;
+	}
+	.next{
+		right: 0px;
+	}
+	.prev span,.next span{
+		display: block;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 45%;
+		display: none;
+	}
+	.prev span{
+		background: url('img/arrows.png')  no-repeat;
+		left: 5px;
+	}
+	.next span{
+		background: url('img/arrows.png') -50px 0px no-repeat;
+		right: 5px;
+	}
+	.prev span:hover{
+		background: url('img/arrows.png') 0px -50px no-repeat;
+	}
+	.next span:hover{
+		background: url('img/arrows.png') -50px -50px no-repeat;
+	}
+	.prev:hover span{
+		display: block;
+	}
+	.next:hover span{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<!-- <div class="mask"></div> -->
+	<div class="center">
+		<img src="img/11.jpg" alt="">
+		<img src="img/27.jpg" alt="">
+		<img src="img/40.jpg" alt="">
+	</div>
+	<!-- <div class="popup">
+		<div class="picView">
+			<img src="img/11.jpg">
+		</div>
+		<div class="del"></div>
+		<div class="prev"><span></span></div>
+		<div class="next"><span></span></div>
+		
+	</div> -->
+	
+	 <script type="text/javascript">
+	 	var srcs=$(".center img").attr("src");
+	 	function addDom()
+
+		$(".center img").click(function(){
+			var url=$(this).attr("src");	
+			$(".center").before("<div class='mask'></div>");
+			$(".center").after('<div class="popup">'+
+									'<div class="picView">'+
+										'<img src='+url+'>'+
+									'</div>'+
+									'<div class="del"></div>'+
+									'<div class="prev"><span></span></div>'+
+									'<div class="next"><span></span></div>'+
+								'</div>');
+			$(".popup").animate({opacity:1,width:"800px",height:"600px"},500)
+
+			$('.del').click(function(){
+				$(".popup").fadeOut();
+				$(".mask").fadeOut();
+				setTimeout(function(){
+					$(".mask").remove();
+					$(".popup").remove();
+				},400)
+			})
+
+
+			$("prev span").click(function(){
+
+			})
+		})		
+	 </script>
+</body>
+</html>

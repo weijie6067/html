@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<script>
+	var div=document.getElementsByTagName('div')[0];	
+	var start,end,time;
+	var t=new Date();
+	start=t.getTime();
+	for (var i = 0; i < 100000; i++) {
+		div.innerHTML=i;
+
+	};
+	var u=new Date();
+	
+	end=u.getTime();
+	console.log(end-start)
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+	<title>字符串</title>
+</head>
+<body>
+	<script>
+	document.write('我说：“你撒吧”');
+	var str=new String("hello world");//新建一个字符串
+	console.log(str);
+	var str1="abcd 1234a"//创建一个空的字符串，直接量写法
+	
+	console.log(str1.charAt(0))//空格也占一个字符位
+	console.log(str1.charAt(4))//空格也占一个字符位
+	console.log(str1.search("b"))//查找,返回的是位置，如果找不到返回-1
+	console.log(str1.search("f"))
+	console.log(str1.search("bcd"))
+	var str2="过了很久终于我愿抬头看"
+	console.log(str2.substring(2,6))//提取字符串中介于两个指定下标参数之间的字符
+	console.log(str2.substr(2,6))//返回一个从指定位置开始的指定长度的子字符串
+	console.log(str2.substring(4))//substring可以省略第二个参数
+	console.log(str2.slice(-6))//截取开始和结束位置之间的内容,如果为负值会倒序查找，-1是最后一位
+	// 注意第二个参数均可省略
+	console.log(str1.indexOf("a"))//获取字符串的位置,如果没有返回-1，如果有相应的内容，则返回第一个字符的所在位置
+	console.log(str1.lastIndexOf("a")) //从右向左查询
+	console.log(str.replace("e","0"))//替换
+	console.log(str.split(""))//拆分字符串，见一个差一个
+	var str="www.baidu.com";
+	console.log(str.split("."))
+	var arr=str.split(".");
+	console.log(arr[1])
+	console.log(str.concat("str1"))
+	</script>
+</body>
+</html>

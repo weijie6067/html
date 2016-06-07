@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<style>
+			div{
+				background: #278934;
+				height: 300px;
+				width: 300px;
+				/*animation: infinite aa 2s;*/
+				position: absolute;
+			}
+			span{
+				display: inline-block;
+				background: red;
+				height: 300px;
+				width: 300px;
+				animation: infinite aa 2s;
+				position: absolute;
+			}
+			@-webkit-keyframes aa{
+				from{left: 0px;top: 0px;}
+				25%{left: 1000px;top: 0px;}
+				50%{left: 1000px;top: 700px;}
+				75%{left: 0px;top: 700px;}
+				100%{left: 0px;top: 0px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<span></span>
+	</body>
+</html>

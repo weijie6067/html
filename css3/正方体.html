@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>方块</title>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			body{
+				background: black;
+			}
+			.a,.b,.c,.d,.e,.f{
+				height: 200px;
+				width: 200px;
+				background: gray;
+				position: absolute;
+				/*perspective: 400px;*/
+				opacity: 0.6;
+				/*border: 1px solid black ;*/
+				color: white;
+				font-size: 40px;
+				line-height: 200px;
+				text-align: center;
+				background-size: 100%;
+				border-radius: 10px;
+			}
+			.a{
+				transform-origin: left;
+				transform:rotateY(-90deg);
+				background:url(images/b_20.png) no-repeat;
+				background-size: 200px 200px;
+				
+			}
+			.b{
+				transform: translateZ(200px);
+				background:url(images/b_07.png) no-repeat;
+				background-size: 100%;
+			}
+			.c{
+				transform-origin: right;
+				transform:rotateY(90deg);
+				background:url(images/b_09.png) no-repeat;
+				background-size: 100%;
+			}
+			.d{
+				background:url(images/b_11.png) no-repeat;
+				background-size: 100%;
+			}
+			.e{
+				transform-origin: top;
+				transform:rotateX(90deg);
+				background:url(images/b_13.png) no-repeat;
+				background-size: 100%;
+			}
+			.f{
+				transform-origin: bottom;
+				transform:rotateX(-90deg);
+				background:url(images/b_03.png) no-repeat;
+				background-size: 100%;
+			}
+			.out{
+				/*transform:rotateY(45deg) rotateX(45deg) rotateZ(45deg);*/
+				transform:rotateY(45deg);
+				
+				height: 200px;
+				width: 200px;
+				/*perspective: 400px;*/
+				position: relative;
+				left:200px;
+				/*top: 200px;*/
+				margin: auto;
+				/*transition: 2s;*/
+				margin-top: 200px;
+				transform-style: preserve-3d;
+				/*transform-origin: -50% -50% ;*/ 
+			}
+			
+			.out:hover{
+				/*transform: rotate3d(1,1,1,360deg);*/
+			/*transform:rotatez(45deg);*/
+			/*transform-origin: left;*/
+			}
+			/*@keyframes abc{*/
+				/*from{transform:rotate(0deg)};*/
+				/*to{transform:rotate(180deg)};*/
+			/*}*/
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="转" />
+	<div class="out" id="out">
+		<div class="a">1</div>
+		<div class="b">2</div>
+		<div class="c">3</div>
+		<div class="d">4</div>
+		<div class="e">5</div>
+		<div class="f">6</div>
+	</div>
+	<script type="text/javascript">
+		$("input").click(function(){
+//			var a=0;
+//			a=(Math.floor(Math.random()*50))*90;
+//          $(".out").css({"transform":"rotate3d(1,1,1,"+(a+45)+"deg)"});	
+            $(".out").css({"transform":"rotate3d(0,1,0,50deg)"});	
+		})
+	</script>
+	</body>
+</html>

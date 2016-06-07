@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变形</title>
+		<style type="text/css">
+			div{
+				height: 300px;
+				width: 300px;
+				background: #372;
+				float: left;
+				margin: 50px 50px;
+			}
+			div:nth-child(1){
+				
+				transform: rotate(30deg);
+				
+			}
+			div:nth-child(2){
+				transform: skew(15deg);
+				background: #132;
+			}
+			div:nth-child(3){
+				transform: scale(0.6);
+				background: #382;
+			}
+			div:nth-child(4){
+				transform: translate(40px);
+				background: #F80;
+				transform: translate(0deg 0deg 30deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		
+		/*background: #555;*/
+		margin-top: 10px;
+		background: url();
+		width: 200px;
+		height: 200px;
+	}
+	img{
+		height: 200px;
+		width: 200px;
+		
+	}
+	</style>
+</head>
+<body>
+	<input type="button" value="第一张">
+	<input type="button" value="第二张">
+	<input type="button" value="第三张">
+	<input type="button" value="第四张">
+
+	<div>
+	</div>
+	
+
+	<script>
+		var arr=["http://180.76.185.227/lj/spring.jpg","http://180.76.185.227/lj/summer.jpg","http://180.76.185.227/lj/autumn.jpg","http://180.76.185.227/lj/winter.jpg"];
+		var oipt=document.getElementsByTagName('input');
+		var odiv=document.getElementsByTagName('div');
+		// odiv[0].style.background="url("+arr[0]+")";
+		
+		for (var i = 0; i < oipt.length; i++) {
+			oipt[i].index=i;
+			console.log(i)
+			oipt[i].onclick=function (){
+				odiv[0].style.background="url("+arr[this.index]+")";
+				console.log(this.index);
+				console.log(arr[this.index]);
+
+			}
+		};
+		
+
+	</script>
+	
+
+</body>
+</html>

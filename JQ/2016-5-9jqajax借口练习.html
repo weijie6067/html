@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>接口练习</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",
+				url:"http://sjz.bokanedu.com/tgr/api/?day=4-2&&type=car",
+				success:function(d){
+					var x =eval("("+d+")")
+					console.log(x.data.id);
+					
+				}
+				
+			})
+		</script>
+	</body>
+</html>

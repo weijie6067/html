@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this进阶</title>
+	<style>
+	div{
+		height: 200px;
+		width: 200px;
+		background: red;
+	}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	// var div	=document.getElementsByTagName('div')[0];
+	// div.onclick=function  () {
+	// 	console.log(this)
+	// }
+	// // this指向函数的所有者，当this没有所有者时，指向window对象
+	// function aa(){
+	// 	console.log(this)
+	// }
+	// aa()
+	//改变this指向和函数的间接调用
+	// var x=100;
+	// var obj={}
+	// obj.x=2
+	// obj.showX=function(){
+	// 	console.log(this.x)
+	// }
+	
+	// obj.showX.call(window)
+	var ren={}
+		ren.name="Feng Shiqiang"
+		ren.hp=100;
+		ren.eq=0;
+		ren.jineng=function(){
+			console.log("hulu")
+			console.log(this.eq)
+		}
+	
+	var ren2={
+		name:"Lan Yong",
+		hp:"100",
+		eq:"9999",
+	}
+	console.log(ren.jineng)
+	// ren.jineng.call(ren2);
+	//call可以改变this的指向，只能将属性继承过来；
+	ren.jineng.apply(ren2);
+	ren.jineng.call(3,5)
+	</script>
+</body>
+</html>

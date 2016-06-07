@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" style="width:200px;" >
+	<input type="button" value="点名">
+	<input type="button" value="暂停">
+	<script>
+		var arr = ["周立涛","王薇","方宇宏","孙赫","刘春光","兰勇","冯世强","张琪","王希然","牛春强","林园园","赵弯弯","马青青","江晓咏","文武","王龙飞","黎家伟","刘鹏林","谢柳生","梁聪","郭凤娟","包晗","郝琪","刘婷婷","卜旱秋","李沛虹","李航","张晓晶","程慧萍","郭静","朱小迪","孙宏宇","齐凯","李文超","曾维安","黄斌","高飞翔","徐毅飞","彭宝保","孔东杰","蒋从明","刘玉骋",];
+ 		var a=document.getElementsByTagName('input');
+ 		var time=null;
+ 		var time2=null;
+ 		var i;
+ 		a[1].onclick=function(){
+ 			clearInterval(time);
+ 			time=setInterval(aa,100);
+ 			function aa(){
+ 				a[0].value=arr[Math.floor(Math.random()*42+0)]
+ 				console.log(Math.floor(Math.random()*42+0))
+ 			}
+ 		}
+ 		function bb(){
+ 			clearInterval(time)
+ 		}
+ 		time2=setInterval(bb,3000)
+ 		// a[2].onclick=function(){
+ 		// 	clearInterval(time);
+ 		// }
+	</script>
+</body>
+</html>

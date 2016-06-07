@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			text-align: center;
+		}
+		#top li{
+			height: 50px;
+			width: 100px;
+			font-size: 30px;
+			line-height: 50px;
+			float: left;
+			margin-left: 10px;
+			border: 1px solid gray;
+			border-bottom: none;
+			border-radius: 10px 10px 0 0;
+			list-style: none;
+			cursor: pointer;
+			position: relative;
+			z-index: 99;
+			/*background: white;*/
+		}
+		#bot div{
+			width: 400px;
+			height: 300px;
+			border: 1px solid gray;
+			border-radius:0 0 10px 10px ;
+			position: absolute;
+			display:none;
+			top:67px;
+			left: 58px;
+			font-size: 60px;
+			line-height: 300px;
+			z-index: 98;
+		}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<ul>
+			<li style="background:red">111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+	</div>
+	<div id="bot">
+		<div style="display:block">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	<script>
+		var a=document.getElementsByTagName('li');
+		var b=document.getElementById('bot').getElementsByTagName('div');
+		for (var i = 0; i < a.length; i++) {
+			a[i].onclick=function(){
+					for (var j = 0; j < b.length; j++) {
+						if (this==a[i]) {
+							b[j].style.display="block";
+							a[j].style.background="red";
+						}
+						else{
+							b[j].style.display="none";
+							a[j].style.background="white";
+						}
+					}
+			}
+		}
+	</script>
+</body>
+</html>
+						<!-- for (var i = 0; i < li.length; i++) {
+							if (this.style.background=="white") {
+								this.style.background="red";
+							}
+							else{
+								this.style.background="white";
+							}
+						}; -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>取函数名</title>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+	function Person (){};
+	var a=new Person();
+	var ctr=a.constructor;
+	var s=""+ctr;
+	
+	var x=s.replace("function","|")
+	//replace ("a","b)  把a替换成b
+	var start=x.indexOf("|");
+	//.indexof("a") a 的索引值
+	var end=x.indexOf("(");
+		console.log(start,end)	
+	if(start!=-1&&end!=-1){
+		
+		var name=x.slice(start+2, end)
+		//.slice(num1,num2) 索引值为num1和num2之间的东西
+		alert(name)
+	}
+	alert(ctr.name)
+	</script>
+</body>
+</html>

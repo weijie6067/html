@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	console.log(cvs);
+	// 三角
+	cvs.beginPath();
+
+	cvs.moveTo(160,10);
+	cvs.lineTo(310,250);
+	cvs.lineTo(10,250);
+	cvs.lineTo(160,10);
+	cvs.strokeStyle="#234325";
+	cvs.lineWidth=3;
+	cvs.stroke();
+	cvs.closePath();
+
+	// 填充矩形
+	cvs.beginPath()
+	cvs.moveTo(400,10);
+	cvs.lineTo(500,10);
+	cvs.lineTo(500,110);
+	cvs.lineTo(400,110);
+	cvs.lineTo(400,10);
+	cvs.fillStyle="#923479";
+	// cvs.stroke()
+	cvs.fill();
+	cvs.closePath();
+
+
+	// 五角星	;
+	cvs.beginPath();
+	cvs.moveTo(600,10);
+	cvs.lineTo(550,180);
+	cvs.lineTo(400,200);
+	cvs.lineTo(530,270);
+	cvs.lineTo(480,420);
+	cvs.lineTo(600,300);
+	cvs.lineTo(720,420);
+	cvs.lineTo(670,270);
+	cvs.lineTo(800,200);
+	cvs.lineTo(650,180);
+	cvs.lineTo(600,10);
+
+	cvs.fillStyle="#923479";
+	cvs.strokeStyle="#234325";
+	cvs.stroke();
+	// cvs.fill()
+	cvs.closePath();
+
+	// 两个矩形
+	cvs.save();
+	cvs.beginPath();
+	cvs.shadowColor="#555"
+	cvs.shadowBlur=5
+	cvs.shadowOffsetX=10
+	cvs.shadowOffsetY=10
+	cvs.strokeRect(10,300,200,200);
+	cvs.fillRect(220,300,200,200);
+
+	cvs.closePath();
+	cvs.restore();
+
+	// 圆
+	cvs.beginPath();
+	cvs.arc(950,110,100,0,Math.PI*2);
+	cvs.stroke();
+	cvs.closePath();
+
+	// 圆角
+	cvs.beginPath();
+
+	cvs.moveTo(1100, 10);
+	cvs.lineTo(1190,10);
+	cvs.arcTo(1200,10,1200,20,10);
+	// cvs.moveTo(1200,20);
+	cvs.lineTo(1200,100);
+	
+	
+	
+	cvs.stroke();
+	cvs.closePath();
+	// 文字
+	cvs.beginPath();
+	cvs.font="40px 微软雅黑";
+	cvs.fillText("KDJ ",1250,50);
+	cvs.strokeText("CANVAS",1350,50);
+	cvs.closePath();
+	// 图片
+	cvs.beginPath()
+	var img=new Image()
+	img.src="1.jpg";
+	img.onload=function(){
+		// cvs.drawImage(img,10,530,400,200)
+		cvs.drawImage(img,20,540,100,100,30,550,100,100)
+	}
+	console.log(img)
+	cvs.closePath()
+	</script>
+</body>
+</html>

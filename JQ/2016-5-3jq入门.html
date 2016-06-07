@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq入门</title>
+	<style>
+
+	</style>
+	<script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div id="a"><a href=""></a></div>
+	<ul>
+		
+	
+		<span class="b"></span>
+		<span class="b"></span>
+		<span class="b"></span>
+		<span class="b"></span>
+		<div></div>
+	</ul>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li></li>
+	</ul>
+	<input name="apple" />
+	<input name="flower" checked="checked"  class="abc" />
+	<input name="appppr" checked="checked"  class="abc" />
+	<script>
+	// console.log($("#a a"))
+	// console.log($("#a,.b"))
+	// console.log($(".b"))
+	// console.log($("div"))
+	// console.log($("div+span")) div后边的元素
+	// console.log($("div>a")) 与后代选择器效果相同
+	// console.log($("span~div"))
+	// console.log($("li:first"))
+	// console.log($("li:last"))
+	// console.log($("input:not(.abc)")) 除了类名为abc的input
+	// console.log($("li:even")) //所有奇数行
+	// console.log($("li:odd")) //所有偶数行
+	// console.log($("li:eq(2)"))  //索引值为2的
+	// console.log($("li:gt(1)"))  //索引值大于1的
+	// console.log($("li:lt(1)"))  //索引值小于1的
+	// console.log($("li:empty"))  //内容为空的
+	// console.log($("input[checked]")) //包含checked 的
+	// console.log($("input[name=apple]")) //包含name且name=apple的
+	// console.log($("input[name!=apple]")) //包含name且name不为apple的
+	// console.log($("input[name^='app']")) //包含name且name为app开头的
+	// console.log($("input[name$='r']")) //包含name且name为r结尾的
+	console.log($("ul li:nth-child(2)")) //ul的第二个li
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习增删</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			float: left;
+			border: 1px solid black;
+			border-bottom:none;
+
+			width: 100px;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+		li{
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			font-size: 25px;
+			text-align: center;
+			border-bottom: 1px solid black;
+		}
+		input{
+			width: 100px;
+			height: 50px;
+			font-size: 25px;
+
+		}
+		
+	</style>
+</head>
+<body>
+<form action="">
+	<input type="text" style="width:300px;">
+	<input type="button" value="ADD">
+	<input type="button" value="Delete">
+</form>
+<ul id="x">
+	<li>序号</li>
+</ul>
+<ul id="y">
+	<li>姓名</li>
+</ul>
+<script>
+	var lia=document.createElement('li');
+	var lib=document.createElement('li');
+	var lix=document.getElementById('x').getElementsByTagName('li')
+	var liy=document.getElementById('y').getElementsByTagName('li')
+	var ul=document.getElementsByTagName('ul');
+	var ipt=document.getElementsByTagName('input');
+	var i=0;
+	ipt[1].onclick=function(){
+		var li=document.createElement('li');
+		var lia=document.createElement('li');
+		var lib=document.createElement('li');
+		var name=ipt[0].value;
+		i++;
+		ul[0].appendChild(lia);
+		ul[1].appendChild(lib);
+		lix[i].innerHTML=i;	
+		liy[i].innerHTML=name;	
+		ipt[0].value="";
+	}
+	ipt[2].onclick=function(){
+		ul[0].removeChild(lix[i])
+		ul[1].removeChild(liy[i])
+		i--;
+	}
+</script>	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式布局</title>
+	<style type="text/css">
+	/* 注意条件顺序 */
+	/* max-width编写顺序1024 720 320
+	min-width编写顺序320 720 1024 */
+		/* @media (min-width: 720px) {
+			div{
+				height:100px;
+				width:100px;
+				background: yellow;
+
+			}
+
+		}
+		@media (min-width: 1024px) {
+			div{
+				height:100px;
+				width:100%;
+				background: #121334;
+
+			}
+			
+		} */
+		@media (max-width:720px ){
+			.a{
+				width:100%;
+				height:100px;
+				background: #573842;
+			}
+			
+
+		}
+		@media (max-width:320px ){
+			.a{
+				width:100%;
+				height:300px;
+				background: #982733;
+			}
+			
+			
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		
+	</div>
+	<div class="a"></div>
+</body>
+</html>

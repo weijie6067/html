@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.获取非行内样式</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	var div = document.getElementsByTagName('div');
+	// console.log(div[0].style.width);
+	// console.log(getComputedStyle(div[0],null).width);
+	// console.log(getComputedStyle(div[0]).backgroundColor);
+	// div.className = "abc"
+
+
+
+	//封装
+	function getStyle(obj,attr){
+
+		if(obj.currentStyle){
+			obj.currentStyle[attr];
+			console.log(obj.currentStyle[attr])
+		}else{
+			getComputedStyle(obj)[attr];
+			console.log(getComputedStyle(obj)[attr]);
+		}
+	}
+	getStyle(div[0],"width");
+
+	
+	
+	</script>
+
+</body>
+</html>

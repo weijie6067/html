@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bom</title>
+</head>
+<body>
+1111111111111111
+
+<input type="button" value="back">
+<input type="button" value="go">
+	<script>
+	var ipt=document.getElementsByTagName('input');
+	// confirm("fghfr")//确认提示框
+	// prompt("lalla")
+	// console.log(prompt("lalla"))
+	// window.onclick=function(){
+	// 	window.open('https://www.baidu.com/','','width=500,height=500,scrollbars=no')
+	// }
+	// window.onclick=function(){
+	// 	window.close()
+	// }
+	// console.log(window.navigator.userAgent);
+	//返回访问着本地信息
+	// console.log(window.location.href);
+	//返回当前页面的url
+	// var a="http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%BE%AE%E8%B7%9D%E6%91%84%E5%BD%B1&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&cs=3917622996,3549480648&os=2308861238,232569209&simid=&pn=0&rn=1&di=0&ln=1000&fr=&fmq=1458299097697_R&fm=result&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=&istype=2&ist=&jit=&bdtype=-1&gsm=0&objurl=http%3A%2F%2Fwww.tyns.net.cn%2Fbbs%2FUploadFile%2F2014-3%2F20143219523213342.jpg&rpstart=0&rpnum=0&ctd=1460686607712^3_1903X965%1"
+	// window.location.href="http://www.baidu.com";
+	// window.location.search
+	// console.log(window.location.pathname)
+	// 返回的是url中？后的字段
+	ipt[0].onclick=function(){
+		history.go(-1)
+	}
+	ipt[1].onclick=function(){
+		history.go(1 	)
+	}
+	</script>
+</body>
+</html>

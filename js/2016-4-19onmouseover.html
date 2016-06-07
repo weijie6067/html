@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onmouseover</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#outer{
+		width:500px;
+		height: 500px;
+		background: yellow;
+		overflow: hidden;
+	}
+	#inner{
+		width: 100px;
+		height: 100px;
+		margin: 100px 0px 0px 100px;
+		background: red;
+	}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+	
+	<script>
+		var inner=document.getElementById('inner')
+		var outer=document.getElementById('outer')
+		outer.onmouseover=function  (event) {
+			// event.relatedTarget
+			var rel=event.relatedTarget;
+			
+			if(document.all){
+				//ie浏览器
+				if(this.contains(rel)){
+					alert()
+				}
+			}else{
+				var x=this.compareDocumentPosition(rel)
+				if(x==10){
+					alert()
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<script>
+	// var reg= new RegExp("a");
+	// var str="abcdefg";
+	// console.log(str.search(reg));
+	// console.log(str.search("a"));
+	// var reg1=/b/;
+	// var reg2=/B/;
+	// var reg3=/B/i;//i 参数 为ignore，忽略大小写
+	// console.log(str.search(reg1));
+	// console.log(str.search(reg2));
+	// console.log(str.search(reg3));
+	// var x=/\d/;
+	// var y=/\D/;//除了0-9以外的所有内容
+	// var z=/\w/;//识别英文数字下划线
+	// var m=/\W/;//识别除了英文数字下划线
+	// var n=/\s/;//识别空白字符
+	// var o=/\S/;//识别非空白字符
+	// var str1="和aa 123456";
+	// var str2=""
+	// console.log(str1.search(x));
+	// console.log(str1.search(y));
+	// console.log(str1.search(z));
+	// console.log(str1.search(m));
+	// console.log(str1.search(n));
+	//转义字符
+	// var str="Abcdsf 5p57s ds596adsf";
+	// var reg=/\d/;
+	// var reg1=/\d/g;//g找到全部：g——global
+	// var reg2=/\d+/g;//+ 发现任意长度的数字
+	// var reg2=/\d\d/;//只出两个数字相邻的
+	// console.log(str.match(reg));
+	// console.log(str.match(reg1));
+	// console.log(str.match(reg2));
+	//match把所有匹配的字符都提出来
+	var str="炒肝饭 爆肚饭 炸酱面饭 小龙虾饭 焦圈儿饭"
+	var reg=/[炒肝|爆肚]饭/g;
+	console.log(str.match(reg))
+	//取值范围
+	</script>
+</body>
+</html>

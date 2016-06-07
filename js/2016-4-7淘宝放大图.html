@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.outer{
+			width: 264px;
+			height: 500px;
+			border: 1px solid #ccc;
+			position: relative;
+			margin: 20px auto;
+			box-shadow: 2px 3px 4px #555;
+		}
+		#top{
+			width: 264px;
+			height: 400px;
+			margin: 0;
+			margin-bottom: 20px;
+			background: url(showimg/icon1_0.jpg);
+			background-size: 100%;
+			background-repeat: no-repeat;
+			
+		}
+		#bot div{
+			width: 50px;
+			height: 53px;
+			float: left;
+			margin-left: 10px;
+		}
+		#bot div:hover{
+			border:1px solid red;
+		}
+		#big{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 50px;
+			left: 350px;
+			overflow: hidden;
+			display: none;
+			box-shadow: 2px 3px 4px #555;
+		}
+		#biginner{
+			width: 792px;
+			height: 1200px;
+			background: url(showimg/icon1_0.jpg) no-repeat;
+			background-size: 100%;
+		}
+		#b1{
+			background:url(showimg/icon1_0.jpg) ;
+			background-size: 100%;
+		}
+		#b2{
+			background:url(showimg/icon1_1.jpg) ;
+			background-size: 100%;
+		}
+		#b3{
+			background:url(showimg/icon1_2.jpg) ;
+			background-size: 100%;
+		}
+		#b4{
+			background:url(showimg/icon1_3.jpg) ;
+			background-size: 100%;
+		}
+		.border{
+			border: 1px solid red;
+		}
+		#topinner{
+			width: 100px;
+			height: 100px;
+			opacity: 0.4;
+			background:#B9B923;	
+			position: absolute;
+			display: none;
+		}
+		.pic{
+			/*background:icon1_"+i+".jpg;*/
+			background-repeat:  no-repeat;
+			background-size: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div id="top">
+			<div id="topinner"></div>
+		</div>
+		<div id="bot">
+			<div id="b1"></div>
+			<div id="b2"></div>
+			<div id="b3"></div>
+			<div id="b4"></div>
+		</div>
+		<div id="big">
+			<div id="biginner"></div>
+		</div>
+	</div>
+	<script>
+		var bot=document.getElementById('bot').getElementsByTagName('div');
+		var ttop=document.getElementById('top');
+		var outer=document.getElementById('outer');
+		var topinner=document.getElementById("topinner");
+		var biginner=document.getElementById("biginner");
+		var big=document.getElementById("big");
+		for (var i = 0; i < bot.length; i++) {
+			bot[i].index=i;
+			bot[i].onmouseover=function (){
+				for (var i = 0; i < bot.length; i++) {
+					ttop.style.background=""
+				};
+				ttop.style.background="url(showimg/icon1_"+this.index+".jpg) no-repeat";
+				ttop.style.backgroundSize="100%";
+				biginner.style.background="url(showimg/icon1_"+this.index+".jpg) no-repeat" ;
+				biginner.style.backgroundSize="100%";
+				ttop.className="pic";
+				// bot[this.index].style.border="2px solid red"
+				// bot[this.index].className="border"
+			}
+			
+		}
+		// ttop.onmouseout=function(){
+		// 		ttop.style.background=""
+		// 		console.log(ttop.style.background)
+				
+		// 	}
+		ttop.onmouseover=function (){
+			topinner.style.display="block";
+			big.style.display="block";
+		}
+		ttop.onmouseout=function (){
+			topinner.style.display="none";
+			big.style.display="none";
+		}
+		ttop.onmousemove=function (){
+			var e=event||window.event;
+			var x=e.clientX-outer.offsetLeft-topinner.offsetWidth/2;
+			var y=e.clientY-outer.offsetTop-topinner.offsetHeight/2;
+			if(x<0){
+				x=0;
+			}
+			if(y<0){
+				y=0
+			}
+			if(x>outer.offsetWidth-topinner.offsetWidth){
+				x=outer.offsetWidth-topinner.offsetWidth
+			}
+			if(y>ttop.offsetHeight-topinner.offsetHeight){
+				y=ttop.offsetHeight-topinner.offsetHeight
+			}
+			topinner.style.left=x+"px";
+			topinner.style.top=y+"px";
+			big.scrollLeft=x*3;
+			big.scrollTop=y*3;
+
+		}
+		
+	</script>
+</body>
+</html>

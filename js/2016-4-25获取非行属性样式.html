@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		height: 500px;
+		width: 500px;
+		background: #333;
+	}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	var div=document.getElementsByTagName('div');
+	console.log(getComputedStyle(div[0],null).width)//null可以不写
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/1.jpg" alt="">
+	<script>
+	var img=document.getElementsByTagName('img');
+	img[0].onmousedown=function(event){
+		console.log(event);
+		var e=event||window.event;
+		e.preventDefault();//组织浏览器的默认事件
+		window.onmousemove=function (event){
+			var e=event||window.event;
+			var x=e.clientX;
+			var y=e.clientY;
+			img[0].style.top=y+"px";
+			img[0].style.left=x+"px";
+		}
+	}
+	img[0].onmouseup=function(){
+		window.onmousemove=null;
+	}
+	</script>
+</body>
+</html>

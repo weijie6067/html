@@ -1,0 +1,103 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.bg{
+	height: 1680px;
+	width: 1024px;
+	background-color: #fe9833;
+	margin: 0 auto;
+}
+.bd{
+	width: 955px;
+	height: 1680px;
+	margin: 0 auto;
+	background-color: #ffcc33;
+}
+.head{
+	width: 955px;
+	height: 225px;
+	/*background-color: #fff3cd;*/
+	background-image: url(images/blog_02.png);
+}
+.mid{
+	width: 955px;
+	height: 1445px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.m_r{
+	width: 230px;
+	height: 1445px;
+	float: left;
+}
+.m_l{
+	width: 230px;
+	height: 1445px;
+	float: right;
+}
+.m_m{
+	width: 455px;
+	height: 1445px;
+	margin: 0px 20px;
+	float: left;
+}
+
+.m_z{
+	width: 230px;
+	background-color: #ffba75;
+	margin-bottom: 15px;
+}
+.m_l1{	
+	height:  350px;
+	background-image: url(images/blog_06.png);
+
+}
+.m_l2{
+	height:  327px;
+	background-image: url(images/blog_17.png);
+}
+.m_l3{
+	height:  337px; background-image: url(images/blog_23.png);
+}
+.m_l4{
+	height:  264px; background-image: url(images/blog_29.png);
+}
+.mm{
+	width: 455px;
+	background-color: #fea64c;
+	margin-bottom: 15px;
+	float: left;
+}
+.mm1{
+	height: 230px; background-image: url(images/blog_08.png);
+}
+.mm2{
+	height: 260px; background-image: url(images/blog_15.png);
+}
+.mm3{
+	height: 285px; background-image: url(images/blog_21.png);
+}
+.mm4{
+	height: 287px; background-image: url(images/blog_25.png);
+}
+.m_r1{	
+	height:  210px; background-image: url(images/blog_10.png);
+}
+.m_r2{
+	height:  280px; background-image: url(images/blog_13.png);
+}
+.m_r3{
+	height:  413px; background-image: url(images/blog_19.png);
+}
+.m_r4{
+	height:  327px; background-image: url(images/blog_27.png);
+}
+.bot{
+	width: 955px;
+	height: 85px;
+	background-color: #ffa243;
+	position: absolute;
+	top: 1595px;
+	background-image: url(images/blog_33.png);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			li{
+				width: 100px;
+				heiht: 50px;
+				border: 1px solid #555;
+				float: left;
+			}
+			div{
+				height: 400px;
+				width: 304px;
+				border: 1px solid #555;
+				position: absolute;
+				display: none;
+				margin-top: 52px;
+			}
+			#a{
+				display: block;
+				background: red;	
+			}
+			#b{
+				background: green;
+			}
+			#c{
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div id="a">1</div>
+		<div id="b">2</div>
+		<div id="c">3</div>
+		<script type="text/javascript">
+			$("li").hover(function(){
+				$(this).css({
+					"background":"red"
+				})
+				$("div").eq($(this).index()).css({
+					display:"block"
+				})
+			},function(){
+				$(this).css({
+					"background":"white"
+				})
+				$("div").eq($(this).index()).css({
+					display:"none"
+				})
+			})
+			
+			
+		</script>
+	</body>
+</html>

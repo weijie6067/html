@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS渐变</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	var linear=cvs.createLinearGradient(0,0,200,200)
+	linear.addColorStop(0,"red");
+	linear.addColorStop(0.25,"yellow");
+	linear.addColorStop(0.5,"blue");
+	linear.addColorStop(0.75,"orange");
+	linear.addColorStop(1,"pink");
+	cvs.save();
+	cvs.beginPath();
+	cvs.fillStyle=linear;
+	cvs.fillRect(0,0,200,200)
+
+	cvs.closePath();
+	cvs.restore();
+	cvs.save();
+	cvs.beginPath();
+	var gra=cvs.createRadialGradient(200,200,0,200,200,200);
+	gra.addColorStop(0,"red");
+	gra.addColorStop(0.25,"yellow");
+	gra.addColorStop(0.5,"blue");
+	gra.addColorStop(0.75,"orange");
+	gra.addColorStop(1,"pink");
+	cvs.fillStyle=gra;
+	cvs.fillRect(200,200,200,200)
+	cvs.closePath();
+	cvs.restore();
+	cvs.save();
+	cvs.beginPath();
+
+	cvs.closePath();
+	cvs.restore();
+	cvs.save();
+	cvs.beginPath();
+
+	cvs.closePath();
+	cvs.restore();
+	</script>
+</body>
+</html>

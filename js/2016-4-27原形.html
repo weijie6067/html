@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>原形</title>
+</head>
+<body>
+	<div class="red"></div>
+	<div class="red"></div>
+	<div class="red"></div>
+	<script type="text/javascript">
+		var arr1 =new Array(1,2,3);
+		var arr2 =new Array(4,5,6);
+		Array.prototype.show=function(){  //prototype为多个内容添加同一方法
+			console.log(this[0])
+		}
+		arr1.show();
+		arr2.show();
+	</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转图片</title>
+		<style>
+		body{
+			background: black;
+		}
+			.out div{
+				height: 400px;
+				width: 200px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				-webkit-box-reflect: below 0px -webkit-linear-gradient(bottom,rgba(0,0,0,0.5) ,rgba(0,0,0,0) 30%);
+			}
+			.out{
+				height: 400px;
+				width: 200px;
+				transform-style: preserve-3d;
+				margin: 200px auto;
+				transform: rotateX(10deg);
+				animation: aa 10s linear infinite ;
+			}
+			.p1{
+				transform:  rotateY(30deg) translateZ(400px);
+				background: url(images/rr1.jpg);
+				background-size: 100%;
+			}
+			.p2{
+				transform:  rotateY(60deg) translateZ(400px);
+				background: url(images/rr2.jpg);
+				background-size: 100%;
+			}
+			.p3{
+				transform:  rotateY(90deg) translateZ(400px);
+				background: url(images/rr3.jpg);
+				background-size: 100%;
+			}
+			.p4{
+				transform:  rotateY(120deg) translateZ(400px);
+				background: url(images/rr4.jpg);
+				background-size: 100%;
+			}
+			.p5{
+				transform:  rotateY(150deg) translateZ(400px);
+				background: url(images/rr5.jpg);
+				background-size: 100%;
+			}
+			.p6{
+				transform: rotateY(180deg) translateZ(400px);
+				background: url(images/rr6.jpg);
+				background-size: 100%;
+			}
+			.p7{
+				transform: rotateY(210deg) translateZ(400px);
+				background: url(images/rr7.jpg);
+				background-size: 100%;
+			}
+			.p8{
+				transform: rotateY(240deg) translateZ(400px);
+				background: url(images/rr8.jpg);
+				background-size: 100%;
+			}
+			.p9{
+				transform:  rotateY(270deg) translateZ(400px);
+				background: url(images/rr9.jpg);
+				background-size: 100%;
+			}
+			.p10{
+				transform: rotateY(300deg) translateZ(400px);
+				background: url(images/rr10.jpg);
+				background-size: 100%;
+			}
+			.p11{
+				transform:  rotateY(330deg) translateZ(400px);
+				background: url(images/rr13.jpg);
+				background-size: 100%;
+			}
+			.p12{
+				transform:  rotateY(360deg) translateZ(400px);
+				background: url(images/rr12.jpg);
+				background-size: 100%;
+			}
+			@keyframes aa{
+				0%{transform:rotateX(-10deg) rotateY(0deg) ;}
+				100%{transform:rotateX(-10deg) rotateY(360deg) ;}
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div class="bb">
+	
+		<div class="out">
+			<div class="p1"></div>
+			<div class="p2"></div>
+			<div class="p3"></div>
+			<div class="p4"></div>
+			<div class="p5"></div>
+			<div class="p6"></div>
+			<div class="p7"></div>
+			<div class="p8"></div>
+			<div class="p9"></div>
+			<div class="p10"></div>
+			<div class="p11"></div>
+			<div class="p12"></div>
+			
+		</div>
+	</div>
+	</body>
+</html>

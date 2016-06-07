@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.outer{
+			width: 800px;
+			height: 600px;
+			background: gray;
+			margin: auto;
+			position: relative;
+		}
+		.ball{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 50px;
+			height: 50px;
+			background: #f80;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div class="ball" id="ball"></div>
+	</div>
+	<script>
+	var outer = document.getElementById('outer');
+	var ball = document.getElementById('ball');
+
+	var x = 0;
+	var speed = 1;
+	var time = null;
+
+	var y = 0;
+	var speedy = 3;
+
+	var maxL = outer.clientWidth - ball.clientWidth;
+	var maxT = outer.clientHeight - ball.clientHeight;
+	function move(){
+		x +=speed;
+		y += speedy;
+		ball.style.top = y +"px";
+		ball.style.left = x +"px";
+		if(y>=maxT){
+			speedy =-speedy;
+		}
+		if(y<=0){
+			speedy =-speedy;
+		}
+		if(x>=maxL){
+			speed = -speed;
+		}
+		if(x<=0){
+			speed = -speed;
+		}
+	}
+	time = setInterval(move,1);
+	</script>
+</body>
+</html>

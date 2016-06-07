@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>大图滚动</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#ss{
+				width: 1250px;
+				height: 500px;
+				position: relative;
+				margin: 20px auto;
+			}
+			#dd{
+				width: 1250px;
+				height: 500px;
+				overflow:hidden;
+			}
+			#uu{
+				width: 7500px;
+				height: 500px;
+				overflow: hidden;
+			}
+			#uu img{
+				width: 1250px;
+				height:500px;
+				float: left;
+			}
+			p{
+				width: 20px;
+				height: 50px;
+				position: absolute;
+				top: 275px;
+				background: #000;
+				font-size: 25px;
+				color: #fff;
+				opacity: 0.4;
+				cursor: pointer;
+				text-align: center;
+				line-height: 50px;
+			}
+			#ps{
+				left: 0;
+			}
+			#sp{
+				right: 0;
+			}
+			#uls{
+				width: 200px;
+				overflow: hidden;
+				position: absolute;
+				bottom: 10px;
+				left:510px ;
+			}
+			#uls li{
+				width: 20px;
+				height: 20px;
+				background: #ccc;
+				float: left;
+				text-align: center;	
+				line-height: 20px;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+			#uls .lis{
+				background: blueviolet;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ss">
+			<div id="dd">
+				<div id="uu">
+					<img src="img/6.jpg" alt="" />
+					<img src="img/1.jpg" alt="" />
+					<img src="img/2.jpg" alt="" />
+					<img src="img/3.jpg" alt="" />
+					<img src="img/4.jpg" alt="" />
+					<img src="img/5.jpg" alt="" />
+					<img src="img/6.jpg" alt="" />
+					<img src="img/1.jpg" alt="" />
+				</div>
+			</div>
+			<p id="ps"><</p>
+			<p id="sp">></p>
+			<ul id="uls">
+				<li class="lis">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ss=document.getElementById("ss");
+		var dd=document.getElementById("dd");
+		var uu=document.getElementById("uu");
+		var img=uu.getElementsByTagName('img');
+		var ps=document.getElementById("ps");
+		var sp=document.getElementById("sp");
+		var uls=document.getElementById("uls");
+		var lsi=uls.getElementsByTagName('li');
+		var imgw=img[0].offsetWidth;
+		var num=1;
+		var num2=0;
+		var time=null;
+		var time2=null;
+		dd.scrollLeft=imgw;
+		function hd(){
+			clearInterval(time2);
+			var kswz=dd.scrollLeft;  //开始的位置
+			var jswz=imgw*num;  //结束的位置，
+			var ksbs=0;     		//开始的步数 
+			var zdbs=20;    //走的步数
+			var mbjl=(jswz-kswz)/zdbs;  
+			//每步走多少；
+			time2=setInterval(function (){
+				ksbs++;     //步数加加
+				if(ksbs==zdbs){   // 如果开始的步数==20步就是走完一段距离
+					ksbs=0;   //让KSBS归0;以便重复执行；
+					clearInterval(time2);  //清一下计时器
+				}
+				kswz=kswz+mbjl;   //滚动条加每步走的距离；
+				dd.scrollLeft=kswz;  //让滚动条滑动起来；
+			},15)
+		}
+		function qido(){
+			num++;
+			if(num>=img.length){
+				num=2;
+				dd.scrollLeft=imgw;
+			}
+			num2++;
+			if(num2>=lsi.length){
+				num2=0;
+			}
+			hd();
+			bian();
+		}
+		time=setInterval(qido,1500);
+		ps.onclick=function (){
+			clearInterval(time);
+			num++;
+			if(num>=img.length){
+				num=2;
+				dd.scrollLeft=imgw;
+			}
+			num2++;
+			if(num2>=lsi.length){
+				num2=0;
+			}
+			hd();
+			bian();
+			time=setInterval(qido,1000);
+		}
+		sp.onclick=function (){
+			clearInterval(time);
+			num--;
+			if(num<0){
+				num=img.length-3;   //让滚动条瞬间回到数字四的那一张中间走了三张
+				dd.scrollLeft=imgw*(num+1);  //加1需要上边的缓动函数；若不加1也能到四但是没缓动效果
+			}
+			num2--;
+			if(num2<0){
+				num2=lsi.length-1;
+			}
+			hd();
+			bian();
+			time=setInterval(qido,1000);
+		}
+		function bian(){
+			for (var i = 0; i < lsi.length; i++) {
+				lsi[i].className='';
+			}
+			lsi[num2].className='lis';
+		}
+		for (var i = 0; i < lsi.length; i++) {
+			lsi[i].onclick=function (){
+				clearInterval(time);
+				for (var i = 0; i < lsi.length; i++) {
+					if(lsi[i]==this){
+						num2=i;
+						num=i+1;
+						bian(num2);
+						hd();
+						// time=setInterval(qido,1000);
+					}
+				}
+			}
+		}
+	</script>
+</html>

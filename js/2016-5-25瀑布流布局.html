@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流布局</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background: #000;
+	}
+	#box{
+		width: 1080px;
+		overflow: hidden;
+		margin: auto;
+
+	}
+	ul{
+		width: 250px;
+		float: left;
+		margin: 0px 10px;
+		list-style: none;
+		color: white;
+		font-size: 20px;
+	}
+	ul li{
+		width: 248px;
+		margin-top: 10px;
+	}
+	img{
+		width: 248px;
+		display: block;
+		border: 3px solid #fff;
+	}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<ul id="aa">1
+			<!-- <li><img src="imagepubu/1.png"></li> -->
+			
+		</ul>
+		<ul>2
+			<!-- <li><img src="imagepubu/2.png"></li> -->
+			
+		</ul>
+		<ul>3
+			<!-- <li><img src="imagepubu/3.png"></li> -->
+			
+		</ul>
+		<ul id="dd">4
+			<!-- <li><img src="imagepubu/4.png"></li> -->
+			
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var box=document.getElementById("box");
+	var uls=document.getElementsByTagName("ul");
+
+	for(var i=1;i<36;i++){
+		var imgs = new Image();
+		
+		imgs.src = 'imagepubu/'+i+'.png';
+
+	}
+	imgs.onload = function(){
+		for (var i = 0; i < 2; i++) {
+		append()
+
+
+	};
+	var winH=document.documentElement.clientHeight;
+	var docH=document.documentElement.offsetHeight;
+
+	var ulb = document.getElementById('dd');
+	// console.log(ulb)
+	var lib  = ulb.getElementsByTagName('li');
+	console.log(lib)
+	console.log(lib[0].offsetHeight)
+	}
+	
+	function append(){
+		// alert()
+		var nli=document.createElement("li");
+		var x=Math.ceil(Math.random()*35);
+		nli.innerHTML='<img src="imagepubu/'+28+'.png" alt="" />'
+		var ul1=uls[0].offsetHeight;
+		var ul2=uls[1].offsetHeight;
+		var ul3=uls[2].offsetHeight;
+		var ul4=uls[3].offsetHeight;
+		var ulMin=Math.min(ul1,ul2,ul3,ul4);
+		for (var i = 0; i < uls.length; i++) {
+			console.log(i)
+			// console.log(uls[i].offsetHeight)
+				// uls[0] 0
+				// uls[1] 0
+
+				// uls[2] 0
+
+				// uls[3] 0
+			// console.log(ulMin)
+
+			if(uls[i].offsetHeight==ulMin){
+				uls[i].appendChild(nli);
+				alert(1)
+			}
+			alert(2)
+			
+		};
+
+	}
+	
+	// var li=document.getElementsByTagName('ul')[0].getElementsByTagName('li')[0];
+    // console.log(li)
+	// var boxH=box.offsetHeight;
+	// var li1=li.offsetHeight;
+	
+	// console.log(winH,docH,boxH,li1)
+
+// 	document.onscroll=function(){
+// // 		var winH=document.documentElement.clientHeight;
+// // 		var docH=document.documentElement.offsetHeight;
+// // // console.log(winH,docH)
+// 		var scrlT=document.body.scrollTop||document.documentElement.scrollTop;
+// 		if(docH-scrlT-winH<300){
+// 			for (var i = 0; i < 16; i++) {
+// 				append()
+// 			};
+// 		}
+// 	}
+	</script>
+</body>
+</html>

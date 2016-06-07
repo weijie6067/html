@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+</head>
+<body>
+	<!-- <div>
+		<ul>
+			<li> <a href=""></a> </li>
+			<li><span></span>	</li>
+			<li>	</li>
+			<span></span>
+		</ul>
+	</div> -->
+	<!-- <div name="ko" class="aa">0</div>
+	<div name="ko" class="aa">1</div>
+	<div name="ko" class="aa">2</div>
+	<div name="ko" class="aa">3</div> -->
+	<ul>
+		<li onclick="alert('AA')">aa</li>
+		<li>bb</li>
+	</ul>
+	<script>
+		// var oDiv=document.getElementsByTagName('div');
+		// var oDiv[0]=document.children;
+		// console.log(oDiv[0].children[1].children[0].children[0].firstChild)
+		// console.log(oDiv[0].children[0].lastChild)
+		// var div=document.getElementsByTagName('div');
+		// var body=document.getElementsByTagName('body');
+		// var ko=document.getElementsByName('ko');
+		// var aa=document.getElementsByClassName('aa')
+		// var bb=document.querySelector('.aa')
+		// var cc=document.querySelectorAll('.aa')
+		// console.log(bb)
+		// console.log(cc)
+		// console.log(body[0].childNodes[3].nodeName)
+		//增删
+		// var ul=document.getElementsByTagName('ul')
+		// var newLi=document.createElement("li");
+		// ul[0].appendChild(newLi);//向某个节点后面差入，前面写的一定是父级
+		// console.log(newLi)
+		var newLi=document.createElement("li");
+		var li=document.getElementsByTagName('li');
+		var ul=document.getElementsByTagName('ul');
+		var body=document.getElementsByTagName('body');
+		newLi.innerHTML="cc"
+		// ul[0].appendChild(newLi)//在刚开始插入
+		// ul[0].insertBefore(newLi,li[0]);//在某个位置插入
+		// ul[0].replaceChild(newLi,li[1])//替换
+		// ul[0].removeChild(li[0])//删除
+		 var a=ul[0].cloneNode(true)
+		 var b=ul[0].cloneNode(false)
+		console.log(a)
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio</title>
+	<style type="text/css">
+	audio{
+		/* height: 50px; */
+		/* width: 100px; */
+	}
+	input[type=range]{
+		-webkit-appearance: none;   /* appearance使 div 元素看上去像一个按钮   appearance：外貌外观*/
+
+	}
+	input[type=range]:focus::-webkit-slider-runnable-track {
+	  background: #e83c3c;
+	  
+	}
+	input[type=range]::-webkit-slider-thumb {
+	  	-webkit-appearance: none;	    /* 滑块 */
+		border:1px solid red;
+		height: 20px;
+		width: 20px;
+		border-radius: 100%;
+		background: white;
+	}
+	input[type=range]:focus {
+	  	outline: none; /* 去除获得焦点时的样式 */
+	}
+	
+	</style>
+</head>
+<body>
+	<audio  autoplay="none"  controls="controls">
+		<!-- <source src="audio/朴树 - 那些花儿.mp3">
+		<source src="audio/太阳 - 눈, 코, 입.mp3">
+		<source src="audio/陈粒 - 历历万乡.mp3">
+		<source src="audio/鹿先森乐队 - 春风十里.mp3">  -->
+
+	</audio>
+	<input type="range" >
+	<div></div>
+</body>
+</html>

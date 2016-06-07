@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2016-5-5jq筛选</title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div>1
+			<ul>
+				<li><a href=""></a>a </li>
+				<li><span></span></li>
+				<li id="dd"></li>
+			</ul>
+		</div>
+		<div class="aa">2</div>
+		<div id="">3
+			<p></p>
+			<span></span>
+			<a href=""></a>
+		</div>
+		<script type="text/javascript">
+//			console.log($("div").eq(3))
+//			console.log($("div").first())
+//			console.log($("div").hasClass("aa"));
+//			console.log($("li").filter("#dd"));
+			//map等于for循环遍历所有元素，并把每个内容添加给数组，返回的结果一定是个数组
+			console.log($("div").has("span"))
+		</script>
+	</body>
+</html>

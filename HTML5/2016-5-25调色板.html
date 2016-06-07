@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调色板</title>
+	<style type="text/css">
+		.color{
+			background-color:black;
+			height: 300px;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		红: <input type="range" max="255" value="0" step="1" ><span id="red">0</span>
+		绿：<input type="range" max="255" value="0" step="1" ><span id="green">0</span>
+		蓝：<input type="range" max="255" value="0" step="1" ><span id="blue">0</span>
+	</form>
+	<div class="color" id="color"></div>
+	<progress min="0" max="100" value="0" id="pro"></progress>
+	<meter min="0" max="100" value="0" id="met"></meter>
+	<script type="text/javascript">
+	var ipt=document.getElementsByTagName("input");
+	var spa=document.getElementsByTagName("span");
+	var color=document.getElementById("color");
+	var a=0,b=0,c=0
+	setInterval(function (){
+		 a=ipt[0].value
+		 b=ipt[1].value
+		 c=ipt[2].value
+		 spa[0].innerHTML=a
+		 spa[1].innerHTML=b
+		 spa[2].innerHTML=c
+		color.style.backgroundColor="rgb("+a+","+b+","+c+")"
+
+	},100)
+	var pro=document.getElementById("pro");
+	var met=document.getElementById("met");
+	var i=0;
+	setInterval(function (){
+		i++;
+		if(i>+100){
+			i=0
+		}
+		
+		pro.value=i;
+		met.value=i;
+
+	},50)
+
+	
+	</script>
+</body>
+</html>

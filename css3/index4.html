@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding:0;}
+		html,body{
+			width:100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<video id='videos' controls width='500'>
+	<!-- controls属性规定浏览器应该为视频提供播放控件。 -->
+		<source src='video/1.mp4'></source>
+	</video>
+</div>
+	
+	<button id='play'>播放/暂停</button>
+	<input type='range' id='range' min='0' step='0.1' value='0' />
+	<span id='durations'></span>
+	<button id='muted'>静音</button>
+	<input id='range2' type='range' min='0' max='1' step='0.1' value="1">
+	<button id='screens'>全屏</button>
+	<script type="text/javascript" src='js/fullscreen.js'></script>
+	<script type="text/javascript">
+	//id为play的button进行点击，因为是id唯一所以js可以直接这样写，但是如果规范代码来说，最好是还要写一个 var play = document.getElementById("play");`
+	//其他同为id的标签最好都是注意取出定义同上
+	var play = document.getElementById('play');
+	var muted = document.getElementById('muted');
+	var durations = document.getElementById('durations');
+	var range = document.getElementById('range');
+	var screens = document.getElementById('screens');
+	var range2 = document.getElementById('range2');
+		play.onclick = function(){
+			//如果视频是暂停，那么点击播放/暂停按钮，就让视频播放
+			if(videos.paused){
+				videos.play();
+				//否则，让视频暂停
+			}else{
+				videos.pause();
+			}
+		}
+		//影音按钮的点击
+		muted.onclick = function(){
+			if(videos.muted){
+				//如果是静音，那么就让静音属性是为false为非静音
+				videos.muted = false;
+				//音量的值 bb给range2.value 
+				range2.value=bb;//就是为了存储你点击静音前的音量值，等让它不静音的时候 把先前的值再放进去
+			}else{
+				//否则，将range2.value的值给bb 将静音前的值取出 用bb存放，为了是如果是静音的话点击不让其静音，bb的值给range2
+				bb=range2.value;
+				//如果不是静音点击的时候，让它静音，true为默认值静音。
+				videos.muted = true;
+				//让range2对应的value为0 即为静音
+				range2.value = 0;
+			}
+		}
+		//当控制音量的值变化的时候
+		range2.onchange = function(){
+			//将它的value给bb
+			bb = range2.value;
+			//视频播放器的volume跟range2控制条同步
+			videos.volume = range2.value;
+			//if为了解决一个bug问题，为了防止点击静音时出现的问题，所以如果音量控制条的值大于0 即非静音，所以让视频播放器本身为 非静音
+			// if(range2.value>0){
+			// 	videos.muted = false;
+			// }
+			// console.log(bb);
+		}
+		videos.onloadedmetadata = function(){//	当浏览器已加载音频/视频的元数据时
+			range.max = videos.duration;//让视频播放器视屏的持续时间 给range控制的最大
+			durations.innerHTML = parseInt(videos.duration);
+		}
+		videos.ontimeupdate = function(){//当目前的播放位置已更改时
+			range.value = videos.currentTime;//让视频的当前时间给range的值，为了保持自定义的控制跟随本身视频播放器自身的当前时间同步
+			durations.innerHTML = Math.ceil(videos.currentTime);//为了取当前时间通过ceil取整
+		}
+		range.onchange = function(){
+			videos.currentTime = range.value;//当自定义时间控制条发生变化时，让控制条的值给视频播放器本身 的目前时间同步
+		}
+		//全屏的处理，通过以下代码实现。
+		document.getElementById('screens').addEventListener('click',function(){
+		    launchFullscreen(document.getElementById('videos')); 
+		    window.setTimeout(function exit(){
+			//檢查瀏覽器是否處於全屏
+				if(invokeFieldOrMethod(document,'FullScreen') || invokeFieldOrMethod(document,'IsFullScreen') || document.IsFullScreen)
+					{
+					exitFullscreen();
+					}
+		  	 },5*1000);
+			},false);
+	</script>
+</body>
+</html>

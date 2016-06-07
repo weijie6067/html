@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq效果</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			div{
+				height: 300px;
+				width: 300px;
+				background: red;
+				display: none;
+				trasnlate:-50% -50%;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div></div>
+		<script type="text/javascript">
+//			$("div").show(2000,'linear',function(){
+//				//alert()
+//				$("div").hide(2000)
+//			})
+			$(window).click(function(){
+				$("div").toggle(1000)
+			})
+		</script>
+	</body>
+</html>

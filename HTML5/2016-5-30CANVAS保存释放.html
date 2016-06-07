@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CANVAS保存释放</title>
+	<style type="text/css">
+	canvas{
+		background: skyblue;
+		/* margin-left: 300px;  */
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1800" height="900" ></canvas>
+	<script type="text/javascript">
+	var cvs=document.getElementById('canvas').getContext("2d");
+	cvs.save();
+	cvs.rotate(45);
+	cvs.translate(200,-100)
+	cvs.fillRect(50,50,100,200)
+	cvs.restore()
+	cvs.fillStyle="#f80000"
+	cvs.fillRect(50,50,100,200)
+	
+	</script>
+</body>
+</html>

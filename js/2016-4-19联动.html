@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动</title>
+	<style>
+	*{
+		font-size: 16px;
+		font-family: "微软雅黑";
+	}
+	</style>
+</head>
+<body>
+	<select name="" id="country">
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+	</select>
+	<select name="" id="city">
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+	</select>
+	
+	<script>
+	var arr=["中国","日本","韩国","美国","英国",]
+	var arrCity=[['北京','上海','重庆','广州','天津'],['东京','北海道','福冈','千叶','大阪'],['首尔','仁川','釜山','春川','庆州'],['纽约','华盛顿','洛杉矶','芝加哥','休士顿'],['伦敦','牛津','剑桥','曼彻斯特','利物浦']]
+	var con=document.getElementById('country').getElementsByTagName('option');
+	var city=document.getElementById('city').getElementsByTagName('option');
+	var time=null;
+	// time=setInterval(a,10)
+	function a () {
+		for (var i = 0; i < con.length; i++) {
+			con[i].innerHTML=arr[i];
+			con[i].index=i
+			con[i].addEventListener("click",aa,false);
+			function aa(){
+				console.log(this.index)
+				alert(1)
+			}
+			city[i].innerHTML=arrCity[0][i];
+				// console.log(this)
+				
+				
+		}
+	}
+	a()
+	</script>
+</body>
+</html>

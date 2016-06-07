@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq轮播图渐变</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			#pic1,#pic2,#pic3{
+				width: 900px;
+				height: 600px;
+				position: absolute;
+				/*opacity: 0;*/
+				display: none;
+				background-size: 100%;
+			}
+			#pic1{
+				background: url(img/2.jpg);
+				/*opacity: 1;*/
+				display: block;
+			}
+			#pic2{
+				background: url(img/3.jpg);
+				background-size: 100%;
+			}
+			#pic3{
+				background: url(img/4.jpg);
+				background-size: 100%;
+			}
+			.outer{
+				width: 900px;
+				height: 600px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div id="pic1"></div>
+			<div id="pic2"></div>
+			<div id="pic3"></div>
+		</div>
+		<script type="text/javascript">
+		var i=0;
+		function aa(){
+				i++;
+				if(i>=$(".outer div").size()){
+					i=0
+				}
+				$(".outer div").eq(i).fadeIn(500).delay(2000).fadeOut(500)
+		}
+		var time=setInterval(aa,2500)
+		</script>
+	</body>
+</html>

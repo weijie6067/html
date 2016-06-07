@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>渐变</title>
+		<style>
+		div{
+			float: left;
+			height: 300px;
+			width: 300px;
+			margin: 20px;
+		}
+			.a{
+				height: 300px;
+				width: 300px;
+				background:-webkit-linear-gradient(top ,red 0%,yellow 50% ,blue 100%);
+			}
+			.b{
+				height: 300px;
+				width: 300px;
+				background:-webkit-radial-gradient(150px 150px,red 0%,yellow 50% ,blue 100%);
+			}
+			.c{
+				height: 300px;
+				width: 300px;
+				background: url(images/3.jpg) no-repeat;
+				background-size: 100%;
+				/*-webkit-mask-image: url(images/05.png);
+				-webkit-mask-repeat: no-repeat;
+				-webkit-mask-position: 100px 0px;*/
+				-webkit-mask: url(images/03.png) no-repeat ;
+			}
+			.d{
+				background:-webkit-radial-gradient(100px 100px,white 0%,black 90%);
+				border-radius: 50%;
+			}
+			.e{
+				height: 100px;
+				width: 300px;
+				background: -webkit-linear-gradient(top,black 0%,#eee 38%,black 100%);
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+		<div class="d"></div>
+		<div class="e"></div>
+	</body>
+</html>

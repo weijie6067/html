@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+   		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<link rel="stylesheet"  href="css/swiper-3.3.1.min.css">
+		<style type="text/css">
+			html, body {
+		        position: relative;
+		        height: 100%;
+		    }
+		    body {
+		        margin: 0;
+		        padding: 0;
+		    }
+			.red{
+				background: url(images/1.jpg);
+				
+			}
+			.blue{
+				background: url(images/2.jpg);
+				
+			}
+			.yellow{
+				background: url(images/3.jpg);
+				
+			}
+			.swiper-container {
+		        width: 100%;
+		        height: 100%;
+		        margin-top: 200px;
+		        margin-left: auto;
+		        margin-right: auto;
+		    }
+		    .swiper-slide{
+		    	background-position: center;
+       			 background-size: cover;
+				height: 100%;
+        		/*height: 90%;*/
+        		
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide red">side1</div>
+		        <div class="swiper-slide blue">side2</div>
+		        <div class="swiper-slide yellow">side3</div>
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination"></div>
+		    
+		    <!-- 如果需要导航按钮 -->
+		    <div class="swiper-button-prev swiper-button-white"></div>
+		    <div class="swiper-button-next swiper-button-white"></div>
+		    
+		    <!-- 如果需要滚动条 -->
+		    <!--<div class="swiper-scrollbar"></div>-->
+		</div>
+		<script src="js/swiper-3.3.1.min.js"></script>
+
+		<script type="text/javascript">
+			 var mySwiper = new Swiper ('.swiper-container', {
+			 	effect:'fade',
+			 	
+			    loop: true,
+			    autoplay:2000,
+			    // 如果需要分页器
+			    pagination: '.swiper-pagination',
+			    paginationClickable:true,
+			    
+			    // 如果需要前进后退按钮
+			    nextButton: '.swiper-button-next',
+			    prevButton: '.swiper-button-prev',
+			    
+			   
+			  })        
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数调用</title>
+</head>
+<body>
+	<div></div>
+	<script>
+	// function fn1 () {
+	// 	alert(1)
+	// }
+	// fn1()
+	// var x=function(){
+	// 	alert(2)
+	// }
+	// x()
+	//作为函数调用
+	// (function(){
+	// 	var a=10
+	// 	console.log(a)
+	// }) ()
+	//作为方法调用
+	// var div=document.getElementsByTagName('div')[0];
+	// alert(typeof div);
+	// div.onclick=function(){
+
+	// }
+	var obj={};
+	 obj.name="zhangsan";
+	 obj.age="13";
+	 obj.jian="dbj";
+	 obj.way=function(x,y){
+	 	console.log(x+y)
+	 }
+	 obj.way(10,20)
+	 console.log(obj);
+	</script>
+</body>
+</html>

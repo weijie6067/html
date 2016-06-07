@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2016-5-1canva画圆</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			if(canvas.getContext("2d")){
+				var contxt=canvas.getContext("2d"); //使用context绘制
+			}else{
+				alert("浏览器不支持canvas");
+			}
+			contxt.beginPath();
+			contxt.arc(200,200,50,0,Math.PI)
+			contxt.closePath(); //可以把为封闭的区间封闭起来
+			contxt.lineWidth=5
+			contxt.strokeStyle="red"
+			contxt.stroke()
+			
+		}	
+		</script>
+	</body>
+</html>

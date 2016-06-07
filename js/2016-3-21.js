@@ -1,0 +1,1 @@
+// alert("hello world");//引号是将文本变为字符串

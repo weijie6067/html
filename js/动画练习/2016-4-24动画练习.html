@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			position: absolute;
+
+		}
+		.face{
+			top: 0px;
+			z-index: 98;
+			transition: opacity 0.3s 0.5s,top 0.5s 0.5s;
+			opacity: 0;
+		}
+		.face2{
+			top: 100px;
+			z-index: 98;
+			transition: opacity 0.3s 0.5s,top 0.5s 0.5s;
+			opacity: 1;
+		}
+		.face3{
+			top: 0px;
+			z-index: 98;
+			transition: opacity 0.5s,top 0.5s;
+			opacity: 0;
+		}
+		.faceshadow{
+			top:0px;
+			left: 100px;
+			z-index: 97;
+		}
+		.back{
+			z-index: 96;
+			top:0px;
+		}
+		.backshadow{
+			top: 328px;
+			left: -30px;
+			z-index: 95;
+			transition: opacity 0.3s;
+			opacity: 0;
+		}
+		.backshadow2{
+			top: 328px;
+			left: -30px;
+			z-index: 95;
+			transition: opacity 0.3s 0.5s,top 0.5s 0.5s;
+			opacity: 1;
+		}
+		.backshadow3{
+			top: 328px;
+			left: -30px;
+			z-index: 95;
+			transition: opacity 0.3s 0.5s,top 0.5s 0.5s;
+			opacity: 0;
+		}
+		.second{
+			position: absolute;
+			top: 0px;
+			opacity: 0;
+			transition: opacity 0.3s,top 1s ;
+		}
+		.second2{
+			position: absolute;
+			top: 260px;
+			opacity: 1;
+			transition: opacity 0.3s ,top 0.5s ;
+		}
+		.second3{
+			position: absolute;
+			top: 160px;
+			opacity: 0;
+			transition: opacity 0.3s 0.5s,top 0.5s 0.5s;
+		}
+		.content{
+			position: relative;
+			top: 100px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="content">
+		<img src="img/1.png" alt="" class="face">
+		<div class="second">
+			<img src="img/3.png" alt="" class="faceshadow">
+			<img src="img/2.png" alt="" class="back">
+		</div>
+		
+		<img src="img/4.png" alt="" class="backshadow">
+	</div>
+
+	<script>
+	var content=document.getElementsByClassName('content');
+	var face=document.getElementsByClassName('face');
+	var second=document.getElementsByClassName('second');
+	var backshadow=document.getElementsByClassName('backshadow');
+	content[0].onmouseover=function(){
+		// face[0].className="face2";
+		// second[0].className="second2";
+		// backshadow[0].className="backshadow2";
+		backshadow[0].style.opacity=1;
+		face[0].style.top="100px";
+		second[0].style.top="260px";
+		second[0].style.opacity=1;
+		face[0].style.opacity=1;
+		face[0].style.transition="opacity 0.3s 0.5s,top 0.5s 0.5s";	
+		second[0].style.transition="opacity 0.5s,top 1s";	
+		backshadow[0].style.transition="opacity 0.5s 0.5s";	
+		
+	}
+	content[0].onmouseout=function(){
+		// face[0].className="face3";
+		// second[0].className="second3";
+		// backshadow[0].className="backshadow3";
+		face[0].style.top="0px";
+		face[0].style.opacity=0;
+		second[0].style.top="160px";
+		second[0].style.opacity=0;
+		backshadow[0].style.opacity=0;
+		face[0].style.transition="opacity 0.5s,top 0.5s";	
+		second[0].style.transition="opacity 0.3s 0.5s,top 1s 0.5s";	
+		backshadow[0].style.transition="opacity 0.3s 0.5s";	
+		
+	}
+	</script>	
+</body>
+</html>

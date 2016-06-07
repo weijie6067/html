@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布效果</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		font-size: 14px;
+		font-family: "微软雅黑";
+	}
+	ul{
+		list-style: none;
+	}
+	.outer{
+		width: 700px;
+		margin: 50px auto;
+	}
+	.t{
+		width: 700px;
+		height: 100px;
+		margin-top: 10px;
+	}
+	.l{
+		float: left;
+	}
+	.r{
+		float: right;
+	}
+	.pub{
+		width: 70px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		background: orange;
+		color: white;
+		margin-top: 10px;
+		margin-left: 630px;
+		cursor: pointer;
+
+	}
+	.content{
+		width: 700px;
+		height: 70px;
+		border: 1px solid #ccc;
+		margin-top: 10px;
+		position: relative;
+	}
+	.logo{
+		width: 70px;
+		height: 70px;
+		border-right: 1px solid #ccc;
+		background: url(img/1.jpg);
+		background-size: 100%;
+	}
+	.word{
+		margin-top: 5px;
+		width: 619px;
+		margin-left: 10px;
+	}
+	.inner{
+		width: 700px;
+		height: 100%;
+		margin-top: 10px;
+		margin: auto;
+	}
+	#delete{
+		width: 70px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		background: red;
+		color: white;
+		cursor: pointer;
+		position: absolute;
+		top: 40px;
+		left: 630px;
+	}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<p class="top">
+			<span class="l">有什么想要说</span>
+			<span class="r">还可以输入<span id="length">20</span>字</span>
+		</p>
+		<textarea name="" id="txt"  class="t" maxLength="20"></textarea>
+		<div class="pub" id="pub">发布</div>
+		<div class="inner" id="inner">
+			<!-- <ul class="content">
+				<li class="logo l"></li>
+				<li class="word l" id="world">1</li>
+				<p class="delete " id="delete">删除</p>
+			</ul> -->
+		</div>
+	</div>
+	<script>
+		var pub=document.getElementById('pub');
+		var inner=document.getElementById('inner');
+		var txt=document.getElementById('txt');
+		var content=document.getElementById('inner').getElementsByTagName('ul');
+		var length=document.getElementById('length');
+		var time=null;
+		time=setInterval(a,200)
+		function a(){
+			if (txt.value.length==0) {
+				pub.style.background="green";
+			}else{
+				pub.style.background="orange";
+				if(txt.value.length>=20){
+					length.innerHTML=0;
+				}else{
+					length.innerHTML=(20-txt.value.length);
+				}
+			}
+		}
+		pub.onclick=function (){
+			var newcontent=document.createElement('ul');
+			var newlogo=document.createElement('li');
+			var newword=document.createElement('li');
+			var newdelete=document.createElement('p');
+			var del=document.getElementById('inner').getElementsByTagName('p');
+			if (txt.value.length==0) {
+				alert("不能为空")
+			}else{
+				inner.insertBefore(newcontent,content[0]);
+				newcontent.appendChild(newlogo);
+				newcontent.appendChild(newword);
+				newcontent.appendChild(newdelete);
+				newcontent.className='content'
+				newcontent.id='content'
+				newlogo.className='logo l'
+				newword.className='word l'
+				newdelete.id='delete'
+				newdelete.innerHTML='删除';
+				newword.innerHTML=txt.value;
+				txt.value="";
+			}
+			var del=document.getElementById('inner').getElementsByTagName('p');
+			for (var i = 0; i < content.length; i++) {
+				del[i].index=i;
+				del[i].onclick=function(){
+					inner.removeChild(this.parentNode);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

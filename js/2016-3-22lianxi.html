@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 500px;
+			height: 100px;
+			background-color: #555;
+			margin: 20px;
+		}
+		.abc{
+			width: 300px;
+			height: 50px;
+			background: red;
+		}
+		.aa{
+			background: blue;
+		}
+		#abc{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="abc" ></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+	<script>
+		var x=document.getElementsByTagName('div');
+		// console.log(x);
+		// x[0].onclick=function(){
+		// 	alert("您选中了一个div")
+		// }
+		// x[1].onclick=function(){
+		// 	alert("您选中了一个div2")
+		// }
+		// x[2].onclick=function(){
+		// 	alert("您选中了一个div3")
+		// }
+		// var i=0;
+		// x[0].onmousemove=function(){
+		// 	i++;
+		// 	console.log(i);
+		// }
+		// x[4].onmouseout=function(){
+		// 	alert("鼠标备一开了")
+		// }
+			x[0].onclick=function(){
+		// 	// x[0].style.background="yellow";
+		// 	// x[1].style.width="1000px";
+			x[0].className="aa"
+		}
+		var oDiv = document.getElementsByTagName('div');
+		var show = document.getElementById('abc');
+			
+	</script>
+</body>
+</html>

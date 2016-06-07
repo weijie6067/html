@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			border-radius: 100px;
+		}
+		
+	</style>
+</head>
+<body>
+	<input type="button" value="开始">
+	<input type="button" value="暂停">
+	<input type="button" value="重置">
+	<div></div>
+	<script>
+	var ipt=document.getElementsByTagName('input');
+	var div=document.getElementsByTagName('div');
+	var i=0;
+	var time=null;
+	var time2=null;
+
+	ipt[0].onclick=function(){
+		clearInterval(time);
+		function aa(){
+			i++;
+			div[0].style.marginLeft=i+"px";
+			if(i>500){
+				clearInterval(time);
+				time2=setInterval(bb,1);
+				function bb(){
+					i--;
+					div[0].style.marginLeft=i+"px";
+					if(i<=0){
+						clearInterval(time2)
+						time=setInterval(aa,1);
+					}
+				}
+			}	
+		}
+		time=setInterval(aa,1);
+	}
+	ipt[1].onclick=function(){
+		clearInterval(time);
+		clearInterval(time2)
+	}
+	ipt[2].onclick=function(){
+		i=0;
+		clearInterval(time);
+		clearInterval(time2)
+		div[0].style.marginLeft=i+"px";
+	}
+	</script>
+</body>
+</html>

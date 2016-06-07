@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin: 200px auto;
+			border-radius: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	</div>
+	<script>
+		var size=document.getElementsByTagName('div')[0];
+
+		time=setInterval(aa,1);
+		var i=0;
+			
+		function aa(){
+			i++;
+			console.log(i);
+			size.style.width=i+"px";
+			size.style.height=i+"px";
+			if (i>700) {
+				clearInterval(time);
+			};
+			
+		}
+			
+			
+						
+	</script>
+</body>
+</html>

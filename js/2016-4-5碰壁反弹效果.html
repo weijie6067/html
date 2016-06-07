@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+		.outer{
+			width: 800px;
+			height: 800px;
+			background: #555;
+			margin:auto;
+			position: relative;
+		}
+		.inner{
+			width: 50px;
+			height: 50px;
+			background: red;
+			border-radius: 25px;
+			position: absolute;
+			border: 10px solid white;
+			left: 50px;
+			top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div class="inner" id="inner"></div>
+	</div>
+	<script>
+	var outer=document.getElementById('outer');
+	var inner=document.getElementById('inner');
+	console.log(inner.offsetLeft)
+	console.log(inner.offsetTop)
+	
+	//offsetLeft获取当前元素到父元素的左边距，没有offsetRight
+	// offsetTop获取当前元素到父元素的上边距,没有offsetLeft。如果任何元素都没做过定位，那offsetLeft就会计算到浏览器边界
+	console.log(inner.offsetWidth) 
+	console.log(inner.offsetHeight)
+	//可以获取元素的自身高或宽 并且包含边框
+	console.log(inner.clientWidth)
+	console.log(inner.clientHeight)
+	//可以获取元素的自身高或宽 不包含边框
+
+	</script>
+</body>
+</html>

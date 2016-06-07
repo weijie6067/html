@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			/*width: 750px;*/
+			height: 664px;
+			/*background: red;*/
+			position: absolute;
+			/*opacity: 0;*/
+		}
+		div:nth-child(1){
+			width: 1366px;
+			/*opacity: 1;*/
+			/*left: 0px;*/
+			background: red;
+			/*background: url(img/1.jpg);*/
+			/*background-size: 100% 100%;*/
+		}
+		div:nth-child(2){
+			/*background: url(img/2.jpg);*/
+			/*background-size: 100% 100%;*/
+			background: yellow;
+		}
+		div:nth-child(3){
+			/*background: url(img/3.jpg);*/
+			/*background-size: 100% 100%;*/
+			background: green;
+		}
+		div:nth-child(4){
+			/*background: url(img/4.jpg);			*/
+			/*background-size: 100% 100%;*/
+			background: blue;
+		}
+		div:nth-child(5){
+			/*background: url(img/5.jpg);*/
+			/*background-size: 100% 100%;*/
+			background: purple;
+		}
+		div:nth-child(6){
+			/*background: url(img/6.jpg);*/
+			/*background-size: 100% 100%;*/
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script>
+		var i=0;
+		function aa(){
+			i++;
+			$("div").eq(0).css({width:"0px"});
+			$("div").eq(i).animate({width:"1366px"},499).delay(2000).animate({width:"0px"},1);
+			if(i>=($("div").size()-1)){
+				i=-1;
+			}
+		}
+		setInterval(aa,2500)
+		// function aa(){
+		// 	i++;
+		// 	$("div").eq(0).css({opacity:0});
+		// 	$("div").eq(i).animate({opacity:1},499).delay(2000).animate({opacity:0},1);
+		// 	if(i>=($("div").size()-1)){
+		// 		i=-1;
+		// 	}
+		// }
+		// setInterval(aa,2500)
+		// function aa(){
+		// 	i++;
+		// 	$("div").eq(0).css({left:"-750px"});
+		// 	$("div").eq(i).animate({left:0},499).delay(2000).animate({left:"-750px"},1);
+		// 	if(i>=($("div").size()-1)){
+		// 		i=-1;
+		// 	}
+		// }
+		// setInterval(aa,2500)
+	</script>
+</body>
+</html>

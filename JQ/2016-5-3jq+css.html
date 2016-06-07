@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqcss</title>
+	<style>
+	div{
+		/*position: absolute;*/
+	}
+	</style>
+	<script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div>lsjdlfj</div>
+	<span>asdf </span>
+	<script>
+		$("div").css({
+			"height":"200px",
+			"width":"200px",
+			"background":"red",
+			"marginLeft":"40px",
+//			"position":"absolute"
+		})
+		$("span").css({
+			"color":"blue"
+		})
+		console.log($("div").offset())
+		console.log($("div").position())
+		$("div").click(function (){
+			$("div").css({
+				background:"black",
+			})
+		})
+		$("div").hover(function(){
+			$(this).css({
+				background:"yellow",
+			})
+		},function(){
+			$(this).css({
+				background:"blue",
+			})
+		})
+		//tab切换
+		
+	</script>
+</body>
+</html>

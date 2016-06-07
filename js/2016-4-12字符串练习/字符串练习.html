@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串练习</title>
+	<style>
+		img{
+			width: 100px;
+			height: 140px;
+		}
+		body{
+			background: url(images/background.jpg) no-repeat;
+			background-size: 100%;
+		}
+		.a{
+			margin-top: 430px;
+			margin-left: 380px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="变形">
+	<br>
+	<div class="a">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+		<img src="images/0.png" alt="">
+	</div>
+	<script>
+	var img=document.getElementsByTagName('img');
+	var ipt=document.getElementsByTagName('input');
+	ipt[0].onclick=function(){
+		for (var i = 0; i < img.length; i++) {
+			img[i].src="images/"+i+".png"
+		};
+		
+	}
+	
+		for (var i = 0; i < img.length; i++) {
+			img[i].index=i;
+			img[i].onclick=function(){
+				for (var i = 0; i < img.length; i++) {
+					this.src="images/"+this.index+".png"
+				};
+				
+			}
+		};
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时电子表</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		span{
+			font-size: 30px;
+			font-family: "微软雅黑";
+			display:inline-block;
+			/*width: 200px;*/
+		}
+		input[type="text"]{
+			width: 50px;
+		}
+		input[type="button"]{
+			width: 100px;
+			height: 54px;
+		}
+		input[type="reset"]{
+			width: 100px;
+			height: 54px;
+		}
+		input{
+			height: 50px;
+			font-size: 30px;	
+			font-family: "微软雅黑";
+			text-align: center;
+			
+		}
+		p{
+			float:left;
+			/*margin-top: 25px;*/
+			/*margin-left: 200px;*/
+		}
+		p span{
+			font-size: 30px;
+		}
+		h1{
+
+			font-size: 80px;
+			font-family: "微软雅黑";
+			font-weight: normal;
+			margin-bottom: 25px;
+		}
+		div{
+			height: 220px;
+			margin-left: 30px;
+		}
+		.r{
+			margin-top: 10px;
+			margin-left: 50px;
+		}
+		form{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="first" id="first">
+		<h1>后台设定倒计时：</h1>
+		<p class="r" >
+			<span>0</span>
+			<span>&nbsp;时&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;分&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;秒&nbsp;</span>
+			<span style="width:50px;">0</span>
+			<span>&nbsp;毫秒&nbsp;</span>
+		</p>	
+	</div>
+	<hr>
+	<div class="second" id="second">
+		<h1>设置时间倒计时：</h1>
+			<form action="">
+				<input type="text" placeholder="0">
+				<span>时</span>
+				<input type="text" placeholder="0">
+				<span>分</span>
+				<input type="text" placeholder="0">
+				<span>秒</span>
+				
+				<input type="button" value="开始">
+				<input type="button" value="暂停">
+				<input type="reset" value="重置">
+			</form>
+		<p class="r">
+			<span>0</span>
+			<span>&nbsp;时&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;分&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;秒&nbsp;</span>
+			<span style="width:50px;">0</span>
+			<span>&nbsp;毫秒&nbsp;</span>
+		</p>
+
+	</div>
+	<hr>
+	<div class="third" id="third">
+		<h1>设置定点倒计时：</h1>
+			<form action="">
+				<input type="text" placeholder="0">
+				<span>时</span>
+				<input type="text" placeholder="0">
+				<span>分</span>
+				<input type="text" placeholder="0">
+				<span>秒</span>
+				
+				<input type="button" value="开始">
+				<input type="button" value="暂停">
+				<input type="reset" value="重置">
+			</form>
+		<p class="r">
+			<span>0</span>
+			<span>&nbsp;时&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;分&nbsp;</span>
+			<span>0</span>
+			<span>&nbsp;秒&nbsp;</span>
+			<span style="width:50px;">0</span>
+			<span>&nbsp;毫秒&nbsp;</span>
+		</p>
+	</div>
+	<hr>
+	<script>
+	var s1=document.getElementById('first').getElementsByTagName('span');
+	var s3=document.getElementById('third').getElementsByTagName('span');
+	var ipt3=document.getElementById('third').getElementsByTagName('input') ;
+	var time1=null;
+	var h,s,min,msec;
+	var t3=new Date();
+	var sh1=t3.setHours(9,29,00)
+	time1=setInterval(bb,1)
+	function bb(){
+			var t4=new Date();
+			var now4=t4.getTime();
+			var h1=Math.floor((sh1-now4)/3600000);
+			var min1=Math.floor(((sh1-now4)/60000)%60)
+			var sec1=Math.floor(((sh1-now4)/1000)%60)
+			var msec1=((sh1-now4)%1000)
+			s1[0].innerHTML=h1;
+			s1[2].innerHTML=min1;
+			s1[4].innerHTML=sec1;
+			s1[6].innerHTML=msec1;
+			if(h1==0&&min1==0&&sec1==0){
+				clearInterval(time1);
+				s1[0].innerHTML=0;
+				s1[2].innerHTML=0;
+				s1[4].innerHTML=0;
+				s1[6].innerHTML=0;
+			}
+		}
+	//第二个倒计时	
+	var s=document.getElementById('second').getElementsByTagName('span');
+	var ipt=document.getElementById('second').getElementsByTagName('input') ;
+	var time2=null;
+	var h,s,min,msec;
+	
+	ipt[3].onclick=function(){
+		var t1=new Date();
+		var nowa=t1.getTime();
+		var x=parseInt(ipt[0].value);
+		var y=parseInt(ipt[1].value);
+		var z=parseInt(ipt[2].value);
+		var sh;
+		if(ipt[0].value==""&&ipt[1].value==""&&ipt[2].value==""){
+			alert("请输入正确的时间")
+		}
+		else{
+			if(ipt[1].value==""){
+				y=0;
+			}
+			if(ipt[2].value==""){
+				z=0;
+			}
+			if(ipt[0].value==""){
+				sh=nowa+y*60000+z*1000;
+			}
+			else{
+				sh=t1.setHours(x,y,z);
+			}
+			
+			clearInterval(time2);
+			time2=setInterval(a,1)
+			function a(){
+				var t2=new Date();
+				var now2=t2.getTime();
+				var h=Math.floor((sh-now2)/3600000);
+				var min=Math.floor(((sh-now2)/60000)%60)
+				var sec=Math.floor(((sh-now2)/1000)%60)
+				var msec=((sh-now2)%1000)
+				s[3].innerHTML=h;
+				s[5].innerHTML=min;
+				s[7].innerHTML=sec;
+				s[9].innerHTML=msec;
+				if(h==0&&min==0&&sec==0){
+					clearInterval(time2);
+					s[3].innerHTML=0;
+					s[5].innerHTML=0;
+					s[7].innerHTML=0;
+					s[9].innerHTML=0;
+				}
+			}
+			ipt[4].onclick=function(){
+				clearInterval(time2);
+			}
+			ipt[5].onclick=function(){
+				clearInterval(time2);
+				s[3].innerHTML=0;
+				s[5].innerHTML=0;
+				s[7].innerHTML=0;
+				s[9].innerHTML=0;
+			}
+		}
+	}	
+	//第三个倒计时
+	var time3=null;
+	ipt3[3].onclick=function(){
+		var t5=new Date();
+		var m=(parseInt(ipt3[0].value))*3600000;
+		var n=(parseInt(ipt3[1].value))*60000;
+		var o=(parseInt(ipt3[2].value))*1000;
+		if(ipt3[0].value==""&&ipt3[1].value==""&&ipt3[2].value==""){
+			alert("请输入正确的时间")
+		}
+		else{
+			if(ipt3[0].value==""){
+			m=0;
+			}
+			if(ipt3[1].value==""){
+				n=0;
+			}
+			if(ipt3[2].value==""){
+				o=0;
+			}
+			var all=m+n+o;
+			var now5=t5.getTime();
+			clearInterval(time3);
+			time3=setInterval(cc,1)
+			
+			function cc(){
+				var t6=new Date();
+				var now6=t6.getTime();
+				var h3=Math.floor((now5+all-now6)/3600000);
+				var min3=Math.floor(((now5+all-now6)/60000)%60)
+				var sec3=Math.floor(((now5+all-now6)/1000)%60)
+				var msec3=((now5+all-now6)%1000)
+				s3[3].innerHTML=h3;
+				s3[5].innerHTML=min3;
+				s3[7].innerHTML=sec3;
+				s3[9].innerHTML=msec3;
+				if(h3==0&&min3==0&&sec3==0){
+				clearInterval(time3);
+				s3[3].innerHTML=0;
+				s3[5].innerHTML=0;
+				s3[7].innerHTML=0;
+				s3[9].innerHTML=0;
+			}
+			}
+			ipt3[4].onclick=function(){
+				clearInterval(time3);
+			}
+			ipt3[5].onclick=function(){
+				clearInterval(time3);
+				s3[3].innerHTML=0;
+				s3[5].innerHTML=0;
+				s3[7].innerHTML=0;
+				s3[9].innerHTML=0;
+			}
+		}
+		
+		
+	}
+	
+	</script>
+</body>
+</html>

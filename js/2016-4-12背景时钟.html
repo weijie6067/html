@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景时钟</title>
+	<style>
+		img{
+			width: 100px;
+			height: 140px;
+		}
+		body{
+			background: url(images/background.jpg) no-repeat;
+			background-size: 100%;
+			color: white;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			width: 160px;
+			height: 200px;
+			display: inline-block;
+		}
+		#top{
+			height: 200px;
+		}
+		#bot{
+			margin-top:100px;
+			margin-left: 200px;
+		}
+		.space{
+			width: 160px;
+			height: 200px;
+			display: inline-block;
+			background:url(images/space.png) no-repeat ;
+		}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<div class="space"></div>
+			<li></li>
+			<li></li>
+			<div class="space"></div>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	</div>
+	<br>
+	<div id="bot" >
+		<ul>
+			<li></li>
+			<li></li>
+			<div class="space"></div>
+			<li></li>
+			<li></li>
+			<div class="space"></div>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script>
+	var ttop=document.getElementById('top').getElementsByTagName('li')
+	var bot=document.getElementById('bot').getElementsByTagName('li')
+	var time=null;
+	function a(){
+		var time=new Date();
+		var y=time.getFullYear();
+		var m=time.getMonth()+1;
+		var d=time.getDate();
+		var h=time.getHours();
+		var min=time.getMinutes();
+		var s=time.getSeconds();
+		//-------------------------方法一---------------------------------------------------------------------
+		// if(m<10){
+		// 	m="0"+(time.getMonth()+1);
+		// }
+		// if(d<10){
+		// 	d="0"+time.getDate();
+		// }
+		// if(h<10){
+		// 	h="0"+time.getHours();
+		// }
+		// if(min<10){
+		// 	min="0"+time.getMinutes()
+		// }
+		// if(s<10){
+		// 	s="0"+time.getSeconds()
+		// }
+		// var a=""+y+m+d;
+		// var b=""+h+min+s;
+		// for (var i = 0; i < ttop.length; i++) {
+		// 	ttop[i].style.background="url(images/"+a[i]+".png) no-repeat";
+		// 	ttop[i].style.backgroundSize="100% 100%";
+		// }
+		// for (var i = 0; i < bot.length; i++) {
+		// 	bot[i].style.background="url(images/"+b[i]+".png) no-repeat";
+		// 	bot[i].style.backgroundSize="100% 100%";
+		// }
+		//-------------------------方法一---------------------------------------------------------------------
+		//-------------------------方法二---------------------------------------------------------------------
+		function select(time){
+			if(time<10){
+				return "0"+time;
+			}else{
+				return time;
+			}
+		}
+		var str1=""+select(y)+select(m)+select(d);
+		var str2=""+select(h)+select(min)+select(s);
+		for (var i = 0; i < ttop.length; i++) {
+			ttop[i].style.background="url(images/"+str1[i]+".png) no-repeat";
+			ttop[i].style.backgroundSize="100% 100%";
+		};
+		for (var i = 0; i < bot.length; i++) {
+			bot[i].style.background="url(images/"+str2[i]+".png) no-repeat";
+			bot[i].style.backgroundSize="100% 100%";
+		};
+		//-------------------------方法二---------------------------------------------------------------------
+	}
+
+	time=setInterval(a,1);
+	</script>
+</body>
+</html>

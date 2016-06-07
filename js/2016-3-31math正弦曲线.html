@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background: red;
+			position: absolute;
+			margin-top: 380px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+		var div=document.getElementsByTagName('div')[0];
+		var i=0;
+		var a=null;
+		var time=null;		
+		time=setInterval(aa,1)
+		// time2=setInterval(bb,1)
+		function aa(){
+			i++;
+			a=Math.sin(Math.PI*(i/180));
+			div.style.top=a*100+"px";
+			div.style.left=i+"px";
+			console.log(a)
+			if(i>1720){
+				i=0;
+				// clearInterval(time);
+				// function bb(){
+				// 	i--;
+				// 	a=Math.sin(Math.PI*(i/180));
+				// 	div.style.top=a*100+"px";
+				// 	div.style.left=i+"px";
+				// }
+				
+			}
+		}
+			
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>混合模式</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		function createPerson(name,age){
+			this.name=name;
+			this.age=age;
+			
+		}
+		createPerson.prototype.skill=function (){
+			console.log(this.name)
+		}
+		var ren=new createPerson("liji","18");
+		console.log(ren);
+		ren.skill();
+	</script>
+</body>
+</html>

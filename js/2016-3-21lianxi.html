@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var a=0,b=0,c=0,d=0,sum=0;
+	for (var i = 0; i < 10; i++) {
+		a=a+i
+	};
+	console.log(a)
+
+	for (var i = 0; i <=100; i++) {
+		b=b+i
+	};
+	console.log(b)
+
+	for(var i=1 ; i<100000 ; i++){
+		if (i%2!=0) {
+			// console.log(i)
+			c=c+i
+		};
+	}
+	console.log(c)
+
+	for(var i=1 ; i<100 ; i++){
+		if (i%3==0) {
+			d=d+i
+		};
+	}
+	console.log(d)
+	var x=i%3;
+	for(var i=0 ; i<100 ; i++){
+			sum=sum+i
+			if (x=0) {
+				sum=sum+x
+			};
+			// else{
+			// 	sum=sum+1
+			// }
+	}
+	console.log(sum)
+	</script>
+</body>
+</html>

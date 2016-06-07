@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<!-- <link rel="stylesheet" href="reset.css"> -->
+	<style>
+		#box2{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box2"></div>
+</body>
+<script type="text/javascript">
+	function setCookie(Key,Value,Days){//设置Cookie
+		var dates=new Date();
+		dates.setDate(dates.getDate()+Days);
+		document.cookie=Key+"="+escape(Value)+"; expires="+dates;
+	}
+	function getCookie(Key){//获取cookie
+		var arr=document.cookie.split('; ');
+		// ['user1=laowang','user2=laozhang']
+		for (var i = 0; i < arr.length; i++) {
+			var arr2=arr[i].split('=');
+			//['user1','laowang']
+			if (arr2[0]==Key) {
+				return unescape(arr2[1]);
+			};
+		};
+		return false;
+	}
+	function rmCookie(Key){//删除cookie
+		setCookie(Key,'0',-1);
+	}
+	
+	var box2=document.getElementById('box2');
+	box2.innerHTML='你好'+getCookie('user')+',上次登录事件：'+getCookie('time2');
+	setCookie('time2',getCookie('time'),30);
+</script>
+</html>

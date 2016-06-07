@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.outer{
+			width: 800px;
+			height: 600px;
+			background: #555;
+			margin:auto;
+			position: relative;
+			
+
+		}
+		.inner{
+			width: 50px;
+			height: 50px;	
+			background: red;
+			position: absolute;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div class="inner" id="inner"></div>
+	</div>
+	<script>
+	var outer=document.getElementById('outer');
+	var inner=document.getElementById('inner');
+	inner.onmousedown=function (){
+		window.onmousemove=function(event){
+			// inner.style.cursor=pointer;
+			var e=event||window.event;
+			e.preventDefault();
+			var a=outer.offsetLeft;
+			var b=outer.offsetTop;
+			var c=outer.offsetHeight;
+			var d=inner.offsetHeight;
+			var f=outer.offsetWidth;
+			var g=inner.offsetWidth;
+			var x=e.clientX-a-g/2;
+			var y=e.clientY-b-d/2;
+			if(x<=0){
+				x=0
+			}
+			if(y<0){
+				y=0
+			}
+			if(y>(c-d)){
+				y=c-d
+			}
+			if(x>(f-g)){
+				x=f-g
+			}
+			inner.style.top=y+"px";
+			inner.style.left=x+"px";
+		}
+	}
+	inner,onmouseup=function(){
+		window.onmousemove=null;
+	}
+	</script>
+</body>
+</html>

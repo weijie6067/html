@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生分数</title>
+	<script type="text/javascript">
+	var child=function(newName,newAge,newSex,score){
+		this.name=newName;
+		this.age=newAge;
+		this.sex=newSex;
+		this.score=score
+		this.math=this.score.math//或者用这种方法	
+		this.sayHello=function(){
+			alert("hello,我叫"+this.name+",我的成绩是语文："+this.score.chinese+",数学："+this.score.math+"，英语："+this.score.english)
+		}
+	}
+	var a=new child("kdj",20,"man",{chinese:80,english:50,math:20})
+	console.log(a)
+	a.sayHello()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

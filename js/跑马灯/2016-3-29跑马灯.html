@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.pic{
+			width: 1200px;
+			height: 165px;
+			margin: 200px auto;
+		}
+		.pic div{
+			width: 200px;
+			height: 200px;
+			float: left;
+			margin-left: 10px;
+
+		}
+		img{
+			width: 200px;
+		}
+		.b{
+			height: 50px;
+			width: 1920px;
+			background: #555;
+			color: white;
+			font-size: 30px;
+			line-height: 50px;
+			font-weight:bold;
+			font-family: "微软雅黑";
+			text-align: center;
+			margin-top: 100px;
+			/*border: none;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="pic" id="pic">
+		<div><img src="images/0.jpg" alt=""></div>
+		<div><img src="images/1.jpg" alt=""></div>
+		<div><img src="images/2.jpg" alt=""></div>
+		<div><img src="images/3.jpg" alt=""></div>
+		<div><img src="images/4.jpg" alt=""></div>
+		
+	</div>
+	<input type="button" value="BEGIN" class="b">
+	 <script>
+		var pic=document.getElementById('pic').getElementsByTagName('div');
+		var ipt=document.getElementsByTagName('input');
+		var time=null;
+		var i=0;
+		ipt[0].onclick=function (){
+			clearInterval(time);
+			time=setInterval(aa,100);
+			
+			function aa(){
+				for (var j = 0; j < 5; j++) {
+					pic[j].style.visibility="hidden";
+					console.log(i);
+				}
+				pic[i].style.visibility="visible";
+				i++;
+				if(i>4){
+					i=0;
+				}
+			}
+		}
+	 </script>
+</body>
+</html>

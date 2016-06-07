@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画图练习</title>
+	<style type="text/css">
+	div{
+		width: 960px;
+		height: 700px;
+		margin: 20px auto;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<canvas id="can" width="960" height="800" style="background: ;"></canvas>
+	</div>
+	<script type="text/javascript">
+	var can=document.getElementById("can").getContext("2d");
+	can.beginPath()
+	var face=can.createRadialGradient(100,100,100,100,100,50);
+	face.addColorStop(0,"#EABA24");
+	face.addColorStop(1,"#F3CA2C");
+	can.fillStyle=face;
+	can.arc(100,100,100,0,Math.PI*2)
+	can.fill()
+	can.closePath()
+	
+	can.beginPath();
+	can.arc(55,90,40,0,Math.PI*2)
+	can.fillStyle="white";
+	can.lineWidth=2;
+	can.strokeStyle="black";
+	can.fill();
+	can.stroke();
+	can.closePath()
+	
+	can.beginPath();
+	can.arc(55,120,5,0,Math.PI*2)
+	can.fillStyle="black";
+	can.fill();
+	can.closePath()
+	
+	can.beginPath();
+	can.arc(145,120,5,0,Math.PI*2)
+	can.fillStyle="black";
+	can.fill();
+	can.closePath()
+
+	can.beginPath();
+	can.arc(145,90,40,0,Math.PI*2)	
+	can.fillStyle="white";
+	can.lineWidth=2;
+	can.strokeStyle="black";
+	can.fill();
+	can.stroke();
+	can.closePath()
+	
+	can.beginPath();
+	can.arc(145,120,5,0,Math.PI*2)
+	can.fillStyle="black";
+	can.fill();
+	can.closePath()
+	
+	can.save();
+	can.beginPath();
+	can.moveTo(100,150);
+	can.lineTo(100,190);
+	can.lineWidth=15;
+	can.strokeStyle="#A30000";
+	can.lineCap="round"
+	can.stroke();
+	can.closePath()
+	can.restore();
+	
+	can.beginPath();
+	can.moveTo(50,35);
+	can.lineTo(95,65);
+	can.lineWidth=2;
+	can.arcTo(60,35,95,65,5)
+//	can.stroke()
+	can.fill()
+	can.closePath();
+	
+	can.beginPath();
+	can.moveTo(150,35);
+	can.lineTo(105,65);
+	can.lineWidth=2;
+	can.arcTo(140,35,105,65,5)
+//	can.stroke()
+	can.fill()
+	can.closePath();
+	
+	can.beginPath();
+	can.moveTo(145,15);
+	can.lineTo(145,50);
+	can.moveTo(155,20);
+	can.lineTo(155,50);
+	can.moveTo(165,25);
+	can.lineTo(165,50);
+	can.moveTo(175,30);
+	can.lineTo(175,50);
+	can.lineCap="butt"
+	
+	can.lineWidth=5;
+	can.strokeStyle="#1a1a1a";
+	can.stroke()
+	can.closePath();
+	
+//表情
+//五星
+	can.beginPath();
+	for(var i=0;i<5;i++){
+		can.lineTo(Math.cos((18+72*i)/180*Math.PI)*100+300,-Math.sin((18+72*i)/180*Math.PI)*100+100);
+		can.lineTo(Math.cos((54+72*i)/180*Math.PI)*40+300,-Math.sin((54+72*i)/180*Math.PI)*40+100)
+	}
+	can.closePath();
+	can.lineWidth=3;
+	
+	can.stroke();
+	can.closePath();
+//圆角
+	can.beginPath()
+	can.moveTo(460,10);
+	can.lineTo(540,10);
+	can.arcTo(550,10,550,20,10);
+	can.lineTo(550,100);
+	can.arcTo(550,110,540,110,10);
+	can.lineTo(460,110);
+	can.arcTo(450,110,450,100,10);
+	can.lineTo(450,20);
+	can.arcTo(450,10,460,10,10);
+	can.stroke()
+	can.closePath()
+//同心圆
+	can.beginPath()
+	var x=0,y=0,r=0,z=1
+	for(var i=0;i<10;i++){
+		x+=40;
+		y+=40;
+		r+=20;
+		z-=0.1;
+		can.arc(x,200+y,20+r,0,Math.PI*2);
+		console.log(z)
+		can.fillStyle="rgba(239,195,41,"+z+")"
+		can.fill();
+	}
+
+	
+	can.closePath()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽</title>
+		<style type="text/css">
+		.red{
+			background: #f80000;
+			height: 200px;
+			width: 200px;
+			position: absolute;
+		}
+		
+		.target{
+			height: 400px;
+			width: 400px;
+			border:2px solid #555;
+			margin: 100px auto;
+			font-size:40px;
+
+		}
+		.text{
+			height: 200px;
+			width: 200px;
+			background: #879798;
+		}
+		</style>
+	</head>
+	<body>
+	<div class="red" draggable="true" id="drag"></div>
+	<div class="target" id="target">投放区</div>
+	<!-- <div class="text" id="textname" draggable="true">kdj</div> -->
+	<script type="text/javascript">
+	// drag.ondragstart=function  () {	 
+	// 	 drag.style.background="green";
+	// }
+	// drag.ondrag=function (){
+	// 	 drag.style.background="yellow";
+	// }
+	// drag.ondragend=function (){
+	// 	 drag.style.background="gray";
+	// }
+
+	// var e;
+	// // e.preventDefault();
+	target.ondragenter=function (){
+		 drag.style.background="green";
+
+	}
+	target.ondragover=function (e){
+		target.innerHTML="松手"
+		 // e =  event||window.event;
+		e.preventDefault()
+	}
+	target.ondragleave=function (){
+		target.innerHTML="GO OUT"
+	}
+	target.ondrop=function(e){
+		// alert("success")
+		var x=e.clientX;
+		var y=e.clientY;
+		console.log(x,y)
+		drag.style.left=x+"px"
+		drag.style.top=y+"px"
+	}
+	// textname.ondragstart=function(e){
+		
+	// 	// e.dataTransfer.setData()
+	// 	var d=e.target.id
+	// 	console.log(d)
+	// 	e.dataTransfer.setData("text",d)
+
+	// }
+	// target.ondragover=function(e){
+	// 	e.preventDefault()
+	// }
+	// target.ondrop=function(e){
+	// 	var result=e.dataTransfer.getData("text")
+	// 	target.innerHTML=result
+	// }
+	</script>
+	</body>
+</html>

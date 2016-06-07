@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2016-5-1canvas初识</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			
+//			canvas.width=300;
+//			canvas.height=300; //js中控制大小
+			if(canvas.getContext("2d")){
+				var contxt=canvas.getContext("2d"); //使用context绘制
+			}else{
+				alert("浏览器不支持canvas");
+			}
+			contxt.beginPath();
+			contxt.moveTo(100,100);
+			contxt.lineTo(500,500); //首尾衔接
+			contxt.lineTo(100,500);
+			contxt.lineTo(100,100);
+			contxt.closePath();
+
+			contxt.lineWidth=5;
+			contxt.strokeStyle="red"
+			contxt.stroke();   //画线条
+			contxt.fillStyle="rgb(2,100,30)"; 
+			contxt.fill(); //填充着色
+
+			contxt.beginPath();
+			contxt.moveTo(200,100);
+			contxt.lineTo(400,300);
+			contxt.closePath();
+
+			contxt.strokeStyle="black"
+			contxt.stroke();
+		}	
+		</script>
+	</body>
+</html>

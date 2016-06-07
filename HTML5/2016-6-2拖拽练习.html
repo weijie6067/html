@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽练习</title>
+		<style type="text/css">
+		.cen{
+			height: 300px;
+			width: 1300px;
+			margin: 100px auto;
+		}
+		.cen img{
+			width: 300px;
+			height: 300px;
+			display: block;
+			float: left;
+			margin: 5px;
+		}
+		.buy{
+			position: absolute;
+			right: -100px;
+
+		}
+		.aa{
+			height: 500px;
+			width: 1200px;
+			border:1px solid #555;
+			position: relative;
+			left: 307px;
+		}
+
+		</style>
+	</head>
+	<body>
+	<div class="cen" id="cen">
+		
+		<img src="dragpic/1.jpg" alt="">
+		<img src="dragpic/2.jpg" alt="">
+		<img src="dragpic/3.jpg" alt="">
+		<img src="dragpic/4.jpg" alt="">
+	</div>
+	
+	<div class="aa" id="aa">
+		<div class="buy" id="buy"><img src="dragpic/shop.jpg" height="100" width="100" alt=""> </div>
+	</div>
+	<script type="text/javascript">
+	var imgs=document.getElementById("cen").getElementsByTagName("img");
+	var aa=document.getElementById("aa");
+	var buy=document.getElementById("buy");
+	var srcName;	
+	for (var i = 0; i < imgs.length; i++) {
+		imgs[i].setAttribute("draggable", "true")
+		imgs[i].ondragstart=function(){
+			srcName=this.getAttribute("src")
+		}
+	}	
+	buy.ondragover=function(e){
+		e.preventDefault()
+	}
+	buy.ondrop=function(){
+		var nImg=document.createElement("img");
+		aa.appendChild(nImg);
+		nImg.setAttribute("src",srcName)
+		nImg.style.width=100+"px"
+		nImg.style.height=100+"px"
+	}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#outer{
+		width:500px;
+		height: 500px;
+		background: yellow;
+		overflow: hidden;
+	}
+	#inner{
+		width: 100px;
+		height: 100px;
+		margin: 100px 0px 0px 100px;
+		background: red;
+	}
+	</style>
+</head>
+<body>
+	<!-- <div id="outer">
+		<div id="inner"></div>
+	</div> -->
+	
+	<script>
+		window.attachEVent("onclick",function(){
+			alert(1);
+		})
+		window.attachEVent("onclick",aa);
+		function aa(){
+			alert(1);
+			window.detachEvent("onclick",aa)
+		}
+	</script>
+</body>
+</html>

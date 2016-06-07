@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星星拖尾</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: black;
+		}
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">	
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	<img src="images/star.gif" alt="">
+	
+	<script>
+	var img=document.getElementsByTagName('img');
+	window.onmousemove=	function(){
+		var time=null;
+		var i=0;
+		var e=event||window.event;
+		var x=e.clientX-img[0].offsetWidth/2;
+		var y=e.clientY-img[0].offsetHeight/2;
+		
+		function a(){
+			img[i].style.left=x+"px";
+			img[i].style.top=y+"px";
+			i++;
+			if(i>img.length-1){
+				clearInterval(time);
+			}
+		}
+		time=setInterval(a,50);
+		
+	}	
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zepto</title>
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<style type="text/css">
+	.aa{
+		height: 200px;
+		width: 200px;
+		background: #f83001;
+	}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<span>0</span>
+		<span>1</span>
+		<span class="select">2</span>
+		<span>3</span>
+		<span>4</span>
+	</div>
+	<div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+	// console.log($("div"))//zepto 适用jq的所有选择器
+	$("#nav span").each(function(i){
+		// console.log(i)
+		console.log($(this))
+		$(this).attr("index",i)
+		$(this).click(function(){
+			alert($(this).attr("index"))
+		})
+	})
+	// $("div").eq(2).addClass("aa")
+	// $("div").eq(2).removeClass("aa")
+	$("div").eq(2).toggleClass("aa")//如果没有就加上，有就删掉
+	// $("#nav span").eq(2).
+	console.log($(".select").index())
+	$.ajax({
+		type:"post"
+		url:""
+		data:""
+		success:function(){}
+	})
+	</script>
+</body>
+</html>

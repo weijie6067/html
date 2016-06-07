@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq属性</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			.ok{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+			.bbc{
+				border: 1px solid black;
+			}
+			.red{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+		<div class="abc">asdf</div>
+		<input type="a" name="b" id="c" value="d" />
+		<script type="text/javascript">
+			$("div").attr({name:"liji",class:"nav",id:"abc"})
+			$("div").addClass("ok bbc")
+			$("div").removeClass("abc")
+			$("input").removeAttr("type name")
+			
+			$("div").click(function(){
+				$("div").toggleClass("red")
+			})
+			$("div").html("<span>这是span</span>");
+			$("span").text("123");
+			$("input").val()
+			console.log($("input").val())
+			$("ul").append(" <li>saadsds</li> ")
+			$("<li>ss</li>").appendTo("ul")
+			$("ul").prepend("<li>saaaaa</li>")
+			$("<li>saas	aa</li>").prependTo("ul")
+			$("ul").after("<div></div>")
+			$("ul").before("<div></div>")
+			console.log("");
+			
+		</script>
+	</body>
+</html>

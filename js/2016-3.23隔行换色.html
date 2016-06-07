@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100%;
+			height: 60px;
+			margin: 10px;
+			background: red;
+			color: white;
+			font-size: 30px;
+			line-height: 60px;
+			text-align: center;
+		}
+		input{
+			width: 100%;
+			height: 50px;
+			outline: none;
+			margin: 10px;
+			font-size: 30px;
+		}
+		.bb{
+			background: blue;
+
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="换色">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+<script>
+		var a=document.getElementsByTagName('input');
+		var b=document.getElementsByTagName('div');
+		// console.log(a,b)
+		a[0].onclick=function(){
+			for (var i = 0; i < 10; i=i+2) {
+			if (b[i].className=="") {
+				b[i].className="bb"
+			}
+			else{
+				b[i].className="";
+		}
+		
+	}
+    }
+
+	</script>

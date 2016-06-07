@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var a=new Date();
+	console.log(a);
+	//获取当前时间
+	var b=a.getHours();
+	console.log(b);
+	var c=a.getMinutes()
+	console.log(c);
+	var d=a.getSeconds()
+	console.log(d);
+	var e=a.getMilliseconds()
+	console.log(e);
+	var f=a.getFullYear()
+	console.log(f);
+	var g=a.getMonth()
+	console.log(g)
+	var h=a.getDay()
+	console.log(h)
+	var i=a.getDate()
+	console.log(i)
+	var j=a.getTime()
+	console.log(j);
+	//设置时间
+	var x= new Date(2016,4,1,10,40,00)
+	console.log(a.getTime())
+	console.log(x.getTime())
+	//如果需要计算未来与现在的时间间隔，可以设两个变量分别保存两个时间点的毫秒数 进行相减
+	//设置时间的属性
+	var t=new Date();
+	t.setFullYear(2015)
+	t.setDate(32)
+	console.log(t)
+	</script>
+</body>
+</html>

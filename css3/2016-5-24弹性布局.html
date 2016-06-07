@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局</title>
+	<style type="text/css">
+	.out{
+		width:600px;
+		height:200px;
+		background: #343556;
+		display: flex;
+	}
+	.out div{
+		/* width:100px; */
+		height:100px;
+		background: #234235;
+		/* margin:10px; */
+		border:1px solid white;
+	}
+	.out div:nth-child(1){
+		flex:1;
+	}
+	.out div:nth-child(2){
+		flex:3;
+	}
+	.out div:nth-child(3){
+		flex:1;
+	}
+	</style>
+</head>
+<body>
+	<div class="out">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>

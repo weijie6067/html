@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 500px;
+			height: 100px;
+			margin: 20px;
+			background: red;
+			color: white;
+			font-size: 50px;
+			line-height: 100px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+	<script>
+		var a=document.getElementsByTagName('div');
+		console.log(a);
+		for (var i = 0; i <10; i++) {
+			if(i%2==0){
+				a[i].onclick=function(){
+					alert("这个DIV是偶数");
+				} 
+			}
+			else{
+				a[i].onclick=function(){
+				alert("这个DIV是jis数");
+				}
+			}	
+		};	
+	</script>
+</body>
+</html>

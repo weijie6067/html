@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",//请求类型
+				url:"http://180.76.185.227/lj/ljp.php",
+				dataType:"json",//数据类型
+				success:function(data){
+					console.log(data);
+				},
+				error:function(){
+					alert("错误")
+				}
+			})
+		</script>
+	</body>
+</html>

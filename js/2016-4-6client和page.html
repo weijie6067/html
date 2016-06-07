@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+		div{
+			position: fixed;	
+		}
+		span{
+			display: block;
+			
+		}
+	</style>
+</head>
+<body>
+	<div>
+		clientX:<span></span>
+		clientY:<span></span>
+		pageX:<span></span>
+		pageY:<span></span>
+	</div>
+	
+	<script>
+		//pageY指的是鼠标到页面顶部的距离
+		//clientY指的是鼠标到当前可视范围顶部的距离
+		var span=document.getElementsByTagName('span')
+		var ev=event||window.event;
+		window.onmousemove=function(ev){
+			span[0].innerHTML=ev.clientX;
+			span[1].innerHTML=ev.clientY;
+			span[2].innerHTML=ev.pageX;
+			span[3].innerHTML=ev.pageY;
+			console.log(ev);
+		}
+	</script>
+</body>
+</html>

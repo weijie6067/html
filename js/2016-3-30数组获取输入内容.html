@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.t{
+			width: 300px;
+		}
+		.l{
+			float: left;
+		}
+		.r{
+			float: right;
+		}
+		ul{
+			list-style: none;
+			width: 630px;
+
+		}
+		div{
+			height: 800px;
+			width: 1920px;
+		}
+		li{
+			background: #555;
+			color: white;
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			margin-left: 10px;
+			float: left;
+			font-size: 40px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- <form action="">
+		<input type="text" value="" placeholder="请输入名字" class="t">
+		<input type="button" value="确定">
+		<input type="reset">
+	</form> -->
+	<div>
+		<ul class="l">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul class="r">
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+	
+	<script>
+	var a=document.getElementsByTagName('body')
+	var li=document.getElementsByTagName('li');
+	var arr = ["周立涛","王薇","方宇宏","孙赫","刘春光","兰勇","冯世强","张琪","王希然","牛春强","林园园","赵弯弯","马青青","江晓咏","文武","王龙飞","黎家伟","刘鹏林","谢柳生","梁聪","郭凤娟","包晗","郝琪","刘婷婷","卜旱秋","李沛虹","李航","张晓晶","程慧萍","郭静","朱小迪","孙宏宇","齐凯","李文超","曾维安","黄斌","高飞翔","徐毅飞","彭宝保","孔东杰","蒋从明","刘玉骋",];
+	var time=null;
+	var i=0;
+	
+	a[0].onmousedown=function (){
+		time=setInterval(aa,100);
+		function aa(){
+			if(i<42){
+				console.log(i);
+				li[i].innerHTML=arr[i];
+				i++;
+			}
+		}
+	}
+	
+	
+	
+		
+	
+
+	
+	
+	// var ipt=document.getElementsByTagName('input');
+	// ipt[1].onclick=function  () {
+	// 	console.log(ipt[0].value);
+	// 	arr.push(ipt[0].value)
+	// 	console.log(arr);
+	// }
+	
+	</script>
+</body>
+</html>
