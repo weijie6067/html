@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>刮刮卡</title>
+	<meta name="viewport" content="">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body,html{
+			width: 100%;
+			
+		}
+		.base{
+			height: 100px;
+			width: 400px;
+			background: orange;
+			position: absolute;
+			font-size: 60px;
+			line-height: 100px;
+			text-align: center;
+			color: white;
+		}
+		.out{
+			height: 100px;
+			width: 400px;
+			margin: auto;
+			position: relative;
+		}
+		#canvas{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="out" id="out">
+		<div class="base">500万</div>
+		<canvas id="canvas" width="400" height="100"></canvas>
+	</div>
+	<script type="text/javascript">
+	var x,y;
+	var can=document.getElementById("canvas");
+	var out=document.getElementById("out");
+	var cvs=can.getContext("2d");
+	cvs.beginPath();
+	cvs.fillStyle="#555"
+	cvs.fillRect(0,0,400,100);
+	cvs.closePath();
+	var canX=out.offsetLeft;
+	var canY=out.offsetTop;
+	console.log(canX,canY)
+	document.addEventListener("touchmove",function(e){//touchmove事件是用监听触发的
+		e.preventDefault()
+		x=e.touches[0].clientX-canX;
+		y=e.touches[0].clientY-canY;
+		cvs.beginPath();
+		cvs.globalCompositeOperation = "destination-out";
+		cvs.fillStyle="red"
+		cvs.arc(x,y,10,0,Math.PI*2,false);
+		cvs.fill();
+		cvs.closePath();
+	},false)
+	
+	</script>
+</body>
+</html>
