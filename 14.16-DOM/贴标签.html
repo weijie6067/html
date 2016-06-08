@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+	*{padding:0; margin:0; list-style: none;}
+	#list{
+		overflow: hidden;
+		background: #ccc;
+		padding: 20px;
+	}
+	#list li{
+		float: left;
+		padding: 7px;
+		background: #999;
+		margin-right: 10px;
+	}
+</style>
+</head>
+<body>
+	<ul id="list">
+		<li>90后<a href="javascript:;">X</a></li>
+		<li>宅男<a href="javascript:;">X</a></li>
+	</ul>
+	<input id="ipt" type="text" name="" value="">
+	<button id="btn">贴上</button>
+</body>
+<script>
+	var list=document.getElementById('list');
+	var ipt=document.getElementById('ipt');
+	var btn=document.getElementById('btn');
+	btn.onclick=function (){
+		var newli=document.createElement('li');
+		newli.innerHTML=ipt.value+'<a href="javascript:;">X</a>';
+		list.appendChild(newli);
+		ipt.value='';
+		var close=list.getElementsByTagName('a');
+		for (var i = 0; i < close.length; i++) {
+			close[i].onclick=function (){
+				list.removeChild(this.parentNode);
+			}
+		};
+	}
+	var close=list.getElementsByTagName('a');
+		for (var i = 0; i < close.length; i++) {
+			close[i].onclick=function (){
+				list.removeChild(this.parentNode);
+			}
+		};
+</script>
+</html>

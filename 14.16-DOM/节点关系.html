@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>节点关系</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+	<ul id="list">
+		<li>111<span>我是span标签111</span></li>
+		<li>222<span>我是span标签222</span></li>
+		<li>333<span>我是span标签333</span></li>
+	</ul>
+	<div id="box">
+		账号：<input type="text" name="" value="">
+		密码：<input type="text" name="" value="">
+	</div>
+</body>
+<script>
+	var list=document.getElementById('list');
+	var box=document.getElementById('box');
+	var lis=list.childNodes;//获取所有子节点，只有IE678支持，弃之
+	// alert(lis[0].innerHTML);
+
+	var li2=document.getElementsByTagName('li')[1];
+	var li3=li2.nextSibling;//IE678支持
+	// alert(li3.innerHTML);
+
+	var winW=document.documentElement.clientWidth;//窗口宽度
+
+	var li33=li2.nextElementSibling;//IE678不支持
+	// alert(li33.innerHTML);
+
+	function nextNode(obj){//获取下一个兄弟节点
+		if (obj.nextElementSibling) {
+			return obj.nextElementSibling;
+		} else{
+			return obj.nextSibling;
+		};
+	}
+	// alert(nextNode(li2).innerHTML);
+
+	var li1=li2.previousSibling;//IE678支持
+	// alert(li1.innerHTML);
+
+	var firc=list.firstChild;//IE678支持
+	// alert(firc.innerHTML);
+
+	var lasc=list.lastChild;//IE678支持
+	// alert(lasc.innerHTML);
+
+	var ipts=box.children;
+	// alert(ipts.length);//2
+
+	var lis2=list.getElementsByTagName('li');
+	var Lis=list.children;//可以直接使用
+	// alert(Lis.length);//3
+
+	var ul=li2.parentNode;//可以直接使用
+	// alert(ul.nodeName);
+
+	var span2=li2.getElementsByTagName('span')[0];
+
+	alert(span2.parentNode.parentNode.nodeName);
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+	#div1{background: #ccc; height: 100px;}
+</style>
+</head>
+<body>
+	<div id="div1">
+		<h1>1111</h1>
+		<h2>2222</h2>
+	</div>
+	<p>ppppppp</p>
+	
+</body>
+<script>
+	var div1=document.getElementById('div1');
+	var div2=div1.cloneNode(true);//复制
+	document.body.appendChild(div2);
+</script>
+</html>

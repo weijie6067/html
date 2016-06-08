@@ -1,0 +1,35 @@
+                       <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>节点类型</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+	<h1 id="box1">我是h1标签</h1>
+	<h2 id="box2">我是h2标签</h2>
+	<h3 id="box3">我是h3标签</h3>
+</body>
+<script>
+	var box1=document.getElementById('box1');//元素节点
+
+	var txt=box1.firstChild;//文本节点
+
+	var attr=box1.getAttributeNode("id");//属性节点
+
+	console.log(box1.nodeName);
+	console.log(attr.nodeName);
+	console.log(txt.nodeName);
+	console.log(document.nodeName);
+
+	console.log(box1.nodeValue);
+	console.log(txt.nodeValue);
+	console.log(attr.nodeValue);
+	console.log(box1.innerText);
+
+	console.log(box1.nodeType);
+	console.log(attr.nodeType);
+	console.log(txt.nodeType);
+</script>
+</html>

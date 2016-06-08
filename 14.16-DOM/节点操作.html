@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+	<button id="btn">创建</button>
+	<ul id="list">
+		<li>111<span>我是span标签111</span></li>
+		<li>222<span>我是span标签222</span></li>
+		<li>333<span>我是span标签333</span></li>
+	</ul>
+</body>
+<script>
+	var btn=document.getElementById('btn');
+	var list=document.getElementById('list');
+	
+	btn.onclick=function (){
+		var li4=document.createElement('li');
+		// var txt=document.createTextNode('我是动态创建');
+		// li4.appendChild(txt);
+		li4.innerHTML='<a href="###">我是动态创建</a>';
+		list.appendChild(li4);//末尾插入节点
+		// list.insertBefore(li4,list.children[1]);//某个节点之前插入一个新节点
+		// list.replaceChild(li4,list.children[0]);
+		// list.removeChild(list.children[2]);
+	}
+	
+</script>
+</html>
