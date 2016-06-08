@@ -85,6 +85,10 @@
 	var can=document.getElementById("canvas");
 	var out=document.getElementById("out");
 	var cvs=can.getContext("2d");
+	cvs.beginPath();
+	cvs.fillStyle="#555"
+	cvs.fillRect(0,0,400,100);
+	cvs.closePath();
 	window.onload=function(){
 		var wid=document.documentElement.clientWidth;
 		scale=wid/640;
@@ -100,18 +104,14 @@
 	function aa(){
 		canX=out.offsetLeft;
 		canY=out.offsetTop;	
-		console.log(canX*scale)
-		cvs.beginPath();
-		cvs.fillStyle="#555"
-		cvs.fillRect(0,0,400,100);
-		cvs.closePath();
+		
 		document.addEventListener("touchmove",function(e){//touchmove事件是用监听触发的
 			e.preventDefault()
 
 			x=(e.touches[0].clientX-canX*scale)/scale;
 			y=(e.touches[0].clientY-canY*scale)/scale;
 
-			console.log(e.touches[0].clientX,y)	
+			// console.log(e.touches[0].clientX,y)	
 			// console.log(x,y)	
 			cvs.beginPath();
 			cvs.globalCompositeOperation = "destination-out";
@@ -121,7 +121,7 @@
 			cvs.closePath();
 		},false)
 	}
-	
+	// aa()
 	
 	</script>
 </body>
