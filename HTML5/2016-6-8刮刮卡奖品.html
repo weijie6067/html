@@ -29,8 +29,12 @@
 			height: 80px;
 			width: 400px;
 			margin: auto;
-			position: relative;
-			top: 800px;
+			position: absolute;
+			/* position: relative; */
+			/* top: 800px; */
+			left: 50%;
+			margin-left: -200px;
+			bottom: 250px;
 		}
 		#canvas{
 			position: absolute;
@@ -48,19 +52,18 @@
 			width: 610px;
 			margin: auto;
 			position: absolute;
+			/* position: relative; */
 			bottom: 10px;
 			left: 50%;
 			margin-left: -305px;
+			/* display: flex; */
 		}
 		.bot img{
-			/* height: 200px; */
-			width: 30%;
-			/* display: block; */
-			/* position: relative; */
-		
+			width: 32%;
+			float: left;
 		}
 		.center{
-			/* margin:0 14px; */
+			margin:0 2%;
 		}
 	</style>
 	
@@ -78,46 +81,47 @@
 	</div>
 </div>	
 	<script type="text/javascript">
-	var x,y;
+	var x,y,canX,canY;
 	var can=document.getElementById("canvas");
 	var out=document.getElementById("out");
 	var cvs=can.getContext("2d");
 	window.onload=function(){
 		var wid=document.documentElement.clientWidth;
-		var scale=wid/640;
-		document.body.style.zoom=scale
-		var canX=out.offsetLeft;
-		var canY=out.offsetTop;
-		console.log(canX,canY)
+		scale=wid/640;
+		document.body.style.zoom=scale;
+		aa()
 	}
 	window.onresize=function(){
 		var wid=document.documentElement.clientWidth;
-		var scale=wid/640;
-		document.body.style.zoom=scale
-		console.log(scale)
-
-
-	
-
+		scale=wid/640;
+		document.body.style.zoom=scale;		
+		aa()
 	}
-	cvs.beginPath();
-	cvs.fillStyle="#555"
-	cvs.fillRect(0,0,400,100);
-	cvs.closePath();
-	var canX=out.offsetLeft;
-	var canY=out.offsetTop;
-	console.log(canX,canY)
-	document.addEventListener("touchmove",function(e){//touchmove事件是用监听触发的
-		e.preventDefault()
-		x=e.touches[0].clientX-canX;
-		y=e.touches[0].clientY-canY;
+	function aa(){
+		canX=out.offsetLeft;
+		canY=out.offsetTop;	
+		console.log(canX*scale)
 		cvs.beginPath();
-		cvs.globalCompositeOperation = "destination-out";
-		cvs.fillStyle="red"
-		cvs.arc(x,y,20,0,Math.PI*2,false);
-		cvs.fill();
+		cvs.fillStyle="#555"
+		cvs.fillRect(0,0,400,100);
 		cvs.closePath();
-	},false)
+		document.addEventListener("touchmove",function(e){//touchmove事件是用监听触发的
+			e.preventDefault()
+
+			x=(e.touches[0].clientX-canX*scale)/scale;
+			y=(e.touches[0].clientY-canY*scale)/scale;
+
+			console.log(e.touches[0].clientX,y)	
+			// console.log(x,y)	
+			cvs.beginPath();
+			cvs.globalCompositeOperation = "destination-out";
+			cvs.fillStyle="red"
+			cvs.arc(x,y,20,0,Math.PI*2,false);
+			cvs.fill();
+			cvs.closePath();
+		},false)
+	}
+	
 	
 	</script>
 </body>
