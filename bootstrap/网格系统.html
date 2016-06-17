@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网格系统</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		[class *= col-]{
+		  background-color: #eee;
+		  border: 1px solid #ccc;
+		}
+		.aa{
+			width: 500px;
+			border: 1px solid #555;
+		}
+	</style>
+</head>
+<body>
+	<div class="container aa">
+		<div class="row">
+			<div class="col-md-3">aa</div>
+			<div class="col-md-3">ss</div>
+			<div class="col-md-3">aa</div>
+			<div class="col-md-3">aa</div>
+		</div>
+	</div>
+	<div class="container aa">
+		<div class="row">
+			<div class="col-md-3">aa</div>
+			<div class="col-md-3">ss</div>
+			<div class="col-md-3 col-md-offset-3">aa</div>
+		</div>
+	</div>	
+	<div class="container aa">
+		<div class="row">
+			<div class="col-md-4 col-md-push-8">.col-md-4</div>
+   			 <div class="col-md-8 col-md-pull-4">.col-md-8</div>
+		</div>
+	</div>
+	
+</body>
+</html>

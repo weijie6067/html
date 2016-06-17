@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-model</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	input{
+		width: 30px;
+	}
+	</style>
+</head>
+<body ng-app="" >
+	一天花<input type="text" ng-model="data">块，花了<input type="text" ng-model="data2">天，我共花了<span>{{data*data2}}</span>块				<!--  no-model提取value值 -->
+	
+</body>
+</html>

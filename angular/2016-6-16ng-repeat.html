@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-repeat</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<ul ng-app="" ng-init="data=[{name:'Feng Shiqiang'},{name:'Lan Yong'},{name:'Liu Yupin'}]" >
+		<li ng-repeat="i in data">{{i.name}}</li>	<!-- ng-repeat对一个数据集合进行遍历，并在对应的标签生成新的内容 -->
+	</ul>
+	
+</body>
+</html>

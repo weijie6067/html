@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-init</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="name='Liji';age=22">
+	<div>Hello I am {{name}},my age is {{age}}</div>
+	<!-- 双括号插值法 -->
+	<!-- ng-int数据初始化时字符串数据要加引号 -->
+	<div ng-init="arr=['name1','name2','name3']">{{arr[1]}}
+		<p ng-bind="arr[0]"></p>
+	</div>
+	
+</body>
+</html>

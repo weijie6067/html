@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制器作用域</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	div{
+		background: #f80000;
+		height: 100px;
+		width: 200px;
+	}
+	</style>
+</head>
+<body ng-app="" ng-controller="ctrl">
+	<div ng-controller="ctrl">
+		{{name}}
+	</div>
+	<div ng-controller="ctrl2">
+		{{name}}
+	</div>
+	<script type="text/javascript">
+		function ctrl($scope){
+			$scope.name="liji"
+		}
+		function ctrl2($scope){
+			$scope.name="Feng Shiqiang"
+		}
+		// 控制器是相互独立的，每新建一个控制器就生成相对应的$scope，$scope像局部变量一样只会作用于自己的构造函数
+	</script>
+</body>
+</html>

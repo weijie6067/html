@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制器</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	div{
+		background: #f80000;
+		height: 100px;
+		width: 200px;
+	}
+	</style>
+</head>
+<body ng-app="" ng-controller="ctrl">
+	<!-- <div ng-click="aa()">{{data}}</div>
+	<span>{{obj.name}}</span>
+	<span>{{obj.age}}</span> -->
+	<p>请输入名字<input type="text" ng-model="data"> <button ng-click="bb()">提交</button></p>
+	<p>{{content}}</p>
+	<script type="text/javascript">
+		 // $scope是控制器的作用域，可以用来保存一些数据和方法，用来连接m和v
+		// function ctrl($scope){
+		// 	// alert(1);
+		// 	$scope.obj={
+		// 		name:"Liji",
+		// 		age:18
+		// 	}
+		// 	$scope.data=10
+		// 	$scope.aa=function (){
+		// 		alert(1);
+		// 	}
+		// }
+		function ctrl($scope){
+			$scope.bb=function (){
+				// $scope.names={name:data}
+				console.log($scope.data)
+				$scope.content="hello:"+$scope.data
+			}			
+		}
+
+	</script>
+</body>
+</html>
