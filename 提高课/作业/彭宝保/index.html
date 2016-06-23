@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>母亲节</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zoom.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div id="page9">
+			<img class="imgtu" id="img9" src="img/91.png" alt="" />
+			<img class="imgtu1" id="img99" src="img/gg_03.png" alt=""/>
+			<div id="page91">
+				<img id="pa911" src="img/93.png" alt=""/>
+				<img id="pa912" src="img/ff_03.png" alt=""/>
+			</div>
+		</div>
+		<div id="page8">
+			<img class="imgtu" id="img8" src="img/81.png" alt="" />
+			<img class="imgtu1" id="img88" src="img/82.png" alt=""/>
+		</div>
+		<div id="page7">
+			<img class="imgtu" id="img7" src="img/71.png" alt="" />
+			<img class="imgtu1" id="img77" src="img/72.png" alt=""/>
+		</div>
+		<div id="page6">
+			<img class="imgtu" id="img6" src="img/61.png" alt="" />
+			<img class="imgtu1" id="img66" src="img/62.png" alt=""/>
+		</div>
+		<div id="page5">
+			<img class="imgtu" id="img5" src="img/51.png" alt="" />
+			<img class="imgtu1" id="img55" src="img/52.png" alt=""/>
+		</div>
+		<div id="page4">
+			<img class="imgtu" id="img4" src="img/41.png" alt="" />
+			<img class="imgtu1" id="img44" src="img/42.png" alt=""/>
+		</div>
+		<div id="page3">
+			<img class="imgtu" id="img3" src="img/31.png" alt="" />
+			<img class="imgtu1" id="img33" src="img/32.png" alt=""/>
+		</div>
+		<div id="page2">
+			<img  class="imgtu" id="img2" src="img/21.png" alt="" />
+			<img class="imgtu1" id="img22" src="img/22.png" alt=""/>
+		</div>
+		<div id="page1">
+			<img  class="imgtu" id="img1" src="img/11.png" alt="" />
+			<img class="imgtu1" id="img11" src="img/13.png" alt=""/>
+			<img class="imgtu2" src="img/12.png" alt=""/>
+		</div>
+		<script type="text/javascript">
+			//定义保存坐标的变量
+			var startY=endY=0;curIndex=1;dZ=true;
+			//添加页面的滑动事件
+			document.addEventListener("touchstart",touchstart,false);
+			document.addEventListener("touchmove",touchmove,false);
+			document.addEventListener("touchend",touchend,false);
+			//编写事件执行对应函数
+			function touchstart(e){
+				try{
+					//先判断是否有touch对象
+					if (e.touches[0]) {
+						//获取开始触摸时Y轴坐标
+						startY=e.touches[0].clientY;
+					}
+				}catch(e){
+					console.log(e.message)
+				}
+				
+			}
+			function touchmove(e){
+				try{
+					//先判断是否有touch对象
+					if (e.touches[0]) {
+						//获取开始触摸时Y轴坐标
+						endY=e.touches[0].clientY;
+					}
+				}catch(e){
+					console.log(e.message)
+				}
+				
+			}
+			function touchend(){
+				//根据坐标值，判断上下滑动的方向
+				if (dZ) {
+					dZ=false
+//					console.log("1"+curIndex)
+				if (startY>endY) {
+					if (curIndex===9) {
+						return dZ=true;
+					}
+					//根据当前页面索引号组合元素名称
+					var _name="#page"+curIndex;
+					$(_name).slideUp(1000,function(){
+						curIndex++
+						animate(curIndex)
+						dZ=true
+					})
+				} else{
+					console.log("1"+curIndex)
+					if (curIndex===1) {
+						return dZ=true;
+					}
+					curIndex--
+					//根据当前页面索引号组合元素名称
+					var _name="#page"+curIndex;
+					$(_name).slideDown(1000,function(){
+						animate(curIndex)
+						dZ=true
+					})
+				}
+				} 
+				
+			}
+			animate(curIndex)
+			function animate(index){
+				var _n="#img"+index;
+				var _nn="#img"+index+index;
+				//初始化动画
+//				console.log(_nn)
+				$(".imgtu").css({opacity: 0})
+				$(".imgtu1").css({left:"-640px"})
+				switch (index){
+					case 1:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 2:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 3:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 4:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 5:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 6:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 7:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 8:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000)
+						break;
+					case 9:
+					$(_n).animate({
+						opacity:1
+					},1000)
+					$(_nn).delay(1000).animate({
+						left: "36px"
+					},1000,function(){
+						var ua = window.navigator.userAgent.toLowerCase();
+						if(ua.match(/MicroMessenger/i)){
+							$("#page91").css({opacity:0.8})
+						}
+					})
+						break;
+					default:
+						break;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

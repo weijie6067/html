@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <button id="btn1">提交</button>
+    <button id="btn2">上一页</button>
+    <button id="btn3">下一页</button>
+    <ul id="ul">正在加载...</ul>
+    <script type="text/javascript">
+        $(function(){
+            $("#btn1").on("click",function(){
+                $.ajax({
+                    url:'http://sjz.bokanedu.com/tgr/api/?day=52&type=og',
+                    type:'POST',
+                    data:{
+                        name:'tgr',
+                        mobile:'13712343212'
+                    },
+                    success:function(d){
+                    	console.log(d)
+                        console.log(eval('('+d+')').code);
+                    }
+                })
+            })
+            $("#btn2").on("click",function(){
+                $.ajax({
+                    url:'http://sjz.bokanedu.com/tgr/api/?day=52-2&type=zj',
+                    success:function(d){
+                        var data=eval('('+d+')');
+                        console.log(eval('('+d+')'));
+                        window.localStorage.setItem("data",d);
+                        var HTML="";
+                        for(var i=0;i<data.data.length;i++){
+                            HTML+="<li>"+data.data[i].name+"</li>";
+                        }
+                        $("#ul").html(HTML);
+                        $("#ul li:gt(9)").hide();
+                    }
+                })
+            })
+            $("#btn3").on("click",function(){
+                     var data2=window.localStorage.getItem("data")
+                        var data=eval('('+data2+')');
+                        console.log(eval('('+data2+')'));
+                        var HTML="";
+                        for(var i=0;i<data.data.length;i++){
+                            HTML+="<li>"+data.data[i].name+"</li>";
+                        }
+                        $("#ul").html(HTML);
+                        $("#ul li:lt(9)").hide();
+            })
+        })
+    </script>
+</body>
+</html>

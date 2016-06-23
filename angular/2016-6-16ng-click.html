@@ -5,17 +5,18 @@
 	<title>ng-click</title>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<style type="text/css">
-	div{
-		height: 100px;
-		width: 100px;
-		background: #f80;
-	}
+	div {
+        height: 100px;
+        width: 100px;
+        background: #f80;
+        color: #f80000;
+    }
 	</style>
 </head>
 <body ng-app="" ng-init="x=0">
 	<div ng-click="x=x+1">{{x}}</div>
 	<div ng-click="fn1()">{{x}}</div> <!-- 在没有控制器的情况下ng—click是没法触发函数的 -->
-	<div ng-hide="y" y='false'>我是一段字</div>
+    <div ng-hide="y" y='false'>我是一段字</div>
 	<button ng-click="y=!y">hide</button>
 	<script type="text/javascript">
 	function fn1 () {

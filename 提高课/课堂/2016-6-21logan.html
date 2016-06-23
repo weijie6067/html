@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        .aa {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+        input{
+            margin: 20px 0px 30px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="aa">
+    <input type="text" id="name"></input><br>
+    <button id="btnlogin">登录</button>
+</div>
+<script>
+    function Login(){
+
+    }
+    var v=document.getElementById("name").value;
+    Login.prototype.empty=function(x){
+        var btn=false;
+        if(v.length>0){
+            btn=true;
+        }else{
+            btn=false;
+        }
+        return btn;
+    }
+    Login.prototype.click=function(v){
+        if(this.empty){
+            alert("登录成功");
+        }else{
+            alert("登录失败");
+        }
+    }
+    var a=new Login()
+    document.getElementById("btnlogin").onclick=a.click
+</script>
+</body>
+</html>

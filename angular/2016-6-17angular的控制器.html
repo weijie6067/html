@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular的控制器</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+		div{
+			height: 200px;
+			width: 400px;
+			background: #f88999;
+			border: 1px solid #999;
+		}
+	</style>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+<div></div>
+<ul>
+	<li ng-repeat="i in data">
+		{{i.name}}
+	</li>
+</ul>
+
+	<script type="text/javascript">
+	var mod=angular.module("app",[]);
+	// mod会返回一个对象，具有各种功能接口
+	mod.controller("ctrl",function ($scope){
+		$scope.data=[{
+			name:"Liji",
+			age:"22",
+			sex:"mail"
+		},{
+			name:"Liji",
+			age:"22",
+			sex:"mail"
+		},{
+			name:"Liji",
+			age:"22",
+			sex:"mail"
+		}]
+	});
+	</script>
+</body>
+</html>

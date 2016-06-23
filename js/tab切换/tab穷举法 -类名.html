@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#{
+			overflow: hidden;
+		}
+		#nav div{
+			width: 100px;
+			height: 30px;
+			border: 1px solid black;
+			float: left;
+		}
+		.aa{
+			width: 304px;
+			height: 200px;
+			border: 1px solid black;
+			position: absolute;
+			top: 32px;
+			left: 0px;
+			display: none;
+		}
+		.red{
+			background: red;
+		}
+		.hide{
+			display: none;
+		}
+		.show{
+			width: 304px;
+			height: 200px;
+			border: 1px solid black;
+			position: absolute;
+			top: 32px;
+			left: 0px;
+			display: block;
+		}
+
+
+
+
+
+
+		/*.red{
+			background: red;
+		}
+		.hide{
+			display: none;
+		}
+		.show{
+			display: block;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div>1111</div>
+		<div>2222</div>
+		<div>3333</div>
+	</div>
+	<div id="tab">
+		<div class="aa">内容一</div>
+		<div class="aa">内容二</div>
+		<div class="aa">内容三</div>
+	</div>
+
+	<script>
+		// var divs = document.getElementsByTagName('div');
+		// console.log(divs);
+
+		var navDivs = document.getElementById('nav').getElementsByTagName("div");
+
+		var tabDivs = document.getElementById("tab").getElementsByTagName("div");
+
+		navDivs[0].onclick = function(){
+			navDivs[0].className = "red";
+			tabDivs[0].className = "show";
+			navDivs[1].className = "";
+			tabDivs[1].className = "aa";
+			navDivs[2].className = "";
+			tabDivs[2].className = "aa";
+
+		}
+		navDivs[1].onclick = function(){
+			navDivs[1].className = "red";
+			tabDivs[1].className = "show";
+			navDivs[0].className = "";
+			tabDivs[0].className = "aa";
+			navDivs[2].className = "";
+			tabDivs[2].className = "aa";
+		}
+		navDivs[2].onclick = function(){
+			navDivs[2].className = "red";
+			tabDivs[2].className = "show";
+			navDivs[0].className = "";
+			tabDivs[0].className = "aa";
+			navDivs[1].className = "";
+			tabDivs[1].className = "aa";
+		}
+	</script>
+</body>
+</html>

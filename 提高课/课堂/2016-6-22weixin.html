@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{
+			font-size: 1.5em;
+		}
+		div{
+			text-align: center;
+		}
+	</style>
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div>我是一个微信分享页</div>
+		<script type="text/javascript">
+		function getTicket(){
+			
+		
+			var url="http://sjz.bokanedu.com/tgr/api/?day=80&type=ticket";
+			$.ajax({
+				type:"get",
+				url:"",
+				success:function(d){
+					var ticket=d.ticket;
+					localStorage.setItem("ticket",ticket);
+					location.reload();					
+				}
+			});
+		}	
+			getTicket();
+//			if(localstorage.setItem("ticket",ticket)){
+//				
+//			}
+		</script>
+	</body>
+</html>

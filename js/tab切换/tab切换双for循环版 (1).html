@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#aa,#bb{
+			overflow: hidden;
+		}
+		#aa li{
+			width: 150px;
+			height: 40px;
+			background: red;
+			margin-left: 30px;
+			float: left;
+			list-style: none;
+		}
+		#bb li{
+			width: 100px;
+			height: 100px;
+			background:yellow;
+			float: left;
+			margin-left: 70px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="aa">
+		<ul>
+			<li>11111111</li>
+			<li>2222</li>
+			<li>333333333333333</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div id="bb">
+		<ul>
+			<li>第一块</li>
+			<li>第二块</li>
+			<li>第三块</li>
+			<li>第四块</li>
+		</ul>
+	</div>
+	<script>
+	var li = document.getElementById('aa').getElementsByTagName('li');
+	var color = document.getElementById('bb').getElementsByTagName('li');
+
+	for(var i=0;i<li.length;i++){
+		li[i].onclick =function(){
+			for(var i=0;i<li.length;i++){
+				color[i].style.background="yellow";
+				if(this==li[i]){
+					color[i].style.background = "pink";
+				}
+			}
+		}
+	}
+	</script>
+</body>
+</html>

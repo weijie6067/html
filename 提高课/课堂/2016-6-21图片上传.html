@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片上传</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/megapix-image.js"></script>
+</head>
+<body>
+<div id="prev" style="border: 1px solid #000000;">
+	<canvas id="cvs" width="400" height="300" style="border: 1px solid #000000;background: skyblue;"></canvas>
+</div>
+<input type="file" id="btnup">
+<script type="text/javascript">
+	$("#btnup").on("change",function(){
+		console.log(this.files[0])
+		var file=this.files[0];
+		var mp=new MegaPixImage(file);
+		var cvs=$("#cvs");
+		mp.render(cvs,{
+			maxWidth:400
+		})
+	})
+</script>
+</body>
+</html>

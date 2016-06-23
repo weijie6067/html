@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>母亲节</title>
+    <script type="text/javascript">
+        var html=document.getElementsByTagName('html')[0];
+        var wid=document.documentElement.clientWidth;
+        var scale=wid/640;
+        html.style.zoom=scale;      
+        window.resize=function(){
+            var wid=document.documentElement.clientWidth;
+            var scale=wid/640;
+            document.body.style.zoom=scale;
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: url("img/bg.png") no-repeat;text-align: center;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        .img1{
+            width: 87.5%;
+            margin-top: 20px;
+            opacity: 0;
+        }
+        .img2{
+            width: 86.25%;
+            display: block;
+            margin-left: -100%;
+            margin-top: 50px;
+           /*   margin-left: 5.5%; */
+        }
+        #page3 .img2{
+            width: 37.2%;
+        }
+        #page4 .img2,#page8 .img2{
+            width: 60.6%;
+        }
+        #page5 .img2{
+            width: 55.9%;
+        }
+        #page6 .img2{
+            width: 41.9%;
+        }
+        #page7 .img2{
+            width: 65.3%;
+        }
+        #page1 .img1{
+            width: 100%;
+            height: 100%;
+        }
+        #page1 .img2{
+            width: 78.9%;
+            display: block;
+            position: absolute;
+            top: 630px;
+            left: 5%;
+        }
+        #mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+        }
+        #mask img{
+            width:43%;
+            margin-top: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page9" class="p9">
+        <img src="img/m9.jpg"  class="img1">
+        <div id="mask">
+            <img src="img/know.png">
+        </div>
+    </div>
+    <div id="page8" class="p8">
+        <img src="img/m8.jpg" class="img1">
+        <img src="img/n8.png" class="img2">
+    </div>
+    <div id="page7" class="p7">
+        <img src="img/m7.jpg" class="img1">
+        <img src="img/n7.png" class="img2">
+    </div>
+    <div id="page6" class="p6">
+        <img src="img/m6.jpg" class="img1">
+        <img src="img/n6.png" class="img2">
+    </div>
+    <div id="page5" class="p5">
+        <img src="img/m5.jpg" class="img1">
+        <img src="img/n5.png" class="img2">
+    </div>
+    <div id="page4" class="p4">
+        <img src="img/m4.jpg" class="img1">
+        <img src="img/n4.png" class="img2">
+    </div>
+    <div id="page3" class="p3">
+        <img src="img/m3.jpg" class="img1">
+        <img src="img/n3.png" class="img2">
+    </div>
+    <div id="page2" class="p2">
+        <img src="img/m2.jpg" class="img1">
+        <img src="img/n2.png" class="img2">
+    </div>
+    <div id="page1" class="p1"> 
+        <img src="img/m1.png" class="img1">
+        <img src="img/n1.png" class="img2">
+    </div>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

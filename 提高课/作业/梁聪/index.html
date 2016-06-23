@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<title></title>
+		<link rel="stylesheet" href="css/mother.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+		//自适应处理
+			$(document).ready(function(){
+				var wid = document.documentElement.clientWidth;
+				var newfs = wid*100/640;
+				var html = document.getElementsByTagName('html')[0];
+				html.style.fontSize = newfs+"px";
+			})
+			$(window).resize(function(){
+			  	var wid = document.documentElement.clientWidth;
+				var newfs = wid*100/640;
+				var html = document.getElementsByTagName('html')[0];
+				html.style.fontSize = newfs+"px";
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container" id="page9">
+			<img class="img9_1" src="img/91.png" alt="" />
+		</div>
+		<div class="container" id="page8">
+			<img class="img8_1" src="img/81.png" alt="" />
+			<img class="img8_2" src="img/82.png" alt="" />
+		</div>
+		<div class="container" id="page7">
+			<img class="img7_1" src="img/71.png" alt="" />
+			<img class="img7_2" src="img/72.png" alt="" />
+		</div>
+		<div class="container" id="page6">
+			<img class="img6_1" src="img/61.png" alt="" />
+			<img class="img6_2" src="img/62.png" alt="" />
+
+		</div>
+		<div class="container" id="page5">
+			<img class="img5_1"src="img/51.png" alt="" />
+			<img class="img5_2" src="img/52.png" alt="" />
+
+		</div>
+		<div class="container" id="page4">
+			<img class="img4_1" src="img/41.png" alt="" />
+			<img class="img4_2" src="img/42.png" alt="" />
+		</div>
+		<div class="container" id="page3">
+			<img class="img3_1" src="img/31.png" alt="" />
+			<img class="img3_2" src="img/32.png" alt="" />
+		</div>
+		<div class="container" id="page2">
+			<img class="img2_1" src="img/21.png" alt="" />
+			<img class="img2_2" src="img/22.png" alt="" />
+		</div>
+
+		<div class="container" id="page1">
+			<img class="img1_1" src="img/11.png"/>
+			<img class="img1_2" src="img/13.png" alt="" />
+			<img class="img1_3" src="img/12.png" alt=""/>
+		</div>
+		<script type="text/javascript" src="js/mother.js"></script>
+	</body>
+</html>

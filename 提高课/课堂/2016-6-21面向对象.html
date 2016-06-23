@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+<script type="text/javascript">
+//    定义一个构造函数
+    function Person(name,sex){
+        this.name=name;
+        this.sex=sex;
+    }
+//通过prototype属性创建公共窗口
+Person.prototype.type="中国人";
+Person.prototype.say=function(){
+//    alert("hello");
+}
+//    实例化构造函数
+
+    var p1=new Person("张三","男");
+    var p2=new Person("李四","女");
+//    显示p1的性别
+    console.log(p1.sex);
+    console.log(p1.constructor);
+    console.log(p2.constructor);
+    console.log(p2.constructor==p1.constructor);
+//    调用新增属性的方法
+    console.log(p1.type);
+    p2.say();
+    function add(a,b){
+        return a+b;
+    }
+    function sub(a,b){
+        return a-b;
+    }
+//call前面的提供方法，执行后面的代码
+var a1 = sub.call(add,3,4);
+    console.log(a1)
+    function A(){
+
+        this.a="123456";
+        this.add=function(){
+            return this.a
+        }
+    }
+    function B(){
+        this.a="6898";
+    }
+    var aaa=new A();
+    var bbb=new B();
+    var y = aaa.add.apply(bbb);
+    console.log(y)
+    function C(){
+        this.add= function () {
+            return this.a+this.b;
+        }
+    }
+function D(){
+    this.sub= function () {
+        return this.a-this.b;
+    }
+}
+    function E(){
+        this.a=12;
+        this.b=23;
+//        this.c=35;
+        C.apply(this);
+        D.call(this);
+    }
+    var e1=new E();
+    var t=e1.add();
+    var t2=e1.sub();
+    console.log(t,t2);
+
+</script>
+</body>
+</html>

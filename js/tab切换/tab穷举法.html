@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#{
+			overflow: hidden;
+		}
+		#nav div{
+			width: 100px;
+			height: 30px;
+			border: 1px solid black;
+			float: left;
+		}
+		#tab div{
+			width: 304px;
+			height: 200px;
+			border: 1px solid black;
+			position: absolute;
+			top: 32px;
+			left: 0px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div>1111</div>
+		<div>2222</div>
+		<div>3333</div>
+	</div>
+	<div id="tab">
+		<div>内容一</div>
+		<div>内容二</div>
+		<div>内容三</div>
+	</div>
+
+	<script>
+		// var divs = document.getElementsByTagName('div');
+		// console.log(divs);
+
+		var navDivs = document.getElementById('nav').getElementsByTagName("div");
+
+		var tabDivs = document.getElementById("tab").getElementsByTagName("div");
+
+		navDivs[0].onclick = function(){
+			tabDivs[0].style.display="block";
+			navDivs[0].style.background = "red";
+			tabDivs[1].style.display="none";
+			navDivs[1].style.background = "";
+			tabDivs[2].style.display="none";
+			navDivs[2].style.background = "";
+		}
+		navDivs[1].onclick = function(){
+			tabDivs[1].style.display="block";
+			navDivs[1].style.background = "red";
+			tabDivs[0].style.display = "none";
+			navDivs[0].style.background = "";
+			tabDivs[2].style.display = "none";
+			navDivs[2].style.background = "";
+		}
+		navDivs[2].onclick = function(){
+			tabDivs[2].style.display="block";
+			navDivs[2].style.background = "red";
+			tabDivs[0].style.display = "none";
+			navDivs[0].style.background = "";
+			tabDivs[1].style.display = "none";
+			navDivs[1].style.background = "";
+		}
+	</script>
+</body>
+</html>

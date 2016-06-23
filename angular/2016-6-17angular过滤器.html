@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular的过滤器</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+		div{
+			height: 200px;
+			width: 400px;
+			background: #f88999;
+			border: 1px solid #999;
+		}
+	</style>
+</head>
+<body ng-app="" ng-init="name='data=[{name:'liji'},{name:'kdj'},{name:'fsq'}]'">
+<div ng-repeat="i in data |filter:name" >
+	{{i.name}}
+</div>
+	<!--{{3.3+4 | number:0}}  <br>-->
+	<!--{{3.3+4 | number:4}}  <br>-->
+
+	<!--{{name | uppercase}}  <br> 	 大写过滤 -->
+	<!--{{name | lowercase}}  <br>	 小写过滤 -->
+	<!--{{3.3+4 | currency}}  <br>	 货币过滤 -->
+	<!--{{3.3+4 | currency}}  <br>	 货币过滤 -->
+
+
+	<script type="text/javascript">
+
+	</script>
+</body>
+</html>

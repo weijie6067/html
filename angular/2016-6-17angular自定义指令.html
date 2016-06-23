@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular的控制器</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+		div{
+			height: 200px;
+			width: 400px;
+			background: #f88999;
+			border: 1px solid #999;
+		}
+	</style>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+<div ng-hello>kdj</div>
+<!-- <ng-hello></ng-hello> -->
+
+
+	<script type="text/javascript">
+	var mod=angular.module('app', [])
+	mod.directive("ngHello",function (){
+		return{
+			template:"hello,world",
+			// template是将来要替换到html里的内容
+			restrict:"ECMA",
+			// restrict默认状态下只能作为属性出现
+			replace:false
+			// replace是指新指令在dom中的替换方式
+		}
+	});
+	</script>
+</body>
+</html>
