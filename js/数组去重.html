@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function aa(){
+		var arr=[1,2,5,8,36,5,23,2,4,12,1]
+		var n=[];
+		for (var i = 0; i < arr.length; i++) {
+			if(n.indexOf(arr[i])==-1) n.push(arr[i]);
+		}
+		console.log(arr);
+		console.log(n);
+	}
+	aa()
+	function bb(){
+		var arr=[1,2,5,8,36,5,23,2,4,12,1]
+		var n={}; //n为hash表，r为临时数组
+		var r=[];
+		for (var i = 0; i < arr.length; i++) {
+			if(!n[arr[i]]){//如果hash表中没有当前项
+				n[arr[i]]=true//存入hash表
+				r.push(arr[i])//把当前数组的当前项push到临时数组里面
+			}
+		};
+		console.log(r)
+
+	}
+	bb()
+	</script>
+	
+</body>
+</html>

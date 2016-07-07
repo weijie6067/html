@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/js.js" type="text/javascript" charset="utf-8"></script>
+		<title>hello word</title>
+	</head>
+	<body>
+		<!--双向绑定-->
+		双向绑定
+		<div id="app" class="app" name="{{message}}">
+			<p>{{message}}</p>
+			<input v-model="message" type="text" /> <!--双向绑定-->
+		</div>
+		<!--渲染列表-->
+		<hr />
+		渲染列表		
+		<div id="app2">
+			<ul>
+				<li v-for="todo in todosa">
+					{{todo.text}}
+				</li>
+			</ul>
+		</div>
+		<!--用户输入处理-->
+		<hr />
+		用户输入处理
+		<div id="input">
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">Reverse Message</button>
+		</div>
+		<hr />
+		<!--综合-->
+		综合
+		<div id="zonghe">
+			<input v-model="newTodo" v-on:keyup.enter="addTodo"/>
+			<ul>
+				<li v-for="todo in todos">
+					<span>{{todo.text}}</span>
+					<button v-on:click="removeTodo($index)">x</button>
+				</li>
+				
+			</ul>
+		</div>
+		
+	</body>
+</html>
